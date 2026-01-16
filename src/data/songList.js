@@ -1,0 +1,138 @@
+const songList = [
+  {
+    id: 1,
+    name: "Midnight Letters",
+    artist: "Adele",
+    releaseDate: "2025-11-12",
+    album: "Moonlit Notes",
+    duration: "04:18",
+  },
+  //   {
+  //     id: 2,
+  //     name: "Silver Lining",
+  //     artist: "Adele",
+  //     releaseDate: "2025-09-20",
+  //     album: "Moonlit Notes",
+  //     duration: "03:56",
+  //   },
+
+  {
+    id: 2,
+    name: "Bloom Again",
+    artist: "Rosé",
+    releaseDate: "2025-10-03",
+    album: "Rosewater",
+    duration: "03:31",
+  },
+  //   {
+  //     id: 4,
+  //     name: "City of Petals",
+  //     artist: "Rosé",
+  //     releaseDate: "2025-12-08",
+  //     album: "Rosewater",
+  //     duration: "03:44",
+  //   },
+
+  {
+    id: 3,
+    name: "New Gravity",
+    artist: "Charlie Puth",
+    releaseDate: "2025-08-29",
+    album: "Signal",
+    duration: "03:26",
+  },
+  //   {
+  //     id: 6,
+  //     name: "Echoes in LA",
+  //     artist: "Charlie Puth",
+  //     releaseDate: "2025-11-30",
+  //     album: "Signal",
+  //     duration: "03:19",
+  //   },
+
+  {
+    id: 4,
+    name: "Paper Rings (2025 Version)",
+    artist: "Taylor Swift",
+    releaseDate: "2025-09-14",
+    album: "Reverie",
+    duration: "03:52",
+  },
+  //   {
+  //     id: 8,
+  //     name: "Stargazer",
+  //     artist: "Taylor Swift",
+  //     releaseDate: "2025-12-05",
+  //     album: "Reverie",
+  //     duration: "04:07",
+  //   },
+
+  {
+    id: 5,
+    name: "Luz del Sol",
+    artist: "Shakira",
+    releaseDate: "2025-07-25",
+    album: "Raíces",
+    duration: "03:33",
+  },
+  //   {
+  //     id: 10,
+  //     name: "Fuego Lento",
+  //     artist: "Shakira",
+  //     releaseDate: "2025-10-21",
+  //     album: "Raíces",
+  //     duration: "03:48",
+  //   },
+
+  {
+    id: 6,
+    name: "Neon Heart",
+    artist: "Billie Eilish",
+    releaseDate: "2025-08-15",
+    album: "Nightshade",
+    duration: "03:24",
+  },
+  {
+    id: 7,
+    name: "Glass Wings",
+    artist: "Billie Eilish",
+    releaseDate: "2025-11-07",
+    album: "Nightshade",
+    duration: "03:58",
+  },
+
+  {
+    id: 8,
+    name: "After the Storm",
+    artist: "Eminem",
+    releaseDate: "2025-09-02",
+    album: "Second Wind",
+    duration: "04:12",
+  },
+  {
+    id: 9,
+    name: "City Lights (feat. Dr. Dre)",
+    artist: "Eminem",
+    releaseDate: "2025-12-10",
+    album: "Second Wind",
+    duration: "03:55",
+  },
+
+  //   {
+  //     id: 15,
+  //     name: "Velvet Crown",
+  //     artist: "Lady Gaga",
+  //     releaseDate: "2025-08-08",
+  //     album: "Chromatica II",
+  //     duration: "03:47",
+  //   },
+  {
+    id: 10,
+    name: "Glass Empire",
+    artist: "Lady Gaga",
+    releaseDate: "2025-11-18",
+    album: "Chromatica II",
+    duration: "04:03",
+  },
+];
+export default songList;
