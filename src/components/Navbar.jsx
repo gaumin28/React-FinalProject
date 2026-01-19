@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 bg-transparent z-10">
@@ -25,18 +27,18 @@ export default function Navbar() {
       </div>
 
       <div className="hidden md:flex gap-4 md:mr-20 auth-area">
-        <a
-          href="./Login.html"
+        <Link
+          to="/login"
           className="bg-black hover:bg-pink-600 hover:text-black px-5 py-2 rounded-full text-pink-400 font-bold min-w-30 text-center"
         >
           Login
-        </a>
-        <a
-          href="./SignUp.html"
+        </Link>
+        <Link
+          to="/signup"
           className="border border-white text-black bg-pink-500 hover:bg-black hover:text-pink-400 px-5 py-2 rounded-full font-bold min-w-30 text-center"
         >
           Sign Up
-        </a>
+        </Link>
       </div>
     </nav>
   );

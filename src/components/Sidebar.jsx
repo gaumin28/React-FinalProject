@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Sidebar({ isLogin }) {
   return (
     <aside
@@ -14,27 +16,27 @@ export default function Sidebar({ isLogin }) {
         <h2 className="text-sm text-pink-400 mb-2">Menu</h2>
         <ul className="space-y-2">
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <a href="#">
+            <Link to={""}>
               <span>🏠</span> Home
-            </a>
+            </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <a href="./DiscoverResponsive.html">
+            <Link to={""}>
               <span>🔍</span>
               Discover
-            </a>
+            </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <a href="./AlbumsResponsive.html">
+            <Link to={""}>
               <span>📀</span>
               Albums
-            </a>
+            </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <a href="./ArtistResponsive.html">
+            <Link to={""}>
               <span>🎤</span>
               Artists
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -43,14 +45,14 @@ export default function Sidebar({ isLogin }) {
         <h2 className="text-sm text-pink-400 mb-2">Library</h2>
         <ul className="space-y-2">
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <a href="./RecentlyResponsive.html">
+            <Link to={""}>
               <span>🕒</span> Recently Added
-            </a>
+            </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <a href="./MostPlayedResponsive.html">
+            <Link to={""}>
               <span>🔥</span> Most played
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -60,14 +62,14 @@ export default function Sidebar({ isLogin }) {
           <h2 className="text-sm text-pink-400 mb-2">Playlist and favorite</h2>
           <ul className="space-y-2">
             <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-              <a href="./FavouriteResponsive.html">
+              <Link to={""}>
                 <span>❤️</span> Your favorites
-              </a>
+              </Link>
             </li>
             <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-              <a href="./PlaylistResponsive.html">
+              <Link to={""}>
                 <span>📃</span> Your playlist
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

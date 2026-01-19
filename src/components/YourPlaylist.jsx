@@ -8,8 +8,8 @@ import TrendingSong from "./TrendingSong";
 export default function RecentlyAdded() {
   return (
     <>
-      <Header />
-      <Sidebar />
+      {/* <Header />
+      <Sidebar /> */}
       <main className="flex-1 p-4 md:p-6">
         <Navbar />
         <div className="max-w-5xl mx-auto">

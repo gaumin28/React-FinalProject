@@ -8,24 +8,33 @@ import YourPlaylist from "./components/YourPlaylist";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import { useState } from "react";
+import FavouritePage from "./components/FavouritePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [isLogin, setIsLogIn] = useState(false);
   return (
     <>
-      {/* <DiscoverPage /> */}
-      {/* <AlbumPage /> */}
-      {/* <ArtistPage /> */}
-      {/* <RecentlyAdded /> */}
-      {/* <MostPlayed /> */}
-      {/* <YourPlaylist /> */}
-      {isLogin ? (
+      <BrowserRouter>
+        {/* <DiscoverPage /> */}
+        {/* <AlbumPage /> */}
+        {/* <ArtistPage /> */}
+        {/* <RecentlyAdded /> */}
+        {/* <MostPlayed /> */}
+        {/* <YourPlaylist /> */}
+        {/* {isLogin ? (
         <Home isLogin={isLogin} />
       ) : (
         <LoginPage handleLogin={() => setIsLogIn(true)} />
-      )}
-
-      {/* <SignUpPage /> */}
+      )} */}
+        {/* <FavouritePage /> */}
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+        </Routes>
+        {/* <SignUpPage /> */}
+      </BrowserRouter>
     </>
   );
 }

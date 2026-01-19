@@ -2,17 +2,73 @@ import MelodyLogo from "../image/MelodyLogo.png";
 import LoginBackground from "../image/LoginBackground.jpg";
 import google from "../image/google.png";
 import facebook from "../image/facebook.png";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function LoginPage({ handleLogin }) {
+export default function LoginPage() {
+  const navigate = useNavigate();
   const inputValue = useRef();
   const inputPassword = useRef();
-  function handleSubmit(event) {
+  const [data, setData] = useState(null);
+  async function handleSubmit(event) {
     event.preventDefault();
-    handleLogin();
-    console.log(inputValue.current.value);
-    console.log(inputPassword.current.value);
+
+    const email = inputValue.current?.value?.trim();
+    const password = inputPassword.current?.value || "";
+    if (!email || !password) {
+      console.log("Email and password are required");
+      return;
+    }
+    try {
+      // 1) Fetch users
+      const res = await axios.get(
+        "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6",
+      );
+      const users = res.data.data.data || [];
+
+      // 2) Find by email (or username if that’s your key)
+      const user = users.find((u) => u.email === email);
+
+      if (!user) {
+        console.log("User not found");
+        return;
+      }
+
+      // 3) (Optional) check password if you store it client-side; otherwise send to auth API
+      if (user.password !== password) {
+        console.log("Wrong password");
+        return;
+      }
+      if (user.email && user.password) {
+        setTimeout(() => {
+          navigate("/home");
+        }, 1000);
+      }
+      // proceed to login success / navigate
+    } catch (err) {
+      console.error(err.response?.data?.message || err.message);
+    }
   }
+
+  useEffect(() => {
+    const api =
+      "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6";
+    async function fetchData() {
+      try {
+        const response = await axios.get(api);
+        const data = response.data.data.data;
+        setData(data);
+        console.log(data);
+        return data;
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    }
+    fetchData();
+    console.log(data);
+  }, []);
+
   return (
     <>
       <div
@@ -30,31 +86,29 @@ export default function LoginPage({ handleLogin }) {
 
             <div className="flex flex-col gap-4">
               <h1 className="text-white self-center">Login To Continue</h1>
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col gap-4"
-                id="loginForm"
-              >
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <label htmlFor="email"></label>
                 <input
                   className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
                   ref={inputValue}
                   type="email"
                   name="email"
                   placeholder="E-mail"
-                  id="emailLogin"
+                  id="email"
                 />
+                <label htmlFor="password"></label>
                 <input
                   className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
                   type="password"
                   name="password"
                   placeholder="Password"
-                  id="passLogin"
+                  id="password"
                   ref={inputPassword}
                 />
                 <div className="flex justify-around">
-                  <a className="text-white" href="./ForgotPassword.html">
+                  <Link className="text-white" to={""}>
                     Forgot password <span className="text-2xl"></span>
-                  </a>
+                  </Link>
                   <button
                     className="text-white bg-pink-500 rounded-md px-8 py-1 cursor-pointer"
                     type="submit"
@@ -66,7 +120,11 @@ export default function LoginPage({ handleLogin }) {
             </div>
 
             <div className="flex justify-around">
-              <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Fsigning-in-to-google&dsh=S-603327768%3A1762845791679965&flowEntry=ServiceLogin&flowName=GlifWebSignIn&hl=en-US&ifkv=ARESoU3mX1z46VVUL_70r4szPVneDiFQJHQJ9qRB7HZR_knVcGwiM9MtuGt6GZk2F94Rz92GNKAYAQ&service=accountsettings">
+              <Link
+                to="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Fsigning-in-to-google&dsh=S-603327768%3A1762845791679965&flowEntry=ServiceLogin&flowName=GlifWebSignIn&hl=en-US&ifkv=ARESoU3mX1z46VVUL_70r4szPVneDiFQJHQJ9qRB7HZR_knVcGwiM9MtuGt6GZk2F94Rz92GNKAYAQ&service=accountsettings"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <div className="flex justify-center gap-4 border border-white w-47.5 h-10.5 rounded-2xl px-4 py-4">
                   <img
                     className="size-6 self-center"
@@ -75,8 +133,12 @@ export default function LoginPage({ handleLogin }) {
                   />
                   <p className="text-white self-center">Google Login</p>
                 </div>
-              </a>
-              <a href="https://www.facebook.com/?locale=vi_VN">
+              </Link>
+              <Link
+                to="https://www.facebook.com/?locale=vi_VN"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <div className="flex justify-center gap-4 border border-white w-47.5 h-10.5 rounded-2xl px-4 py-4">
                   <img
                     className="size-6 self-center"
@@ -85,7 +147,7 @@ export default function LoginPage({ handleLogin }) {
                   />
                   <p className="text-white self-center">Facebook Login</p>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -95,12 +157,12 @@ export default function LoginPage({ handleLogin }) {
               <p>Sign Up Here</p>
             </div>
             <div className="mt-20">
-              <a
+              <Link
                 className="text-white bg-blue-500 rounded-md px-8 py-1"
-                href="./SignUp.html"
+                to="/signup"
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
           </div>
         </div>

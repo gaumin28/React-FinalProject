@@ -1,3 +1,4 @@
+import songList from "../data/songList";
 import SongList from "./SongList";
 
 export default function TrendingSong() {
@@ -13,7 +14,18 @@ export default function TrendingSong() {
         <span className="md:w-auto pr-5">Time</span>
       </div>
       <div className="space-y-3">
-        <SongList />
+        {songList.map((song) => (
+          <SongList
+            key={song.id}
+            id={song.id}
+            image={song.image}
+            name={song.name}
+            duration={song.duration}
+            artist={song.artist}
+            released={song.releaseDate}
+            album={song.album}
+          />
+        ))}
       </div>
     </section>
   );
