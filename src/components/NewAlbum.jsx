@@ -9,7 +9,12 @@ export default function NewAlbum() {
       </h2>
       <div className="flex flex-wrap gap-4 mt-6">
         {newAlbum.map((album) => (
-          <Card name={album.name} artist={album.artist} image={album.image} />
+          <Card
+            key={album.id}
+            name={album.name}
+            artist={album.artist}
+            image={album.image}
+          />
         ))}
       </div>
     </section>

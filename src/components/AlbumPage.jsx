@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import TrendingSong from "./TrendingSong";
 import SongList from "./SongList";
 import Footer from "./Footer";
+import TrendingMusic from "../image/TrendingMusic.png";
 
 export default function AlbumPage() {
   return (
@@ -14,7 +15,11 @@ export default function AlbumPage() {
       <main className="flex-1 p-4 md:p-6">
         <Navbar />
         <div className="max-w-5xl mx-auto">
-          <Banner />
+          <Banner
+            image={TrendingMusic}
+            title={"Trending music"}
+            songNumbers={10}
+          />
           <TrendingSong />
           <Footer />
         </div>

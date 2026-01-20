@@ -31,18 +31,18 @@ export default function LoginPage() {
       const user = users.find((u) => u.email === email);
 
       if (!user) {
-        console.log("User not found");
+        alert("User not found");
         return;
       }
 
       // 3) (Optional) check password if you store it client-side; otherwise send to auth API
       if (user.password !== password) {
-        console.log("Wrong password");
+        alert("Wrong password");
         return;
       }
       if (user.email && user.password) {
         setTimeout(() => {
-          navigate("/home");
+          navigate("/");
         }, 1000);
       }
       // proceed to login success / navigate

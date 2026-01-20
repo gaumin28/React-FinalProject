@@ -10,7 +10,11 @@ import PopularArtist from "./PopularArtist";
 import TrendingSong from "./TrendingSong";
 import WeeklyTopSong from "./WeeklyTopSong";
 
-export default function Home({ isLogin }) {
+export default function Home({
+  isLogin,
+  currentPlayingId,
+  setCurrentPlayingId,
+}) {
   return (
     <>
       <Header />
@@ -22,7 +26,10 @@ export default function Home({ isLogin }) {
         <div className="max-w-5xl mx-auto mt-10 space-y-10">
           <WeeklyTopSong />
           <NewReleaseSong />
-          <TrendingSong />
+          <TrendingSong
+            currentPlayingId={currentPlayingId}
+            setCurrentPlayingId={setCurrentPlayingId}
+          />
           <PopularArtist />
           <MusicVideo />
           <MoodPlaylist />

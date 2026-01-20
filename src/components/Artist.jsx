@@ -1,10 +1,12 @@
-export default function Artist({ name, image }) {
+import { Link } from "react-router";
+
+export default function Artist({ name, image, onSelect }) {
   return (
-    <div className="flex flex-col gap-6">
+    <div onClick={onSelect} className="flex flex-col gap-6">
       <img className="rounded-full size-32.5" src={image} alt={name} />
-      <a className="text-white self-center" href="#">
+      <Link className="text-white self-center" to="#">
         {name}
-      </a>
+      </Link>
     </div>
   );
 }

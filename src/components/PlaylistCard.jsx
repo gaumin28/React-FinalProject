@@ -1,9 +1,10 @@
+import { Link } from "react-router";
 import image2 from "../image/playlist.png";
 
 export default function PlaylistCard({ title, image }) {
   return (
     <div className="w-28 md:w-32 h-40 bg-[#1F1F1F] rounded">
-      <a href="#">
+      <Link to={""}>
         <img
           className="size-24 md:size-28 h-auto rounded mx-auto mt-2 mb-2"
           src={image}
@@ -14,7 +15,7 @@ export default function PlaylistCard({ title, image }) {
           <p className="text-[12px] font-thin">{title}</p>
           <img src={image2} alt="playlist-icon" />
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

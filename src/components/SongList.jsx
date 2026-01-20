@@ -1,4 +1,7 @@
 import image2 from "../image/pink-heart.svg";
+import pauseIcon from "../image/pauseIcon.png";
+import { useRef, useState, useEffect } from "react";
+import audio from "../audio/audio.mp3";
 
 export default function SongList({
   id,
@@ -8,22 +11,47 @@ export default function SongList({
   image,
   released,
   album,
+  currentPlayingId,
+  setCurrentPlayingId,
 }) {
+  const audioRef = useRef(new Audio(audio));
+  const isPlaying = currentPlayingId === id;
+
+  useEffect(() => {
+    const ref = audioRef.current;
+    if (ref) {
+      if (isPlaying) {
+        ref.play();
+      } else {
+        ref.pause();
+      }
+    }
+  }, [isPlaying]);
+  const handleClick = () => {
+    if (isPlaying) {
+      setCurrentPlayingId(null); // Stop current song
+    } else {
+      setCurrentPlayingId(id); // Play this song
+    }
+  };
+
   return (
     <div className="flex flex-col md:flex-row md:items-center md:justify-between bg-black rounded-md p-3">
       <div className="flex items-center gap-2 md:w-1/2 pl-0">
         <span className="self-center">#{id}</span>
-        <div className="relative">
+        <div onClick={handleClick} className="relative cursor-pointer">
           <img
-            className="music-playing w-12 h-12 rounded object-cover cursor-pointer"
+            className="music-playing w-12 h-12 rounded object-cover"
             src={image}
             alt={name}
           />
-          <img
-            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-7 h-7 pointer-events-none hidden"
-            src="./IMG/pause-icon.png"
-            alt="pause icon"
-          />
+          {isPlaying && (
+            <img
+              className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-7 h-7 pointer-events-none"
+              src={pauseIcon}
+              alt="pause icon"
+            />
+          )}
         </div>
         <div className="flex flex-col">
           <h3 className="font-bold">{name}</h3>

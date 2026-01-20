@@ -2,6 +2,7 @@ import image1 from "../image/facebook.png";
 import image2 from "../image/Instagram.png";
 import image3 from "../image/Tweeter.png";
 import image4 from "../image/call.png";
+import { Link } from "react-router";
 
 export default function Footer() {
   return (
@@ -23,34 +24,34 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <h3 className="text-xl font-bold">Melody</h3>
             <hr className="border-t border-gray-600" />
-            <a href="./RecentlyResponsive.html" className="hover:underline">
+            <Link to="./RecentlyResponsive.html" className="hover:underline">
               Songs
-            </a>
+            </Link>
 
-            <a
-              href="https://podcasts.apple.com/vn/new?l=vi"
+            <Link
+              to="https://podcasts.apple.com/vn/new?l=vi"
               className="hover:underline"
             >
               Podcast
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-2">
             <h3 className="text-xl font-bold">Access</h3>
             <hr className="border-t border-gray-600" />
 
-            <a href="./ArtistResponsive.html" className="hover:underline">
+            <Link to="./ArtistResponsive.html" className="hover:underline">
               Artists
-            </a>
-            <a href="./PlaylistResponsive.html" className="hover:underline">
+            </Link>
+            <Link to="./PlaylistResponsive.html" className="hover:underline">
               Playlists
-            </a>
-            <a href="./AlbumsResponsive.html" className="hover:underline">
+            </Link>
+            <Link to="./AlbumsResponsive.html" className="hover:underline">
               Albums
-            </a>
-            <a href="./MostPlayedResponsive.html" className="hover:underline">
+            </Link>
+            <Link to="./MostPlayedResponsive.html" className="hover:underline">
               Trending
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-2">
@@ -58,24 +59,24 @@ export default function Footer() {
             <hr className="border-t border-gray-600" />
 
             <div className="policy-container relative">
-              <a href="#" className="hover:underline">
+              <Link to="#" className="hover:underline">
                 Policy
-              </a>
+              </Link>
               <p className="policy-hover-text absolute left-0 top-full mt-2 bg-black border border-pink-400 rounded-lg p-3 text-xs w-64 opacity-0 invisible transition-all duration-200 z-10">
                 Our privacy policy ensures your data protection and outlines how
                 we collect, use, and safeguard your information while using
                 Melodies.
               </p>
             </div>
-            <a
-              href="https://www.facebook.com/?locale=vi_VN"
+            <Link
+              to="https://www.facebook.com/?locale=vi_VN"
               className="hover:underline"
             >
               Social Media
-            </a>
-            <a href="#" className="hover:underline">
+            </Link>
+            <Link to="#" className="hover:underline">
               Support
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -84,18 +85,18 @@ export default function Footer() {
             Melodies
           </h2>
           <div className="flex gap-3 mt-4">
-            <a href="https://www.facebook.com/?locale=vi_VN">
+            <Link to="https://www.facebook.com/?locale=vi_VN">
               <img src={image1} alt="facebook" className="w-6 h-6" />
-            </a>
-            <a href="https://x.com/">
+            </Link>
+            <Link to="https://x.com/">
               <img src={image3} alt="twitter" className="w-6 h-6" />
-            </a>
-            <a href="https://www.instagram.com/">
+            </Link>
+            <Link to="https://www.instagram.com/">
               <img src={image2} alt="instagram" className="w-6 h-6" />
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="#">
               <img src={image4} alt="call" className="w-6 h-6" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -4,8 +4,8 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import SongList from "./SongList";
-import newReleaseSong from "../data/newReleaseSong";
 import NewRelease from "../image/New-Release.png";
+import moodPlaylist from "../data/moodPlaylist";
 
 function TrendingSong() {
   return (
@@ -20,7 +20,7 @@ function TrendingSong() {
         <span className="md:w-auto pr-5">Time</span>
       </div>
       <div className="space-y-3">
-        {newReleaseSong.map((song) => (
+        {moodPlaylist.map((song) => (
           <SongList
             key={song.id}
             id={song.id}
@@ -38,14 +38,14 @@ function TrendingSong() {
 }
 
 export default function RecentlyAdded() {
-  const songNames = newReleaseSong
-    .filter((id) => id < 7)
-    .reduce((acc, song, index) => {
-      return acc + (index > 0 ? ", " : "") + song.name;
-    }, "");
+  //   const songNames = newReleaseSong
+  //     .filter((id) => id < 7)
+  //     .reduce((acc, song, index) => {
+  //       return acc + (index > 0 ? ", " : "") + song.name;
+  //     }, "");
 
   // Convert MM:SS to total seconds and sum
-  const totalSeconds = newReleaseSong.reduce((acc, song) => {
+  const totalSeconds = moodPlaylist.reduce((acc, song) => {
     const [minutes, seconds] = song.duration.split(":").map(Number);
     return acc + minutes * 60 + seconds;
   }, 0);
@@ -64,9 +64,9 @@ export default function RecentlyAdded() {
         <Navbar />
         <div className="max-w-5xl mx-auto">
           <Banner
-            songNames={songNames}
+            // songNames={songNames}
             totalDuration={totalDuration}
-            songNumbers={newReleaseSong.length}
+            songNumbers={moodPlaylist.length}
             title={"Recently Added Song"}
             image={NewRelease}
           />

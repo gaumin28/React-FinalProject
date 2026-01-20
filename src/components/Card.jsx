@@ -1,8 +1,9 @@
+import { Link } from "react-router";
 import image2 from "../image/pink-music.svg";
 export default function Card({ name, artist, image }) {
   return (
     <div className="w-28 md:w-32 h-42 bg-[#1F1F1F] rounded">
-      <a href="#">
+      <Link to="play-music">
         <img
           className="size-24 md:size-28 h-auto rounded mx-auto mt-2 mb-2"
           src={image}
@@ -15,7 +16,7 @@ export default function Card({ name, artist, image }) {
             <img src={image2} alt="music-icon" />
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

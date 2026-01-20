@@ -11,6 +11,7 @@ export default function WeeklyTopSong() {
         {weekylyData.map((song) => (
           <Card
             key={song.id}
+            id={song.id}
             name={song.name}
             artist={song.artist}
             image={song.image}

@@ -6,11 +6,17 @@ import Card from "./Card";
 import Artist from "./Artist";
 import Footer from "./Footer";
 import PopularSongList from "./PopularSongList";
-import eminemSongs from "../data/eminemSongs";
-import eminemAlbum from "../data/eminemAlbum";
 import popularArtists from "../data/popularArtist";
+import { useState } from "react";
 
 export default function ArtistPage() {
+  const [selectedArtistIndex, setSelectedArtistIndex] = useState(3);
+  function handleSelect(artistId) {
+    const index = popularArtists.findIndex((artist) => artist.id === artistId);
+    setSelectedArtistIndex(index);
+  }
+  const newData = popularArtists.toSpliced(selectedArtistIndex, 1);
+  const artistSelected = popularArtists[selectedArtistIndex];
   return (
     <>
       <Header />
@@ -18,7 +24,7 @@ export default function ArtistPage() {
       <main className="flex-1 p-4 md:p-6">
         <Navbar />
         <div className="max-w-5xl mx-auto">
-          <ArtistBanner />
+          <ArtistBanner selectedArtistIndex={selectedArtistIndex} />
           <section className="mt-8">
             <h2 className="text-2xl text-white font-bold mb-4">Popular</h2>
 
@@ -30,10 +36,11 @@ export default function ArtistPage() {
             </div>
           </section>
 
-          {eminemSongs.map((song) => (
+          {artistSelected.songs.map((song) => (
             <PopularSongList
               key={song.id}
               id={song.id}
+              name={song.name}
               artist={song.artist}
               release={song.releaseDate}
               views={song.views}
@@ -46,7 +53,7 @@ export default function ArtistPage() {
               Artist's <span className="text-pink-400">Albums</span>
             </h2>
             <div className="flex flex-wrap gap-4 mt-6">
-              {eminemAlbum.map((album) => (
+              {artistSelected.albums.map((album) => (
                 <Card
                   key={album.id}
                   name={album.name}
@@ -61,7 +68,7 @@ export default function ArtistPage() {
               Single <span className="text-pink-400">Songs</span>
             </h2>
             <div className="flex flex-wrap gap-4 mt-6">
-              {eminemSongs
+              {artistSelected.songs
                 .filter((_, index) => index < 6)
                 .map((song) => (
                   <Card
@@ -78,8 +85,9 @@ export default function ArtistPage() {
               Recommended <span className="text-pink-400">Artists</span>
             </h2>
             <div className="flex flex-wrap gap-4 mt-6">
-              {popularArtists.map((artist) => (
+              {newData.map((artist) => (
                 <Artist
+                  onSelect={() => handleSelect(artist.id)}
                   key={artist.id}
                   image={artist.image}
                   name={artist.name}

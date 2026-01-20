@@ -16,24 +16,24 @@ export default function Sidebar({ isLogin }) {
         <h2 className="text-sm text-pink-400 mb-2">Menu</h2>
         <ul className="space-y-2">
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={""}>
+            <Link to={"/"}>
               <span>🏠</span> Home
             </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={""}>
+            <Link to={"/discover"}>
               <span>🔍</span>
               Discover
             </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={""}>
+            <Link to={"/album"}>
               <span>📀</span>
               Albums
             </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={""}>
+            <Link to={"/artist"}>
               <span>🎤</span>
               Artists
             </Link>
@@ -45,12 +45,12 @@ export default function Sidebar({ isLogin }) {
         <h2 className="text-sm text-pink-400 mb-2">Library</h2>
         <ul className="space-y-2">
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={""}>
+            <Link to={"/recently-added"}>
               <span>🕒</span> Recently Added
             </Link>
           </li>
           <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={""}>
+            <Link to={"/most-played"}>
               <span>🔥</span> Most played
             </Link>
           </li>

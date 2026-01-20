@@ -2,6 +2,7 @@ import image1 from "../image/ClassicTrack.png";
 import image2 from "../image/RockTrack.png";
 import image3 from "../image/RapTrack.png";
 import image4 from "../image/PopTrack.png";
+import { Link } from "react-router";
 
 export default function MusicGenre() {
   return (
@@ -10,18 +11,18 @@ export default function MusicGenre() {
         Music <span className="text-pink-400">Genres</span>
       </h2>
       <div className="flex flex-wrap gap-4 mt-6">
-        <a className="w-32 md:w-32" href="./PlaylistResponsive.html">
+        <Link className="w-32 md:w-50" to="./PlaylistResponsive.html">
           <img className="w-full h-auto" src={image3} alt="Rap" />
-        </a>
-        <a className="w-32 md:w-32" href="./PlaylistResponsive.html">
+        </Link>
+        <Link className="w-32 md:w-50" to="./PlaylistResponsive.html">
           <img className="w-full h-auto" src={image4} alt="Pop" />
-        </a>
-        <a className="w-32 md:w-32" href="./PlaylistResponsive.html">
+        </Link>
+        <Link className="w-32 md:w-50" to="./PlaylistResponsive.html">
           <img className="w-full h-auto" src={image2} alt="Rock" />
-        </a>
-        <a className="w-32 md:w-32" href="./PlaylistResponsive.html">
+        </Link>
+        <Link className="w-32 md:w-50" to="./PlaylistResponsive.html">
           <img className="w-full h-auto" src={image1} alt="classic" />
-        </a>
+        </Link>
       </div>
     </section>
   );
