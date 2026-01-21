@@ -12,15 +12,16 @@ import WeeklyTopSong from "./WeeklyTopSong";
 
 export default function Home({
   isLogin,
+  setIsLogIn,
   currentPlayingId,
   setCurrentPlayingId,
 }) {
   return (
     <>
-      <Header />
+      <Header isLogin={isLogin} setIsLogIn={setIsLogIn} />
       <Sidebar isLogin={isLogin} />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar />
+        <Navbar isLogin={isLogin} setIsLogIn={setIsLogIn} />
         <SlideImg />
         {/* content section */}
         <div className="max-w-5xl mx-auto mt-10 space-y-10">

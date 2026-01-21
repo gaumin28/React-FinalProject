@@ -7,7 +7,7 @@ import Sidebar from "./Sidebar";
 import TrendingSong from "./TrendingSong";
 import MostViewSongs from "../image/MostViewSongs.png";
 
-export default function RecentlyAdded() {
+export default function MostPlayed({ isLogin }) {
   const songNames = songList
     .filter((id) => id < 7)
     .reduce((acc, song, index) => {
@@ -29,10 +29,10 @@ export default function RecentlyAdded() {
 
   return (
     <>
-      <Header />
-      <Sidebar />
+      <Header isLogin={isLogin} />
+      <Sidebar isLogin={isLogin} />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar />
+        <Navbar isLogin={isLogin} />
         <div className="max-w-5xl mx-auto">
           <Banner
             songNames={songNames}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ isLogin, setIsLogIn }) {
+  const userName = localStorage.getItem("userName");
   return (
     <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 bg-transparent z-10">
       <div className="relative flex-1 md:ml-20">
@@ -25,21 +26,31 @@ export default function Navbar() {
           placeholder="Search For Musics, Artists, Albums"
         />
       </div>
-
-      <div className="hidden md:flex gap-4 md:mr-20 auth-area">
-        <Link
-          to="/login"
-          className="bg-black hover:bg-pink-600 hover:text-black px-5 py-2 rounded-full text-pink-400 font-bold min-w-30 text-center"
-        >
-          Login
-        </Link>
-        <Link
-          to="/signup"
-          className="border border-white text-black bg-pink-500 hover:bg-black hover:text-pink-400 px-5 py-2 rounded-full font-bold min-w-30 text-center"
-        >
-          Sign Up
-        </Link>
-      </div>
+      {isLogin ? (
+        <>
+          <span className="px-3 py-1 text-pink-400 font-bold">
+            Hello, {userName}
+          </span>
+          <button onClick={() => setIsLogIn(false)} className="logoutBtn">
+            Logout
+          </button>
+        </>
+      ) : (
+        <div className="hidden md:flex gap-4 md:mr-20">
+          <Link
+            to="/login"
+            className="bg-black hover:bg-pink-600 hover:text-black px-5 py-2 rounded-full text-pink-400 font-bold min-w-30 text-center"
+          >
+            Login
+          </Link>
+          <Link
+            to="/signup"
+            className="border border-white text-black bg-pink-500 hover:bg-black hover:text-pink-400 px-5 py-2 rounded-full font-bold min-w-30 text-center"
+          >
+            Sign Up
+          </Link>
+        </div>
+      )}
     </nav>
   );
 }

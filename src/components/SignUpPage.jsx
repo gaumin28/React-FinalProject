@@ -11,6 +11,7 @@ export default function SignUpPage() {
     email: "",
     password: "",
     phoneNumber: "",
+    favoriteSongs: [],
   });
   const [message, setMessage] = useState("");
 

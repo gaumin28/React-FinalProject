@@ -1,10 +1,12 @@
 import image2 from "../image/pink-heart.svg";
 import pauseIcon from "../image/pauseIcon.png";
-import { useRef, useState, useEffect } from "react";
-import audio from "../audio/audio.mp3";
+import { useRef, useEffect, useState } from "react";
+import { toggleFavorite, isFavorite } from "../utils/favoritesManager";
+const audio = "/audio/audio.mp3";
 
 export default function SongList({
   id,
+  index,
   name,
   duration,
   artist,
@@ -16,6 +18,14 @@ export default function SongList({
 }) {
   const audioRef = useRef(new Audio(audio));
   const isPlaying = currentPlayingId === id;
+  const [isFavorited, setIsFavorited] = useState(() => isFavorite(id));
+
+  function handleToggleFavorite() {
+    toggleFavorite(id);
+    setIsFavorited(!isFavorited);
+    // Dispatch custom event to notify MyPlaylistSong component
+    window.dispatchEvent(new Event("favoritesChanged"));
+  }
 
   useEffect(() => {
     const ref = audioRef.current;
@@ -38,10 +48,10 @@ export default function SongList({
   return (
     <div className="flex flex-col md:flex-row md:items-center md:justify-between bg-black rounded-md p-3">
       <div className="flex items-center gap-2 md:w-1/2 pl-0">
-        <span className="self-center">#{id}</span>
+        <span className="self-center">#{index + 1}</span>
         <div onClick={handleClick} className="relative cursor-pointer">
           <img
-            className="music-playing w-12 h-12 rounded object-cover"
+            className="w-12 h-12 rounded object-cover"
             src={image}
             alt={name}
           />
@@ -67,9 +77,11 @@ export default function SongList({
       <div className="mt-2 md:mt-0 md:w-auto">
         <div className="flex gap-2 px-0 md:px-5 items-center">
           <img
+            onClick={handleToggleFavorite}
+            style={{ filter: isFavorited ? "opacity(1)" : "opacity(0.5)" }}
             src={image2}
             alt="heart"
-            className="fav-heart cursor-pointer w-5 h-5"
+            className="cursor-pointer w-5 h-5"
           />
           <span className="text-white">{duration}</span>
         </div>

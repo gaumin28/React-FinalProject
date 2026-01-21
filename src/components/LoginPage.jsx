@@ -2,15 +2,14 @@ import MelodyLogo from "../image/MelodyLogo.png";
 import LoginBackground from "../image/LoginBackground.jpg";
 import google from "../image/google.png";
 import facebook from "../image/facebook.png";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function LoginPage() {
+export default function LoginPage({ setIsLogIn }) {
   const navigate = useNavigate();
   const inputValue = useRef();
   const inputPassword = useRef();
-  const [data, setData] = useState(null);
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -21,13 +20,13 @@ export default function LoginPage() {
       return;
     }
     try {
-      // 1) Fetch users
+      // Fetch users
       const res = await axios.get(
         "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6",
       );
       const users = res.data.data.data || [];
 
-      // 2) Find by email (or username if that’s your key)
+      // Find by email (or username if that’s your key)
       const user = users.find((u) => u.email === email);
 
       if (!user) {
@@ -35,39 +34,42 @@ export default function LoginPage() {
         return;
       }
 
-      // 3) (Optional) check password if you store it client-side; otherwise send to auth API
+      // Check password
       if (user.password !== password) {
         alert("Wrong password");
         return;
       }
-      if (user.email && user.password) {
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
-      }
+
+      // Login successful - show loading page then navigate home
+      localStorage.setItem("userName", user.userName);
+      navigate("/loading");
+      setTimeout(() => {
+        navigate("/");
+        setIsLogIn(true);
+      }, 500);
       // proceed to login success / navigate
     } catch (err) {
       console.error(err.response?.data?.message || err.message);
     }
   }
 
-  useEffect(() => {
-    const api =
-      "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6";
-    async function fetchData() {
-      try {
-        const response = await axios.get(api);
-        const data = response.data.data.data;
-        setData(data);
-        console.log(data);
-        return data;
-      } catch (error) {
-        console.error("Error: ", error);
-      }
-    }
-    fetchData();
-    console.log(data);
-  }, []);
+  // useEffect(() => {
+  //   const api =
+  //     "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6";
+  //   async function fetchData() {
+  //     try {
+  //       const response = await axios.get(api);
+  //       const data = response.data.data.data;
+  //       setData(data);
+  //       console.log(data);
+  //       return data;
+  //     } catch (error) {
+  //       console.error("Error: ", error);
+  //     }
+  //   }
+  //   fetchData();
+  //   console.log(data);
+  // }, []);
 
   return (
     <>

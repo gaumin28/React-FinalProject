@@ -7,13 +7,14 @@ import MostPlayed from "./components/MostPlayed";
 import YourPlaylist from "./components/YourPlaylist";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import FavouritePage from "./components/FavouritePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MusicPage from "./components/MusicPage";
+import LoadingPage from "./components/LoadinPage";
 
 function App() {
-  // const [isLogin, setIsLogIn] = useState(false);
+  const [isLogin, setIsLogIn] = useState(false);
   const [currentPlayingId, setCurrentPlayingId] = useState(null);
 
   return (
@@ -31,16 +32,23 @@ function App() {
             path="/"
             element={
               <Home
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
               />
             }
           />
-          <Route path="/discover" element={<DiscoverPage />} />
+          <Route
+            path="/discover"
+            element={<DiscoverPage isLogin={isLogin} setIsLogIn={setIsLogIn} />}
+          />
           <Route
             path="/album"
             element={
               <AlbumPage
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
               />
@@ -50,6 +58,8 @@ function App() {
             path="/artist"
             element={
               <ArtistPage
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
               />
@@ -59,6 +69,8 @@ function App() {
             path="/recently-added"
             element={
               <RecentlyAdded
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
               />
@@ -68,12 +80,27 @@ function App() {
             path="/most-played"
             element={
               <MostPlayed
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
               />
             }
           />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/your-playlist"
+            element={
+              <YourPlaylist
+                currentPlayingId={currentPlayingId}
+                setCurrentPlayingId={setCurrentPlayingId}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={<LoginPage isLogin={isLogin} setIsLogIn={setIsLogIn} />}
+          />
+          <Route path="/loading" element={<LoadingPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/play-music" element={<MusicPage />} />
         </Routes>

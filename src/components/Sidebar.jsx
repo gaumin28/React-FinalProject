@@ -61,13 +61,13 @@ export default function Sidebar({ isLogin }) {
         <div>
           <h2 className="text-sm text-pink-400 mb-2">Playlist and favorite</h2>
           <ul className="space-y-2">
-            <li className="hover:bg-pink-500 rounded-[10px] pl-2">
+            {/* <li className="hover:bg-pink-500 rounded-[10px] pl-2">
               <Link to={""}>
                 <span>❤️</span> Your favorites
               </Link>
-            </li>
+            </li> */}
             <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-              <Link to={""}>
+              <Link to={"/your-playlist"}>
                 <span>📃</span> Your playlist
               </Link>
             </li>

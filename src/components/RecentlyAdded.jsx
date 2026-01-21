@@ -4,7 +4,7 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import SongList from "./SongList";
-import newReleaseSong from "../data/newReleaseSong";
+import { allSongs } from "../data/songUtils";
 import NewRelease from "../image/New-Release.png";
 
 function TrendingSong() {
@@ -20,32 +20,39 @@ function TrendingSong() {
         <span className="md:w-auto pr-5">Time</span>
       </div>
       <div className="space-y-3">
-        {newReleaseSong.map((song) => (
-          <SongList
-            key={song.id}
-            id={song.id}
-            image={song.image}
-            name={song.name}
-            duration={song.duration}
-            artist={song.artist}
-            released={song.releaseDate}
-            album={song.album}
-          />
-        ))}
+        {allSongs
+          .filter((song) => song.source === "newRelease")
+          .map((song, index) => (
+            <SongList
+              key={song.uniqueId}
+              id={song.uniqueId}
+              index={index}
+              image={song.image}
+              name={song.name}
+              duration={song.duration}
+              artist={song.artist}
+              released={song.releaseDate}
+              album={song.album}
+            />
+          ))}
       </div>
     </section>
   );
 }
 
-export default function RecentlyAdded() {
-  const songNames = newReleaseSong
-    .filter((id) => id < 7)
+export default function RecentlyAdded({ isLogin }) {
+  const newReleaseSongs = allSongs.filter(
+    (song) => song.source === "newRelease",
+  );
+
+  const songNames = newReleaseSongs
+    .filter((song, index) => index < 7)
     .reduce((acc, song, index) => {
       return acc + (index > 0 ? ", " : "") + song.name;
     }, "");
 
   // Convert MM:SS to total seconds and sum
-  const totalSeconds = newReleaseSong.reduce((acc, song) => {
+  const totalSeconds = newReleaseSongs.reduce((acc, song) => {
     const [minutes, seconds] = song.duration.split(":").map(Number);
     return acc + minutes * 60 + seconds;
   }, 0);
@@ -58,15 +65,16 @@ export default function RecentlyAdded() {
   const totalDuration = `${hours}h:${String(minutes).padStart(2, "0")}m:${String(seconds).padStart(2, "0")}s`;
   return (
     <>
-      <Header />
-      <Sidebar />
+      <Header isLogin={isLogin} />
+      <Sidebar isLogin={isLogin} />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar />
+        <Navbar isLogin={isLogin} />
         <div className="max-w-5xl mx-auto">
           <Banner
             songNames={songNames}
+            s
             totalDuration={totalDuration}
-            songNumbers={newReleaseSong.length}
+            songNumbers={newReleaseSongs.length}
             title={"Recently Added Song"}
             image={NewRelease}
           />

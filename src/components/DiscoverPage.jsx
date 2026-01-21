@@ -9,13 +9,13 @@ import Sidebar from "./Sidebar";
 import NewAlbum from "./NewAlbum";
 import Footer from "./Footer";
 
-export default function DiscoverPage() {
+export default function DiscoverPage({ isLogin }) {
   return (
     <>
-      <Header />
-      <Sidebar />
+      <Header isLogin={isLogin} />
+      <Sidebar isLogin={isLogin} />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar />
+        <Navbar isLogin={isLogin} />
         {/* content section */}
         <div className="max-w-5xl mx-auto mt-10 space-y-10">
           <MusicGenre />

@@ -9,7 +9,11 @@ import PopularSongList from "./PopularSongList";
 import popularArtists from "../data/popularArtist";
 import { useState } from "react";
 
-export default function ArtistPage() {
+export default function ArtistPage({
+  isLogin,
+  currentPlayingId,
+  setCurrentPlayingId,
+}) {
   const [selectedArtistIndex, setSelectedArtistIndex] = useState(3);
   function handleSelect(artistId) {
     const index = popularArtists.findIndex((artist) => artist.id === artistId);
@@ -19,10 +23,10 @@ export default function ArtistPage() {
   const artistSelected = popularArtists[selectedArtistIndex];
   return (
     <>
-      <Header />
-      <Sidebar />
+      <Header isLogin={isLogin} />
+      <Sidebar isLogin={isLogin} />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar />
+        <Navbar isLogin={isLogin} />
         <div className="max-w-5xl mx-auto">
           <ArtistBanner selectedArtistIndex={selectedArtistIndex} />
           <section className="mt-8">
@@ -36,9 +40,10 @@ export default function ArtistPage() {
             </div>
           </section>
 
-          {artistSelected.songs.map((song) => (
+          {artistSelected.songs.map((song, index) => (
             <PopularSongList
               key={song.id}
+              index={index}
               id={song.id}
               name={song.name}
               artist={song.artist}
@@ -46,6 +51,8 @@ export default function ArtistPage() {
               views={song.views}
               duration={song.duration}
               image={song.image}
+              currentPlayingId={currentPlayingId}
+              setCurrentPlayingId={setCurrentPlayingId}
             />
           ))}
           <section>

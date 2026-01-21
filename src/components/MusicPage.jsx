@@ -5,10 +5,10 @@ import back_icon from "../image/back-icon.png";
 import equalizer from "../image/equalizer.png";
 import next_icon from "../image/next-icon.png";
 import pink_play from "../image/pink-play.png";
-import pause_icon from "../image/pause-icon.png";
+import pink_pause from "../image/pink-pause.png";
 import repeat_icon from "../image/repeat-icon.png";
 import mdi_music from "../image/mdi_music.png";
-import audio from "../audio/audio.mp3";
+const audio = "/audio/audio.mp3";
 import { useEffect, useRef, useState } from "react";
 
 export default function MusicPage() {
@@ -106,8 +106,8 @@ export default function MusicPage() {
               <button onClick={togglePlayPause}>
                 {playing ? (
                   <img
-                    className="cursor-pointer size-8"
-                    src={pause_icon}
+                    className="cursor-pointer "
+                    src={pink_pause}
                     alt="pause"
                   />
                 ) : (
