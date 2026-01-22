@@ -7,20 +7,20 @@ import BadGuy from "../image/BadGuy.jpg";
 
 const weekylyData = [
   {
-    id: 1,
+    id: 11,
     name: "Whatever It Takes",
     artist: "Imagine Dragons",
     image: WhateverItTakes,
   },
-  { id: 2, name: "Bad guy", artist: "Billie Eilish", image: BadGuy },
-  { id: 3, name: "Lose Yourself", artist: "Eminem", image: Eminem },
+  { id: 12, name: "Bad guy", artist: "Billie Eilish", image: BadGuy },
+  { id: 13, name: "Lose Yourself", artist: "Eminem", image: Eminem },
   {
-    id: 4,
+    id: 14,
     name: "Sweater Weather",
     artist: "The Neighbourhood",
     image: SweaterWeather,
   },
-  { id: 5, name: "Gossip", artist: "Maneskin", image: Gossip },
-  { id: 6, name: "Softcore", artist: "The Neighbourhood", image: SoftCore },
+  { id: 15, name: "Gossip", artist: "Maneskin", image: Gossip },
+  { id: 16, name: "Softcore", artist: "The Neighbourhood", image: SoftCore },
 ];
 export default weekylyData;

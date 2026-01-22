@@ -9,7 +9,7 @@ import ThatWayIAm from "../image/ThatWayIAm.jpg";
 import Stan from "../image/Stan.jpg";
 const eminemSongs = [
   {
-    id: 1,
+    id: 13,
     name: "Lose Yourself",
     artist: "Eminem",
     releaseDate: "2002-10-28",
@@ -18,7 +18,7 @@ const eminemSongs = [
     image: LoseYourself,
   },
   {
-    id: 2,
+    id: 83,
     name: "Stan",
     artist: "Eminem ft. Dina Rae",
     releaseDate: "2000-12-04",
@@ -27,7 +27,7 @@ const eminemSongs = [
     image: Stan,
   },
   {
-    id: 3,
+    id: 84,
     name: "The Real Slim Shady",
     artist: "Eminem",
     releaseDate: "2000-04-03",
@@ -36,7 +36,7 @@ const eminemSongs = [
     image: TheRealSlimShady,
   },
   {
-    id: 4,
+    id: 85,
     name: "Without Me",
     artist: "Eminem",
     releaseDate: "2002-05-06",
@@ -45,7 +45,7 @@ const eminemSongs = [
     image: TheNeighbourhood,
   },
   {
-    id: 5,
+    id: 86,
     name: "Love The Way You Lie",
     artist: "Eminem ft. Rihanna",
     releaseDate: "2010-08-05",
@@ -54,7 +54,7 @@ const eminemSongs = [
     image: LoveTheWayYouLie,
   },
   {
-    id: 6,
+    id: 87,
     name: "Not Afraid",
     artist: "Eminem",
     releaseDate: "2010-04-23",
@@ -63,7 +63,7 @@ const eminemSongs = [
     image: NotAfraid,
   },
   {
-    id: 7,
+    id: 88,
     name: "The Way I Am",
     artist: "Eminem",
     releaseDate: "1999-12-20",
@@ -72,7 +72,7 @@ const eminemSongs = [
     image: ThatWayIAm,
   },
   {
-    id: 8,
+    id: 89,
     name: "Beautiful",
     artist: "Eminem ft. Rihanna",
     releaseDate: "2009-09-08",
@@ -81,7 +81,7 @@ const eminemSongs = [
     image: LoveTheWayYouLie,
   },
   {
-    id: 9,
+    id: 90,
     name: "Rap God",
     artist: "Eminem",
     releaseDate: "2013-08-27",
@@ -90,7 +90,7 @@ const eminemSongs = [
     image: RapGod,
   },
   {
-    id: 10,
+    id: 91,
     name: "Mockingbird",
     artist: "Eminem",
     releaseDate: "2004-11-12",

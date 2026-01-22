@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import TheEminemShow from "../image/TheEminemShow.jpg";
 import heart_light from "../image/ph_heart-light.png";
 import back_icon from "../image/back-icon.png";
@@ -8,13 +8,42 @@ import pink_play from "../image/pink-play.png";
 import pink_pause from "../image/pink-pause.png";
 import repeat_icon from "../image/repeat-icon.png";
 import mdi_music from "../image/mdi_music.png";
-const audio = "/audio/audio.mp3";
+
+import mySongList from "../data/mySongList";
 import { useEffect, useRef, useState } from "react";
+const audio = "/audio/audio.mp3";
 
 export default function MusicPage() {
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef(new Audio(audio));
 
+  const location = useLocation();
+  const searchQuery = location.state?.searchQuery;
+  const selectedId = location.state?.selectedId;
+  const selectedIds = location.state?.songIds;
+
+  const getInitialIndex = () => {
+    if (selectedIds?.length) {
+      const index = mySongList.findIndex((song) =>
+        selectedIds.includes(song.id),
+      );
+      return index !== -1 ? index : 0;
+    }
+    if (selectedId) {
+      const index = mySongList.findIndex((name) => name.id === selectedId);
+      return index !== -1 ? index : 0;
+    }
+    if (searchQuery) {
+      const index = mySongList.findIndex(
+        (name) => name.name.toLowerCase() === searchQuery.toLowerCase(),
+      );
+      return index !== -1 ? index : 0;
+    }
+    return 0;
+  };
+
+  const [selectedIndex, setSelectedIndex] = useState(getInitialIndex());
+  const selectedSong = mySongList[selectedIndex];
   const togglePlayPause = () => {
     setPlaying((prev) => !prev);
   };
@@ -48,14 +77,14 @@ export default function MusicPage() {
   }
   return (
     <div
-      style={{ backgroundImage: `url(${TheEminemShow})` }}
+      style={{ backgroundImage: `url(${selectedSong.image})` }}
       className="bg-center bg-cover bg-no-repeat mx-auto"
     >
       <div className="w-107.5 h-233 backdrop-blur-md">
         <nav>
           <div className="pt-20 px-5 mb-3">
             <h1 className="text-blue-500 text-center text-3xl font-bold">
-              Alb<span className="text-pink-500">um</span>
+              Music <span className="text-pink-500">Player</span>
             </h1>
           </div>
         </nav>
@@ -63,7 +92,7 @@ export default function MusicPage() {
           <div>
             <img
               className="size-87.5 mx-auto mb-4"
-              src={TheEminemShow}
+              src={selectedSong.image}
               alt="Eminem show"
             />
             <div className="h-8.75 w-87.5 bg-[#630a4a] rounded-lg flex items-center justify-around mx-auto px-1">
@@ -78,8 +107,10 @@ export default function MusicPage() {
           <div className="flex flex-col gap-6 mx-auto">
             <div className="flex justify-between">
               <div className="flex flex-col gap-4 text-white">
-                <h1 className="text-[32px] font-extrabold">White America</h1>
-                <p className="text-[24px]">Eminem</p>
+                <h1 className="text-[32px] font-extrabold">
+                  {selectedSong.name}
+                </h1>
+                <p className="text-[24px]">{selectedSong.artist}</p>
               </div>
               <img
                 id="heart-icon"

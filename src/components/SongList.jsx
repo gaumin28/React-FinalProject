@@ -13,6 +13,7 @@ export default function SongList({
   image,
   released,
   album,
+  isLogin,
   currentPlayingId,
   setCurrentPlayingId,
 }) {
@@ -78,7 +79,9 @@ export default function SongList({
         <div className="flex gap-2 px-0 md:px-5 items-center">
           <img
             onClick={handleToggleFavorite}
-            style={{ filter: isFavorited ? "opacity(1)" : "opacity(0.5)" }}
+            style={{
+              filter: isFavorited && isLogin ? "opacity(1)" : "opacity(0.5)",
+            }}
             src={image2}
             alt="heart"
             className="cursor-pointer w-5 h-5"

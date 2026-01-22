@@ -1,12 +1,32 @@
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router";
+import songList from "../data/songList";
+import { useRef } from "react";
 export default function Navbar({ isLogin, setIsLogIn }) {
   const userName = localStorage.getItem("userName");
+  const ref = useRef();
+  const navigate = useNavigate();
+
+  function handleSearch() {
+    const searchValue = ref.current.value.toLowerCase().trim();
+    if (!searchValue) return;
+
+    const artistName = songList.map((item) => item.artist.toLowerCase());
+    const songName = songList.map((item) => item.name.toLowerCase());
+
+    if (searchValue === "eminem" || artistName.includes(searchValue)) {
+      navigate("/artist", { state: { searchQuery: searchValue } });
+    } else if (songName.includes(searchValue)) {
+      navigate("/play-music", { state: { searchQuery: searchValue } });
+    } else {
+      alert("Data not found!");
+    }
+    ref.current.value = "";
+  }
   return (
     <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 bg-transparent z-10">
       <div className="relative flex-1 md:ml-20">
-        <Link
-          id="search-icon"
+        <button
+          onClick={handleSearch}
           className="absolute inset-y-0 left-3 flex items-center"
           to="#"
         >
@@ -18,9 +38,10 @@ export default function Navbar({ isLogin, setIsLogIn }) {
           >
             <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
           </svg>
-        </Link>
+        </button>
         <input
-          id="search-input"
+          ref={ref}
+          name="searchText"
           className="w-full max-w-md bg-[#656565] px-10 py-2 rounded-lg text-gray-200"
           type="text"
           placeholder="Search For Musics, Artists, Albums"

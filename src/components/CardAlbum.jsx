@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router";
 import image2 from "../image/pink-music.svg";
-export default function Card({ name, artist, image, id }) {
+export default function CardAlbum({ name, artist, image, id }) {
   const nav = useNavigate();
   function handleSelect() {
-    nav("/play-music", { state: { selectedId: id } });
+    nav("", { state: { selectedId: id } });
   }
   return (
     <div

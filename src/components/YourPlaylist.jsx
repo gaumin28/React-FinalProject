@@ -2,27 +2,60 @@ import Banner from "./Banner";
 import Footer from "./Footer";
 import my_playlist from "../image/my-playlist.jpg";
 import MyPlaylistSong from "./MyPlaylistSong";
+import { useNavigate } from "react-router";
 
 export default function YourPlaylist({
   currentPlayingId,
   setCurrentPlayingId,
+  setIsLogIn,
+  isLogin,
 }) {
+  const userName = localStorage.getItem("userName");
+  const navigate = useNavigate();
+
   return (
     <>
       {/* <Header />
       <Sidebar /> */}
-      <main className="flex-1 p-4 md:p-6">
-        {/* <Navbar /> */}
-        <h1 className="text-center">Hello</h1>
-        <div className="max-w-5xl mx-auto">
-          <Banner image={my_playlist} title={"My Playlist"} />
-          <MyPlaylistSong
-            currentPlayingId={currentPlayingId}
-            setCurrentPlayingId={setCurrentPlayingId}
-          />
-          <Footer />
+      {isLogin ? (
+        <main className="flex-1 p-4 md:p-6">
+          {/* <Navbar /> */}
+
+          <div className="max-w-5xl mx-auto">
+            <div className="flex justify-end mr-2 mb-5">
+              <h1 className="px-3 py-1 text-pink-400 font-bold">
+                Hello, {userName}
+              </h1>
+              <button
+                onClick={() => {
+                  setIsLogIn(false);
+                  navigate("/");
+                }}
+                className="logoutBtn"
+              >
+                Logout
+              </button>
+            </div>
+
+            <Banner image={my_playlist} title={"My Playlist"} />
+            <MyPlaylistSong
+              currentPlayingId={currentPlayingId}
+              setCurrentPlayingId={setCurrentPlayingId}
+            />
+            <Footer />
+          </div>
+        </main>
+      ) : (
+        <div className="mx-auto flex flex-col items-center gap-3">
+          <p className="font-bold text-xl">Please login to continue</p>
+          <button
+            onClick={() => navigate("/login")}
+            className="px-3 py-1 bg-black rounded-full text-pink-400 font-bold cursor-pointer"
+          >
+            Log In
+          </button>
         </div>
-      </main>
+      )}
     </>
   );
 }

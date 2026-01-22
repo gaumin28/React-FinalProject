@@ -1,5 +1,6 @@
 import newAlbum from "../data/newAlbum";
-import Card from "./Card";
+
+import CardAlbum from "./CardAlbum";
 
 export default function NewAlbum() {
   return (
@@ -9,7 +10,7 @@ export default function NewAlbum() {
       </h2>
       <div className="flex flex-wrap gap-4 mt-6">
         {newAlbum.map((album) => (
-          <Card
+          <CardAlbum
             key={album.id}
             name={album.name}
             artist={album.artist}

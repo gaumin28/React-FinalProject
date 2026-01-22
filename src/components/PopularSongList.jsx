@@ -12,6 +12,7 @@ export default function PopularSongList({
   views,
   duration,
   image,
+  isLogin,
   currentPlayingId,
   setCurrentPlayingId,
 }) {
@@ -74,7 +75,10 @@ export default function PopularSongList({
             <div className="flex items-center justify-end gap-2">
               <img
                 onClick={handleToggleFavorite}
-                style={{ filter: isFavorited ? "opacity(1)" : "opacity(0.5)" }}
+                style={{
+                  filter:
+                    isFavorited && isLogin ? "opacity(1)" : "opacity(0.5)",
+                }}
                 src={pinkHeart}
                 alt="heart"
                 className="fav-heart cursor-pointer w-5 h-5"

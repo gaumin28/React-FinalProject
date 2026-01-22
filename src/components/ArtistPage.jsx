@@ -7,18 +7,34 @@ import Artist from "./Artist";
 import Footer from "./Footer";
 import PopularSongList from "./PopularSongList";
 import popularArtists from "../data/popularArtist";
-import { useState } from "react";
+import { useMemo } from "react";
+import { useLocation } from "react-router";
 
 export default function ArtistPage({
   isLogin,
   currentPlayingId,
   setCurrentPlayingId,
 }) {
-  const [selectedArtistIndex, setSelectedArtistIndex] = useState(3);
-  function handleSelect(artistId) {
-    const index = popularArtists.findIndex((artist) => artist.id === artistId);
-    setSelectedArtistIndex(index);
-  }
+  const location = useLocation();
+  const searchQuery = location.state?.searchQuery;
+  const selectedId = location.state?.selectedId;
+
+  // Compute artist index directly from location state
+  const selectedArtistIndex = useMemo(() => {
+    if (selectedId) {
+      const index = popularArtists.findIndex(
+        (artist) => artist.id === selectedId,
+      );
+      return index !== -1 ? index : 3;
+    }
+    if (searchQuery) {
+      const index = popularArtists.findIndex(
+        (artist) => artist.name.toLowerCase() === searchQuery.toLowerCase(),
+      );
+      return index !== -1 ? index : 3;
+    }
+    return 3;
+  }, [selectedId, searchQuery]);
   const newData = popularArtists.toSpliced(selectedArtistIndex, 1);
   const artistSelected = popularArtists[selectedArtistIndex];
   return (
@@ -51,6 +67,7 @@ export default function ArtistPage({
               views={song.views}
               duration={song.duration}
               image={song.image}
+              isLogin={isLogin}
               currentPlayingId={currentPlayingId}
               setCurrentPlayingId={setCurrentPlayingId}
             />
@@ -94,15 +111,15 @@ export default function ArtistPage({
             <div className="flex flex-wrap gap-4 mt-6">
               {newData.map((artist) => (
                 <Artist
-                  onSelect={() => handleSelect(artist.id)}
                   key={artist.id}
+                  id={artist.id}
                   image={artist.image}
                   name={artist.name}
                 />
               ))}
             </div>
           </section>
-          <Footer />
+          <Footer isLogin={isLogin} />
         </div>
       </main>
     </>

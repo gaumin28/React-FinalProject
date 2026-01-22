@@ -79,7 +79,7 @@ export default function RecentlyAdded({ isLogin }) {
             image={NewRelease}
           />
           <TrendingSong />
-          <Footer />
+          <Footer isLogin={isLogin} />
         </div>
       </main>
     </>

@@ -1,5 +1,3 @@
-import image2 from "../image/pink-play.png";
-
 export default function Banner({
   songNames,
   songNumbers,
@@ -29,7 +27,7 @@ export default function Banner({
           </div>
         </div>
 
-        <div className="shrink-0 flex items-center gap-3">
+        {/* <div className="shrink-0 flex items-center gap-3">
           <span className="text-pink-500 font-semibold">Play all</span>
           <button id="play-all-button" className="cursor-pointer" type="button">
             <img
@@ -39,7 +37,7 @@ export default function Banner({
               className="size-8"
             />
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

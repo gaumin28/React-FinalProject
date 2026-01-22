@@ -9,7 +9,7 @@ import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import { useState } from "react";
 import FavouritePage from "./components/FavouritePage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import MusicPage from "./components/MusicPage";
 import LoadingPage from "./components/LoadinPage";
 
@@ -91,6 +91,8 @@ function App() {
             path="/your-playlist"
             element={
               <YourPlaylist
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
               />

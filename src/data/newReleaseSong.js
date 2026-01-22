@@ -7,7 +7,7 @@ import WildFlower from "../image/WildFlower.jpg";
 
 const newReleaseData = [
   {
-    id: 1,
+    id: 17,
     name: "APT.",
     artist: "ROSÉ & Bruno Mars",
     image: apt,
@@ -16,7 +16,7 @@ const newReleaseData = [
     releaseDate: "2024-10-18",
   },
   {
-    id: 2,
+    id: 18,
     name: "Ordinary",
     artist: "Alex Warren",
     image: ordinary,
@@ -25,7 +25,7 @@ const newReleaseData = [
     releaseDate: "2025-02-07",
   },
   {
-    id: 3,
+    id: 19,
     name: "Golden",
     artist: "HUNTR/X",
     image: HuntrGolden,
@@ -34,7 +34,7 @@ const newReleaseData = [
     releaseDate: "2025-07-04",
   },
   {
-    id: 4,
+    id: 20,
     name: "Die With A Smile",
     artist: "Lady Gaga & Bruno Mars",
     image: Die_with_a_Smile,
@@ -43,7 +43,7 @@ const newReleaseData = [
     releaseDate: "2024-08-16",
   },
   {
-    id: 5,
+    id: 21,
     name: "Zoo",
     artist: "Shakira",
     image: Zoo,
@@ -52,7 +52,7 @@ const newReleaseData = [
     releaseDate: "2024-03-22",
   },
   {
-    id: 6,
+    id: 22,
     name: "WILDFLOWER",
     artist: "Billie Eilish",
     image: WildFlower,

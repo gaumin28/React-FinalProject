@@ -7,7 +7,11 @@ import Sidebar from "./Sidebar";
 import TrendingSong from "./TrendingSong";
 import MostViewSongs from "../image/MostViewSongs.png";
 
-export default function MostPlayed({ isLogin }) {
+export default function MostPlayed({
+  isLogin,
+  currentPlayingId,
+  setCurrentPlayingId,
+}) {
   const songNames = songList
     .filter((id) => id < 7)
     .reduce((acc, song, index) => {
@@ -41,8 +45,12 @@ export default function MostPlayed({ isLogin }) {
             title={"Most Played Song"}
             image={MostViewSongs}
           />
-          <TrendingSong />
-          <Footer />
+          <TrendingSong
+            isLogin={isLogin}
+            currentPlayingId={currentPlayingId}
+            setCurrentPlayingId={setCurrentPlayingId}
+          />
+          <Footer isLogin={isLogin} />
         </div>
       </main>
     </>

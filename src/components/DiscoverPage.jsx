@@ -24,7 +24,7 @@ export default function DiscoverPage({ isLogin }) {
           <MusicVideo />
           <MoodPlaylist />
           <NewAlbum />
-          <Footer />
+          <Footer isLogin={isLogin} />
         </div>
       </main>
     </>

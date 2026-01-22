@@ -4,6 +4,7 @@ import SongList from "./SongList";
 export default function TrendingSong({
   currentPlayingId,
   setCurrentPlayingId,
+  isLogin,
 }) {
   return (
     <section>
@@ -28,6 +29,7 @@ export default function TrendingSong({
             artist={song.artist}
             released={song.releaseDate}
             album={song.album}
+            isLogin={isLogin}
             currentPlayingId={currentPlayingId}
             setCurrentPlayingId={setCurrentPlayingId}
           />

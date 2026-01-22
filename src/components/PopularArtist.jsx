@@ -9,7 +9,13 @@ export default function PopularArtist() {
       </h2>
       <div className="flex flex-wrap gap-4 mt-6">
         {popularArtists.map((artist) => (
-          <Artist key={artist.id} name={artist.name} image={artist.image} />
+          <Artist
+            key={artist.id}
+            id={artist.id}
+            songIds={artist.songs.map((song) => song.id)}
+            name={artist.name}
+            image={artist.image}
+          />
         ))}
       </div>
     </section>

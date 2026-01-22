@@ -14,20 +14,30 @@ import Rose_banner from "../image/Rose-banner.jpg";
 import Shakira_banner from "../image/Shakira-banner.jpeg";
 import LoseYourself from "../image/Lose_Yourself.jpg";
 import RapGod from "../image/RapGod.png";
+import stay from "../image/stay.png";
+import BetYouWanna from "../image/BetYouWanna.png";
 import LoveTheWayYouLie from "../image/LoveTheWayYouLie.png";
 import Mockingbird from "../image/Mockingbird.jpg";
+import FinallyFree from "../image/FinallyFree.jpg";
+import HardToLove from "../image/HardToLove.jpg";
+import LetItBe from "../image/LetItBe.jpg";
+import On_the_Ground from "../image/On_the_Ground.jpg";
+import Rose_Gone from "../image/Rose_Gone.jpg";
 import NotAfraid from "../image/NotAfraid.jpg";
 import TheNeighbourhood from "../image/TheNeighbourhood.png";
 import TheRealSlimShady from "../image/TheRealSlimShady.jpg";
 import ThatWayIAm from "../image/ThatWayIAm.jpg";
+import tally from "../image/tally.jpg";
 import Stan from "../image/Stan.jpg";
 import BadGuy from "../image/BadGuy.jpg";
 import Recovery from "../image/Recovery.jpg";
+import rose_apt from "../image/rose-apt.jpg";
 import Relapse from "../image/Relapse.jpg";
 import TheMarshall from "../image/TheMarshall.jpg";
 import BlankSpace from "../image/Mayhem.png";
 import FateOfOphelia from "../image/FateOfOphelia.jpg";
 import Revival from "../image/Revival.png";
+import Rosé_R from "../image/Rosé_R.png";
 import Encore from "../image/Encore.jpg";
 import LetGodSortEmOut from "../image/LetGodSortEmOut.jpg";
 import Lux from "../image/Lux.jpg";
@@ -41,61 +51,61 @@ const popularArtists = [
     imgBanner: Rose_banner,
     songs: [
       {
-        id: 1,
-        name: "Gone Gone / Thank You",
+        id: 92,
+        name: "Gone Gone",
         artist: "ROSÉ",
         releaseDate: "2021-04-29",
         views: "420M",
         duration: "3:53",
-        image: Rose,
+        image: Rose_Gone,
       },
       {
-        id: 2,
+        id: 93,
         name: "Hard to Love",
         artist: "ROSÉ",
         releaseDate: "2021-12-14",
         views: "380M",
         duration: "2:59",
-        image: Rose_banner,
+        image: HardToLove,
       },
       {
-        id: 3,
+        id: 94,
         name: "On The Ground",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",
         views: "650M",
         duration: "3:11",
-        image: Rose,
+        image: On_the_Ground,
       },
       {
-        id: 4,
+        id: 95,
         name: "Tally",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",
         views: "220M",
         duration: "3:22",
-        image: Rose_banner,
+        image: tally,
       },
       {
-        id: 5,
+        id: 96,
         name: "STay",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",
         views: "310M",
         duration: "3:59",
-        image: Rose,
+        image: stay,
       },
       {
-        id: 6,
+        id: 97,
         name: "Finally Free",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",
         views: "280M",
         duration: "3:20",
-        image: Rose_banner,
+        image: FinallyFree,
       },
       {
-        id: 7,
+        id: 98,
         name: "Food",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",
@@ -104,25 +114,25 @@ const popularArtists = [
         image: Rose,
       },
       {
-        id: 8,
+        id: 99,
         name: "Bet You Wanna",
         artist: "ROSÉ ft. The Weeknd",
         releaseDate: "2020-10-26",
         views: "510M",
         duration: "3:16",
-        image: Rose_banner,
+        image: BetYouWanna,
       },
       {
-        id: 9,
+        id: 100,
         name: "Let It Be",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",
         views: "350M",
         duration: "3:09",
-        image: Rose,
+        image: LetItBe,
       },
       {
-        id: 10,
+        id: 101,
         name: "My Dear",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",
@@ -132,12 +142,12 @@ const popularArtists = [
       },
     ],
     albums: [
-      { id: 1, name: "Rosie", artist: "ROSÉ", image: Rose },
-      { id: 2, name: "R", artist: "ROSÉ", image: Rose_banner },
+      { id: 1, name: "Rosie", artist: "ROSÉ", image: stay },
+      { id: 2, name: "R", artist: "ROSÉ", image: Rosé_R },
       { id: 3, name: "-R-", artist: "ROSÉ", image: Rose },
-      { id: 4, name: "On The Ground", artist: "ROSÉ", image: Rose_banner },
-      { id: 5, name: "Gone", artist: "ROSÉ", image: Rose },
-      { id: 6, name: "APT.", artist: "ROSÉ", image: Rose_banner },
+      { id: 4, name: "On The Ground", artist: "ROSÉ", image: On_the_Ground },
+      { id: 5, name: "Gone", artist: "ROSÉ", image: Rose_Gone },
+      { id: 6, name: "APT.", artist: "ROSÉ", image: rose_apt },
     ],
   },
   {
@@ -147,7 +157,7 @@ const popularArtists = [
     imgBanner: Billie_Eilish,
     songs: [
       {
-        id: 1,
+        id: 102,
         name: "Bad Guy",
         artist: "Billie Eilish",
         releaseDate: "2018-03-29",
@@ -156,8 +166,8 @@ const popularArtists = [
         image: BadGuy,
       },
       {
-        id: 2,
-        name: "When We All Fall Asleep, Where Do We Go?",
+        id: 103,
+        name: "When We All Fall Asleep",
         artist: "Billie Eilish",
         releaseDate: "2019-03-29",
         views: "920M",
@@ -165,7 +175,7 @@ const popularArtists = [
         image: Billie_Eilish,
       },
       {
-        id: 3,
+        id: 104,
         name: "Ocean Eyes",
         artist: "Billie Eilish",
         releaseDate: "2016-11-18",
@@ -174,7 +184,7 @@ const popularArtists = [
         image: BadGuy,
       },
       {
-        id: 4,
+        id: 105,
         name: "Bury a Friend",
         artist: "Billie Eilish",
         releaseDate: "2018-12-30",
@@ -183,7 +193,7 @@ const popularArtists = [
         image: Billie_Eilish,
       },
       {
-        id: 5,
+        id: 106,
         name: "Therefore I Am",
         artist: "Billie Eilish",
         releaseDate: "2020-11-12",
@@ -192,7 +202,7 @@ const popularArtists = [
         image: BadGuy,
       },
       {
-        id: 6,
+        id: 107,
         name: "Happier Than Ever",
         artist: "Billie Eilish",
         releaseDate: "2021-07-30",
@@ -201,7 +211,7 @@ const popularArtists = [
         image: Billie_Eilish,
       },
       {
-        id: 7,
+        id: 108,
         name: "Everything I Wanted",
         artist: "Billie Eilish",
         releaseDate: "2019-11-24",
@@ -210,7 +220,7 @@ const popularArtists = [
         image: BadGuy,
       },
       {
-        id: 8,
+        id: 109,
         name: "No Time to Die",
         artist: "Billie Eilish",
         releaseDate: "2020-02-28",
@@ -219,7 +229,7 @@ const popularArtists = [
         image: Billie_Eilish,
       },
       {
-        id: 9,
+        id: 110,
         name: "Bellyache",
         artist: "Billie Eilish",
         releaseDate: "2017-03-30",
@@ -228,7 +238,7 @@ const popularArtists = [
         image: BadGuy,
       },
       {
-        id: 10,
+        id: 111,
         name: "My Strange Addiction",
         artist: "Billie Eilish",
         releaseDate: "2018-12-21",
@@ -240,7 +250,7 @@ const popularArtists = [
     albums: [
       {
         id: 1,
-        name: "When We All Fall Asleep, Where Do We Go?",
+        name: "When We All Fall Asleep",
         artist: "Billie Eilish",
         image: BadGuy,
       },
@@ -283,7 +293,7 @@ const popularArtists = [
     imgBanner: taylor_swift_banner,
     songs: [
       {
-        id: 1,
+        id: 112,
         name: "Anti-Hero",
         artist: "Taylor Swift",
         releaseDate: "2022-10-21",
@@ -292,7 +302,7 @@ const popularArtists = [
         image: Taylor_Swift,
       },
       {
-        id: 2,
+        id: 113,
         name: "Cruel Summer",
         artist: "Taylor Swift",
         releaseDate: "2019-07-23",
@@ -301,7 +311,7 @@ const popularArtists = [
         image: FateOfOphelia,
       },
       {
-        id: 3,
+        id: 114,
         name: "Blank Space",
         artist: "Taylor Swift",
         releaseDate: "2014-11-10",
@@ -310,7 +320,7 @@ const popularArtists = [
         image: BlankSpace,
       },
       {
-        id: 4,
+        id: 115,
         name: "Shake It Off",
         artist: "Taylor Swift",
         releaseDate: "2014-08-18",
@@ -319,7 +329,7 @@ const popularArtists = [
         image: Taylor_Swift,
       },
       {
-        id: 5,
+        id: 116,
         name: "Love Story",
         artist: "Taylor Swift",
         releaseDate: "2008-09-12",
@@ -328,7 +338,7 @@ const popularArtists = [
         image: FateOfOphelia,
       },
       {
-        id: 6,
+        id: 117,
         name: "Look What You Made Me Do",
         artist: "Taylor Swift",
         releaseDate: "2017-09-03",
@@ -337,7 +347,7 @@ const popularArtists = [
         image: Revival,
       },
       {
-        id: 7,
+        id: 118,
         name: "Style",
         artist: "Taylor Swift",
         releaseDate: "2014-11-10",
@@ -346,7 +356,7 @@ const popularArtists = [
         image: Taylor_Swift,
       },
       {
-        id: 8,
+        id: 119,
         name: "You Belong With Me",
         artist: "Taylor Swift",
         releaseDate: "2009-04-15",
@@ -355,8 +365,8 @@ const popularArtists = [
         image: FateOfOphelia,
       },
       {
-        id: 9,
-        name: "All Too Well (10 Minute Version)",
+        id: 120,
+        name: "All Too Well",
         artist: "Taylor Swift",
         releaseDate: "2021-11-12",
         views: "620M",
@@ -364,7 +374,7 @@ const popularArtists = [
         image: Revival,
       },
       {
-        id: 10,
+        id: 121,
         name: "Enchanted",
         artist: "Taylor Swift",
         releaseDate: "2010-10-25",
@@ -389,7 +399,7 @@ const popularArtists = [
     imgBanner: EminemBanner,
     songs: [
       {
-        id: 1,
+        id: 13,
         name: "Lose Yourself",
         artist: "Eminem",
         releaseDate: "2002-10-28",
@@ -398,7 +408,7 @@ const popularArtists = [
         image: LoseYourself,
       },
       {
-        id: 2,
+        id: 83,
         name: "Stan",
         artist: "Eminem ft. Dina Rae",
         releaseDate: "2000-12-04",
@@ -407,7 +417,7 @@ const popularArtists = [
         image: Stan,
       },
       {
-        id: 3,
+        id: 84,
         name: "The Real Slim Shady",
         artist: "Eminem",
         releaseDate: "2000-04-03",
@@ -416,7 +426,7 @@ const popularArtists = [
         image: TheRealSlimShady,
       },
       {
-        id: 4,
+        id: 85,
         name: "Without Me",
         artist: "Eminem",
         releaseDate: "2002-05-06",
@@ -425,7 +435,7 @@ const popularArtists = [
         image: TheNeighbourhood,
       },
       {
-        id: 5,
+        id: 86,
         name: "Love The Way You Lie",
         artist: "Eminem ft. Rihanna",
         releaseDate: "2010-08-05",
@@ -434,7 +444,7 @@ const popularArtists = [
         image: LoveTheWayYouLie,
       },
       {
-        id: 6,
+        id: 87,
         name: "Not Afraid",
         artist: "Eminem",
         releaseDate: "2010-04-23",
@@ -443,7 +453,7 @@ const popularArtists = [
         image: NotAfraid,
       },
       {
-        id: 7,
+        id: 88,
         name: "The Way I Am",
         artist: "Eminem",
         releaseDate: "1999-12-20",
@@ -452,7 +462,7 @@ const popularArtists = [
         image: ThatWayIAm,
       },
       {
-        id: 8,
+        id: 89,
         name: "Beautiful",
         artist: "Eminem ft. Rihanna",
         releaseDate: "2009-09-08",
@@ -461,7 +471,7 @@ const popularArtists = [
         image: LoveTheWayYouLie,
       },
       {
-        id: 9,
+        id: 90,
         name: "Rap God",
         artist: "Eminem",
         releaseDate: "2013-08-27",
@@ -470,7 +480,7 @@ const popularArtists = [
         image: RapGod,
       },
       {
-        id: 10,
+        id: 91,
         name: "Mockingbird",
         artist: "Eminem",
         releaseDate: "2004-11-12",
@@ -505,7 +515,7 @@ const popularArtists = [
     imgBanner: Adele_background,
     songs: [
       {
-        id: 1,
+        id: 122,
         name: "Hello",
         artist: "Adele",
         releaseDate: "2015-10-22",
@@ -514,7 +524,7 @@ const popularArtists = [
         image: Adele,
       },
       {
-        id: 2,
+        id: 43,
         name: "Someone Like You",
         artist: "Adele",
         releaseDate: "2011-01-24",
@@ -523,7 +533,7 @@ const popularArtists = [
         image: Adele_background,
       },
       {
-        id: 3,
+        id: 123,
         name: "Easy On Me",
         artist: "Adele",
         releaseDate: "2021-10-15",
@@ -532,7 +542,7 @@ const popularArtists = [
         image: Adele,
       },
       {
-        id: 4,
+        id: 124,
         name: "Rolling in the Deep",
         artist: "Adele",
         releaseDate: "2010-11-29",
@@ -541,7 +551,7 @@ const popularArtists = [
         image: Adele_background,
       },
       {
-        id: 5,
+        id: 125,
         name: "Set Fire to the Rain",
         artist: "Adele",
         releaseDate: "2011-10-24",
@@ -550,7 +560,7 @@ const popularArtists = [
         image: Adele,
       },
       {
-        id: 6,
+        id: 126,
         name: "All I Do Is Pray",
         artist: "Adele",
         releaseDate: "2011-06-20",
@@ -559,7 +569,7 @@ const popularArtists = [
         image: Adele_background,
       },
       {
-        id: 7,
+        id: 127,
         name: "When We Were Young",
         artist: "Adele",
         releaseDate: "2015-10-22",
@@ -568,7 +578,7 @@ const popularArtists = [
         image: Adele,
       },
       {
-        id: 8,
+        id: 128,
         name: "Skyfall",
         artist: "Adele",
         releaseDate: "2012-10-05",
@@ -577,7 +587,7 @@ const popularArtists = [
         image: Adele_background,
       },
       {
-        id: 9,
+        id: 129,
         name: "One and Only",
         artist: "Adele",
         releaseDate: "2011-04-25",
@@ -586,7 +596,7 @@ const popularArtists = [
         image: Adele,
       },
       {
-        id: 10,
+        id: 130,
         name: "Turning Tables",
         artist: "Adele",
         releaseDate: "2011-06-20",
@@ -620,7 +630,7 @@ const popularArtists = [
     imgBanner: Shakira_banner,
     songs: [
       {
-        id: 1,
+        id: 131,
         name: "Hips Don't Lie",
         artist: "Shakira ft. Wyclef Jean",
         releaseDate: "2006-03-31",
@@ -629,7 +639,7 @@ const popularArtists = [
         image: Shakira,
       },
       {
-        id: 2,
+        id: 132,
         name: "Whenever, Wherever",
         artist: "Shakira",
         releaseDate: "2001-11-19",
@@ -638,8 +648,8 @@ const popularArtists = [
         image: Shakira_banner,
       },
       {
-        id: 3,
-        name: "Waka Waka (This Time for Africa)",
+        id: 133,
+        name: "Waka Waka",
         artist: "Shakira",
         releaseDate: "2010-04-20",
         views: "1.1B",
@@ -647,7 +657,7 @@ const popularArtists = [
         image: Shakira,
       },
       {
-        id: 4,
+        id: 134,
         name: "Try Everything",
         artist: "Shakira",
         releaseDate: "2016-02-18",
@@ -656,7 +666,7 @@ const popularArtists = [
         image: Shakira_banner,
       },
       {
-        id: 5,
+        id: 135,
         name: "She Wolf",
         artist: "Shakira",
         releaseDate: "2009-06-01",
@@ -665,7 +675,7 @@ const popularArtists = [
         image: Shakira,
       },
       {
-        id: 6,
+        id: 136,
         name: "La Tortura",
         artist: "Shakira ft. Alejandro Sanz",
         releaseDate: "2005-10-17",
@@ -674,7 +684,7 @@ const popularArtists = [
         image: Shakira_banner,
       },
       {
-        id: 7,
+        id: 137,
         name: "Loca",
         artist: "Shakira",
         releaseDate: "2009-10-12",
@@ -683,7 +693,7 @@ const popularArtists = [
         image: Shakira,
       },
       {
-        id: 8,
+        id: 138,
         name: "Beautiful",
         artist: "Shakira ft. Miguel Bosé",
         releaseDate: "2011-10-04",
@@ -692,7 +702,7 @@ const popularArtists = [
         image: Shakira_banner,
       },
       {
-        id: 9,
+        id: 139,
         name: "Objection (Tango)",
         artist: "Shakira",
         releaseDate: "2002-10-21",
@@ -701,7 +711,7 @@ const popularArtists = [
         image: Shakira,
       },
       {
-        id: 10,
+        id: 140,
         name: "Empire",
         artist: "Shakira",
         releaseDate: "2014-03-24",
@@ -741,7 +751,7 @@ const popularArtists = [
     imgBanner: CharliePuth_banner,
     songs: [
       {
-        id: 1,
+        id: 141,
         name: "See You Again",
         artist: "Charlie Puth ft. Wiz Khalifa",
         releaseDate: "2015-04-10",
@@ -750,7 +760,7 @@ const popularArtists = [
         image: Changes,
       },
       {
-        id: 2,
+        id: 142,
         name: "Attention",
         artist: "Charlie Puth",
         releaseDate: "2017-04-07",
@@ -759,7 +769,7 @@ const popularArtists = [
         image: CharliePuth_banner,
       },
       {
-        id: 3,
+        id: 143,
         name: "Marvin Gaye",
         artist: "Charlie Puth ft. Meghan Trainor",
         releaseDate: "2015-02-06",
@@ -768,7 +778,7 @@ const popularArtists = [
         image: Changes,
       },
       {
-        id: 4,
+        id: 144,
         name: "How Deep Is Your Love",
         artist: "Charlie Puth",
         releaseDate: "2015-12-04",
@@ -777,7 +787,7 @@ const popularArtists = [
         image: CharliePuth_banner,
       },
       {
-        id: 5,
+        id: 145,
         name: "One Call Away",
         artist: "Charlie Puth ft. Boyz II Men",
         releaseDate: "2015-12-18",
@@ -786,7 +796,7 @@ const popularArtists = [
         image: Changes,
       },
       {
-        id: 6,
+        id: 146,
         name: "Done For Me",
         artist: "Charlie Puth ft. Boyz II Men",
         releaseDate: "2018-05-18",
@@ -795,7 +805,7 @@ const popularArtists = [
         image: CharliePuth_banner,
       },
       {
-        id: 7,
+        id: 147,
         name: "LA Girls",
         artist: "Charlie Puth",
         releaseDate: "2015-11-10",
@@ -804,7 +814,7 @@ const popularArtists = [
         image: Changes,
       },
       {
-        id: 8,
+        id: 148,
         name: "Left Hand Man",
         artist: "Charlie Puth",
         releaseDate: "2012-05-01",
@@ -813,7 +823,7 @@ const popularArtists = [
         image: CharliePuth_banner,
       },
       {
-        id: 9,
+        id: 149,
         name: "BOY",
         artist: "Charlie Puth",
         releaseDate: "2016-04-29",
@@ -822,7 +832,7 @@ const popularArtists = [
         image: Changes,
       },
       {
-        id: 10,
+        id: 150,
         name: "Empty Pockets",
         artist: "Charlie Puth",
         releaseDate: "2015-04-10",

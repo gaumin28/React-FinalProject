@@ -21,7 +21,7 @@ export default function AlbumPage({ isLogin }) {
             songNumbers={10}
           />
           <TrendingSong />
-          <Footer />
+          <Footer isLogin={isLogin} />
         </div>
       </main>
     </>

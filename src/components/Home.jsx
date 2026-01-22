@@ -28,13 +28,14 @@ export default function Home({
           <WeeklyTopSong />
           <NewReleaseSong />
           <TrendingSong
+            isLogin={isLogin}
             currentPlayingId={currentPlayingId}
             setCurrentPlayingId={setCurrentPlayingId}
           />
           <PopularArtist />
           <MusicVideo />
           <MoodPlaylist />
-          <Footer />
+          <Footer isLogin={isLogin} />
         </div>
       </main>
     </>

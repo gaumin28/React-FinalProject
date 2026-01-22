@@ -3,7 +3,7 @@ import LoginBackground from "../image/LoginBackground.jpg";
 import google from "../image/google.png";
 import facebook from "../image/facebook.png";
 import { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import axios from "axios";
 
 export default function LoginPage({ setIsLogIn }) {
