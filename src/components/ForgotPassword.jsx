@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router";
+import LoginBackground from "../image/LoginBackground.jpg";
 
 export default function ForgotPassword() {
   // State to store the email input
@@ -43,7 +44,10 @@ export default function ForgotPassword() {
   // If form is submitted, show success message
   if (submitted) {
     return (
-      <div className="min-h-screen bg-linear-to-b from-[#1a1a2e] to-[#16213e] flex items-center justify-center p-4">
+      <div
+        style={{ backgroundImage: `url(${LoginBackground})` }}
+        className="min-h-screen bg-linear-to-b from-[#412c3a] to-[#0E1920] flex items-center justify-center p-4 mx-auto"
+      >
         <div className="w-full max-w-md">
           <div className="bg-[#0f3460] rounded-lg p-8 shadow-2xl text-center">
             <div className="mb-6">
