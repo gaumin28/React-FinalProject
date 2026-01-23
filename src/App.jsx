@@ -7,11 +7,14 @@ import MostPlayed from "./components/MostPlayed";
 import YourPlaylist from "./components/YourPlaylist";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import FavouritePage from "./components/FavouritePage";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router";
 import MusicPage from "./components/MusicPage";
 import LoadingPage from "./components/LoadinPage";
+import MoodPlayer from "./components/MoodPlayer";
+import ArtistAlbumPage from "./components/ArtistAlbumPage";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   const [isLogin, setIsLogIn] = useState(false);
@@ -20,6 +23,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        {/** Reset currently playing song when route changes */}
+        <RouteChangeReset onRouteChange={() => setCurrentPlayingId(null)} />
         {/* <YourPlaylist /> */}
         {/* {isLogin ? (
         <Home isLogin={isLogin} />
@@ -104,7 +109,30 @@ function App() {
           />
           <Route path="/loading" element={<LoadingPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/play-music" element={<MusicPage />} />
+          <Route
+            path="/mood-player"
+            element={
+              <MoodPlayer
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
+                currentPlayingId={currentPlayingId}
+                setCurrentPlayingId={setCurrentPlayingId}
+              />
+            }
+          />
+          <Route
+            path="/artist-album"
+            element={
+              <ArtistAlbumPage
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
+                currentPlayingId={currentPlayingId}
+                setCurrentPlayingId={setCurrentPlayingId}
+              />
+            }
+          />
         </Routes>
         {/* <SignUpPage /> */}
       </BrowserRouter>
@@ -113,3 +141,16 @@ function App() {
 }
 
 export default App;
+
+function RouteChangeReset({ onRouteChange }) {
+  const location = useLocation();
+  const cbRef = useRef(onRouteChange);
+  // Keep a stable dependency size by storing callback in a ref
+  useEffect(() => {
+    cbRef.current = onRouteChange;
+  }, [onRouteChange]);
+  useEffect(() => {
+    cbRef.current?.();
+  }, [location.pathname]);
+  return null;
+}

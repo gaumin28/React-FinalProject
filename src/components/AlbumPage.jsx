@@ -7,7 +7,11 @@ import SongList from "./SongList";
 import Footer from "./Footer";
 import TrendingMusic from "../image/TrendingMusic.png";
 
-export default function AlbumPage({ isLogin }) {
+export default function AlbumPage({
+  isLogin,
+  currentPlayingId,
+  setCurrentPlayingId,
+}) {
   return (
     <>
       <Header isLogin={isLogin} />
@@ -20,7 +24,10 @@ export default function AlbumPage({ isLogin }) {
             title={"Trending music"}
             songNumbers={10}
           />
-          <TrendingSong />
+          <TrendingSong
+            currentPlayingId={currentPlayingId}
+            setCurrentPlayingId={setCurrentPlayingId}
+          />
           <Footer isLogin={isLogin} />
         </div>
       </main>

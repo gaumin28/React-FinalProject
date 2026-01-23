@@ -20,15 +20,8 @@ export default function MusicPage() {
   const location = useLocation();
   const searchQuery = location.state?.searchQuery;
   const selectedId = location.state?.selectedId;
-  const selectedIds = location.state?.songIds;
 
   const getInitialIndex = () => {
-    if (selectedIds?.length) {
-      const index = mySongList.findIndex((song) =>
-        selectedIds.includes(song.id),
-      );
-      return index !== -1 ? index : 0;
-    }
     if (selectedId) {
       const index = mySongList.findIndex((name) => name.id === selectedId);
       return index !== -1 ? index : 0;

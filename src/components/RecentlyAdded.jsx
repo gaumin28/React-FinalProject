@@ -4,14 +4,15 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import SongList from "./SongList";
-import { allSongs } from "../data/songUtils";
+
+import newReleaseData from "../data/newReleaseSong";
 import NewRelease from "../image/New-Release.png";
 
-function TrendingSong() {
+function TrendingSong({ currentPlayingId, setCurrentPlayingId }) {
   return (
     <section>
       <h2 className="text-2xl font-bold">
-        Trending <span className="text-pink-400">Songs</span>
+        Recently Added <span className="text-pink-400">Songs</span>
       </h2>
       <div className="hidden md:flex justify-between text-white mb-2">
         <span className="md:w-1/2">Song</span>
@@ -20,39 +21,35 @@ function TrendingSong() {
         <span className="md:w-auto pr-5">Time</span>
       </div>
       <div className="space-y-3">
-        {allSongs
-          .filter((song) => song.source === "newRelease")
-          .map((song, index) => (
-            <SongList
-              key={song.uniqueId}
-              id={song.uniqueId}
-              index={index}
-              image={song.image}
-              name={song.name}
-              duration={song.duration}
-              artist={song.artist}
-              released={song.releaseDate}
-              album={song.album}
-            />
-          ))}
+        {newReleaseData.map((song, index) => (
+          <SongList
+            key={song.id}
+            id={song.id}
+            index={index}
+            image={song.image}
+            name={song.name}
+            duration={song.duration}
+            artist={song.artist}
+            released={song.releaseDate}
+            album={song.album}
+            currentPlayingId={currentPlayingId}
+            setCurrentPlayingId={setCurrentPlayingId}
+          />
+        ))}
       </div>
     </section>
   );
 }
 
-export default function RecentlyAdded({ isLogin }) {
-  const newReleaseSongs = allSongs.filter(
-    (song) => song.source === "newRelease",
-  );
-
-  const songNames = newReleaseSongs
+function RecentlyAdded({ isLogin, currentPlayingId, setCurrentPlayingId }) {
+  const songNames = newReleaseData
     .filter((song, index) => index < 7)
     .reduce((acc, song, index) => {
       return acc + (index > 0 ? ", " : "") + song.name;
     }, "");
 
   // Convert MM:SS to total seconds and sum
-  const totalSeconds = newReleaseSongs.reduce((acc, song) => {
+  const totalSeconds = newReleaseData.reduce((acc, song) => {
     const [minutes, seconds] = song.duration.split(":").map(Number);
     return acc + minutes * 60 + seconds;
   }, 0);
@@ -72,16 +69,20 @@ export default function RecentlyAdded({ isLogin }) {
         <div className="max-w-5xl mx-auto">
           <Banner
             songNames={songNames}
-            s
             totalDuration={totalDuration}
-            songNumbers={newReleaseSongs.length}
+            songNumbers={newReleaseData.length}
             title={"Recently Added Song"}
             image={NewRelease}
           />
-          <TrendingSong />
+          <TrendingSong
+            currentPlayingId={currentPlayingId}
+            setCurrentPlayingId={setCurrentPlayingId}
+          />
           <Footer isLogin={isLogin} />
         </div>
       </main>
     </>
   );
 }
+
+export default RecentlyAdded;

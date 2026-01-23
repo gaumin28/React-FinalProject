@@ -108,7 +108,7 @@ export default function LoginPage({ setIsLogIn }) {
                   ref={inputPassword}
                 />
                 <div className="flex justify-around">
-                  <Link className="text-white" to={""}>
+                  <Link className="text-white" to={"/forgot-password"}>
                     Forgot password <span className="text-2xl"></span>
                   </Link>
                   <button

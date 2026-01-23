@@ -38,6 +38,17 @@ export default function SongList({
       }
     }
   }, [isPlaying]);
+
+  // Stop audio when this component unmounts (e.g., route change)
+  useEffect(() => {
+    const ref = audioRef.current;
+    return () => {
+      if (ref) {
+        ref.pause();
+        ref.currentTime = 0;
+      }
+    };
+  }, []);
   const handleClick = () => {
     if (isPlaying) {
       setCurrentPlayingId(null); // Stop current song

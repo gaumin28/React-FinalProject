@@ -9,6 +9,7 @@ import PopularSongList from "./PopularSongList";
 import popularArtists from "../data/popularArtist";
 import { useMemo } from "react";
 import { useLocation } from "react-router";
+import CardAlbum from "./CardAlbum";
 
 export default function ArtistPage({
   isLogin,
@@ -78,8 +79,10 @@ export default function ArtistPage({
             </h2>
             <div className="flex flex-wrap gap-4 mt-6">
               {artistSelected.albums.map((album) => (
-                <Card
+                <CardAlbum
                   key={album.id}
+                  album={album}
+                  id={album.id}
                   name={album.name}
                   artist={album.artist}
                   image={album.image}
@@ -97,6 +100,7 @@ export default function ArtistPage({
                 .map((song) => (
                   <Card
                     key={song.id}
+                    id={song.id}
                     name={song.name}
                     artist={song.artist}
                     image={song.image}

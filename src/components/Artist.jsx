@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router";
 
-export default function Artist({ name, image, id, songIds }) {
+export default function Artist({ name, image, id }) {
   const nav = useNavigate();
   function handleSelect() {
-    nav("/artist", { state: { selectedId: id, songIds } });
+    nav("/artist", { state: { selectedId: id } });
   }
   return (
     <div onClick={handleSelect} className="flex flex-col gap-6 cursor-pointer">
