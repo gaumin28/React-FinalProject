@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+* {
+  border-sizing: border-box;
+}
+
+.logoutBtn {
+  padding: 4px 12px;
+  cursor: pointer;
+  background-color: #f687b3;
+  border-radius: 50px;
+}
+
+.repeat-active {
+  filter: brightness(200%);
+  /* outline-color: green; */
+}
+
+.heart-active {
+  filter: opacity(20%);
+}
+
+.pause-overlay.active-playing {
+  display: block;
+}
+
+.panel {
+  transition: flex 0.7s;
+}
+
+.panel.active {
+  flex: 10;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 1s 0.7s;
+}
+
+/* Policy hover effect */
+.policy-container:hover .policy-hover-text {
+  opacity: 1;
+  visibility: visible;
+}
