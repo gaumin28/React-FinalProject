@@ -10,7 +10,7 @@ import newReleaseData from "./newReleaseSong";
 import songList from "./songList";
 import moodPlaylist from "./moodPlaylist";
 import popularArtists from "./popularArtist";
-import weekylyData from "./weeklyData";
+import weeklyData from "./weeklyData";
 import genreSongs from "./genreSongs";
 
 /**
@@ -23,7 +23,7 @@ export const allSongs = [
   ...moodPlaylist.flatMap((playlist) => playlist.songs),
   ...newReleaseData,
   ...popularArtists.flatMap((artist) => artist.songs),
-  ...weekylyData,
+  ...weeklyData,
   ...eminemSongs,
   ...genreSongs.flatMap((genre) => genre.songs),
 ];
