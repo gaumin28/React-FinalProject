@@ -75,7 +75,7 @@ export default function MusicPage() {
   };
 
   function handleNextSong() {
-    if (selectedIndex < mySongList.length) {
+    if (selectedIndex < mySongList.length - 1) {
       setSelectedIndex((prev) => prev + 1);
       audioRef.current.pause();
       setPlaying(false);
