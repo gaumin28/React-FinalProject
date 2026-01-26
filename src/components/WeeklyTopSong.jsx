@@ -1,7 +1,7 @@
 import Card from "./Card";
 import weekylyData from "../data/weeklyData";
 
-export default function WeeklyTopSong() {
+export default function WeeklyTopSong({ isLogin }) {
   return (
     <section>
       <h2 className="text-2xl font-bold">
@@ -11,6 +11,7 @@ export default function WeeklyTopSong() {
         {weekylyData.map((song) => (
           <Card
             key={song.id}
+            isLogin={isLogin}
             id={song.id}
             name={song.name}
             artist={song.artist}

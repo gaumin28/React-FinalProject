@@ -1,9 +1,9 @@
-import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import ArtistBanner from "./ArtistBanner";
 import Card from "./Card";
 import Artist from "./Artist";
+import Header from "./Header";
 import Footer from "./Footer";
 import PopularSongList from "./PopularSongList";
 import popularArtists from "../data/popularArtist";
@@ -16,36 +16,49 @@ export default function ArtistPage({
   currentPlayingId,
   setCurrentPlayingId,
 }) {
+  // Get the navigation location state
   const location = useLocation();
   const searchQuery = location.state?.searchQuery;
   const selectedId = location.state?.selectedId;
 
-  // Compute artist index directly from location state
+  // Find the selected artist index from either ID or search query
+  // useMemo prevents recalculation unless selectedId or searchQuery changes
   const selectedArtistIndex = useMemo(() => {
+    // If artist was selected by ID
     if (selectedId) {
       const index = popularArtists.findIndex(
         (artist) => artist.id === selectedId,
       );
       return index !== -1 ? index : 3;
     }
+    // If artist was searched by name
     if (searchQuery) {
       const index = popularArtists.findIndex(
         (artist) => artist.name.toLowerCase() === searchQuery.toLowerCase(),
       );
       return index !== -1 ? index : 3;
     }
-    return 3;
+    return 3; // Default artist index
   }, [selectedId, searchQuery]);
+
+  // Create a list of other artists
   const newData = popularArtists.toSpliced(selectedArtistIndex, 1);
+
+  // Get data of the selected artist
   const artistSelected = popularArtists[selectedArtistIndex];
+
   return (
     <>
       <Header isLogin={isLogin} />
+
       <Sidebar isLogin={isLogin} />
+
       <main className="flex-1 p-4 md:p-6">
         <Navbar isLogin={isLogin} />
+
         <div className="max-w-5xl mx-auto">
           <ArtistBanner selectedArtistIndex={selectedArtistIndex} />
+
           <section className="mt-8">
             <h2 className="text-2xl text-white font-bold mb-4">Popular</h2>
 
@@ -73,6 +86,7 @@ export default function ArtistPage({
               setCurrentPlayingId={setCurrentPlayingId}
             />
           ))}
+          {/* album */}
           <section>
             <h2 className="text-2xl font-bold mt-5">
               Artist's <span className="text-pink-400">Albums</span>
@@ -90,6 +104,8 @@ export default function ArtistPage({
               ))}
             </div>
           </section>
+
+          {/* single songs */}
           <section>
             <h2 className="text-2xl font-bold mt-5">
               Single <span className="text-pink-400">Songs</span>
@@ -100,6 +116,7 @@ export default function ArtistPage({
                 .map((song) => (
                   <Card
                     key={song.id}
+                    isLogin={isLogin}
                     id={song.id}
                     name={song.name}
                     artist={song.artist}
@@ -108,6 +125,8 @@ export default function ArtistPage({
                 ))}
             </div>
           </section>
+
+          {/* Recommended Artists */}
           <section>
             <h2 className="text-2xl font-bold mt-5">
               Recommended <span className="text-pink-400">Artists</span>
@@ -123,6 +142,7 @@ export default function ArtistPage({
               ))}
             </div>
           </section>
+
           <Footer isLogin={isLogin} />
         </div>
       </main>

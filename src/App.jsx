@@ -15,6 +15,9 @@ import LoadingPage from "./components/LoadinPage";
 import MoodPlayer from "./components/MoodPlayer";
 import ArtistAlbumPage from "./components/ArtistAlbumPage";
 import ForgotPassword from "./components/ForgotPassword";
+import FacebookPage from "./components/FacebookPage";
+import MVPlayer from "./components/MVPlayer";
+import GenrePlayer from "./components/GenrePlayer";
 
 function App() {
   const [isLogin, setIsLogIn] = useState(false);
@@ -133,7 +136,22 @@ function App() {
               />
             }
           />
+          <Route
+            path="/mv-player"
+            element={<MVPlayer isLogin={isLogin} setIsLogIn={setIsLogIn} />}
+          />
+          <Route
+            path="/genre-player"
+            element={
+              <GenrePlayer
+                isLogin={isLogin}
+                currentPlayingId={currentPlayingId}
+                setCurrentPlayingId={setCurrentPlayingId}
+              />
+            }
+          />
         </Routes>
+
         {/* <SignUpPage /> */}
       </BrowserRouter>
     </>

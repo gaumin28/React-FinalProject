@@ -19,22 +19,31 @@ export default function Home({
   return (
     <>
       <Header isLogin={isLogin} setIsLogIn={setIsLogIn} />
+
       <Sidebar isLogin={isLogin} />
+
       <main className="flex-1 p-4 md:p-6">
         <Navbar isLogin={isLogin} setIsLogIn={setIsLogIn} />
+
         <SlideImg />
-        {/* content section */}
+
         <div className="max-w-5xl mx-auto mt-10 space-y-10">
-          <WeeklyTopSong />
-          <NewReleaseSong />
+          <WeeklyTopSong isLogin={isLogin} />
+
+          <NewReleaseSong isLogin={isLogin} />
+
           <TrendingSong
             isLogin={isLogin}
             currentPlayingId={currentPlayingId}
             setCurrentPlayingId={setCurrentPlayingId}
           />
+
           <PopularArtist />
+
           <MusicVideo />
+
           <MoodPlaylist />
+
           <Footer isLogin={isLogin} />
         </div>
       </main>

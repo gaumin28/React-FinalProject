@@ -2,9 +2,10 @@ import image1 from "../image/facebook.png";
 import image2 from "../image/Instagram.png";
 import image3 from "../image/Tweeter.png";
 import image4 from "../image/call.png";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function Footer({ isLogin }) {
+  const nav = useNavigate();
   return (
     <footer className="mt-10">
       <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
@@ -24,9 +25,14 @@ export default function Footer({ isLogin }) {
           <div className="flex flex-col gap-2">
             <h3 className="text-xl font-bold">Melody</h3>
             <hr className="border-t border-gray-600" />
-            <Link to="/play-music" className="hover:underline">
+            <span
+              onClick={() =>
+                nav("/play-music", { state: { isLogin: isLogin } })
+              }
+              className="hover:underline cursor-pointer"
+            >
               Songs
-            </Link>
+            </span>
 
             <Link
               to="https://podcasts.apple.com/vn/new?l=vi"
@@ -61,9 +67,7 @@ export default function Footer({ isLogin }) {
             <hr className="border-t border-gray-600" />
 
             <div className="policy-container relative">
-              <Link to="#" className="hover:underline">
-                Policy
-              </Link>
+              <span className="hover:underline cursor-pointer">Policy</span>
               <p className="policy-hover-text absolute left-0 top-full mt-2 bg-black border border-pink-400 rounded-lg p-3 text-xs w-64 opacity-0 invisible transition-all duration-200 z-10">
                 Our privacy policy ensures your data protection and outlines how
                 we collect, use, and safeguard your information while using

@@ -11,10 +11,12 @@ export default function MusicVideo() {
         {musicVideo.map((song) => (
           <VideoCard
             key={song.id}
+            id={song.id}
             name={song.title}
             artist={song.artist}
             image={song.image}
             view={song.views}
+            video={song.video}
           />
         ))}
       </div>

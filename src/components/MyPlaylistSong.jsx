@@ -46,15 +46,15 @@ export default function MyPlaylistSong({
         ) : (
           favouriteSongs.map((song, index) => (
             <SongList
-              key={song.uniqueId}
-              id={song.uniqueId}
+              key={song.id}
+              id={song.id}
               index={index}
               image={song.image}
               name={song.name}
-              duration={song.duration}
+              duration={song.duration || "N/A"}
               artist={song.artist}
-              released={song.releaseDate}
-              album={song.album}
+              released={song.releaseDate || "N/A"}
+              album={song.album || "N/A"}
               currentPlayingId={currentPlayingId}
               setCurrentPlayingId={setCurrentPlayingId}
             />

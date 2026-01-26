@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import LoginBackground from "../image/LoginBackground.jpg";
+import axios from "axios";
 
 export default function ForgotPassword() {
   // State to store the email input
@@ -15,8 +16,8 @@ export default function ForgotPassword() {
   const navigate = useNavigate();
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
+  async function handleSubmit(e) {
+    e.preventDefault();
     setError(""); // Clear any previous errors
 
     // Validate email is not empty
@@ -32,25 +33,36 @@ export default function ForgotPassword() {
       return;
     }
 
-    // Simulate API call
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setSubmitted(true); // Show success message
-      // In real app, you would send email to backend here
-    }, 1000);
-  };
+    try {
+      const response = await axios.get(
+        "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6",
+      );
+      const users = response.data.data.data || [];
+      const user = users.find((u) => u.email === email);
 
-  // If form is submitted, show success message
+      if (!user) {
+        alert("Email not exist, please sign up");
+        return;
+      }
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        setSubmitted(true); // Show success message
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   if (submitted) {
     return (
       <div
         style={{ backgroundImage: `url(${LoginBackground})` }}
-        className="min-h-screen bg-linear-to-b from-[#412c3a] to-[#0E1920] flex items-center justify-center p-4 mx-auto"
+        className="w-107.5 h-233 mx-auto"
       >
-        <div className="w-full max-w-md">
-          <div className="bg-[#0f3460] rounded-lg p-8 shadow-2xl text-center">
-            <div className="mb-6">
+        <div className="bg-linear-to-br from-[#412c3a] to-[#0E1920] h-233 opacity-80 rounded">
+          <div className="flex flex-col justify-center gap-10 h-233 bg-[#412c3a] rounded-b-4xl p-8">
+            <div className="mb-6 text-center">
               <div className="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-white"
@@ -101,11 +113,16 @@ export default function ForgotPassword() {
     );
   }
 
-  // Form view (initial state)
   return (
-    <div className="min-h-screen bg-linear-to-b from-[#1a1a2e] to-[#16213e] flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="bg-[#0f3460] rounded-lg p-8 shadow-2xl">
+    <div
+      style={{ backgroundImage: `url(${LoginBackground})` }}
+      className="w-107.5 h-233 mx-auto"
+    >
+      <div className="bg-linear-to-br from-[#412c3a] to-[#0E1920] h-233 opacity-80 rounded">
+        <div
+          className="flex flex-col justify-center gap-10 h-233
+         bg-[#412c3a] rounded-b-4xl p-8"
+        >
           <h1 className="text-3xl font-bold text-white mb-2 text-center">
             Forgot Password?
           </h1>
@@ -115,7 +132,6 @@ export default function ForgotPassword() {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Email Input Field */}
             <div>
               <label className="block text-white font-semibold mb-2">
                 Email Address
@@ -129,14 +145,12 @@ export default function ForgotPassword() {
               />
             </div>
 
-            {/* Error Message Display */}
             {error && (
               <div className="bg-red-500/20 border border-red-500 text-red-300 px-4 py-2 rounded text-sm">
                 {error}
               </div>
             )}
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
@@ -150,14 +164,12 @@ export default function ForgotPassword() {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="my-6 flex items-center">
             <div className="flex-1 border-t border-gray-600"></div>
             <span className="px-3 text-gray-400 text-sm">or</span>
             <div className="flex-1 border-t border-gray-600"></div>
           </div>
 
-          {/* Links to Login and Signup */}
           <div className="space-y-3">
             <Link
               to="/login"

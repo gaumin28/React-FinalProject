@@ -1,8 +1,12 @@
 import { Link, useNavigate } from "react-router";
 import songList from "../data/songList";
 import { useRef } from "react";
+
 export default function Navbar({ isLogin, setIsLogIn }) {
+  // Get username from localStorage for greeting
   const userName = localStorage.getItem("userName");
+
+  // Reference to search input field
   const ref = useRef();
   const navigate = useNavigate();
 
@@ -10,25 +14,35 @@ export default function Navbar({ isLogin, setIsLogIn }) {
     const searchValue = ref.current.value.toLowerCase().trim();
     if (!searchValue) return;
 
+    // arrays of artist names and song names for searching
     const artistName = songList.map((item) => item.artist.toLowerCase());
     const songName = songList.map((item) => item.name.toLowerCase());
 
+    // Navigate to artist page
     if (searchValue === "eminem" || artistName.includes(searchValue)) {
       navigate("/artist", { state: { searchQuery: searchValue } });
-    } else if (songName.includes(searchValue)) {
-      navigate("/play-music", { state: { searchQuery: searchValue } });
-    } else {
+    }
+    // Navigate to music player
+    else if (songName.includes(searchValue)) {
+      navigate("/play-music", {
+        state: { searchQuery: searchValue, isLogin: isLogin },
+      });
+    }
+    // Show alert if no match found
+    else {
       alert("Data not found!");
     }
+
+    // Clear search input after search
     ref.current.value = "";
   }
+
   return (
     <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 bg-transparent z-10">
       <div className="relative flex-1 md:ml-20">
         <button
           onClick={handleSearch}
           className="absolute inset-y-0 left-3 flex items-center"
-          to="#"
         >
           <svg
             className="w-5 opacity-80"
@@ -39,6 +53,7 @@ export default function Navbar({ isLogin, setIsLogIn }) {
             <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
           </svg>
         </button>
+
         <input
           ref={ref}
           name="searchText"
@@ -47,8 +62,10 @@ export default function Navbar({ isLogin, setIsLogIn }) {
           placeholder="Search For Musics, Artists, Albums"
         />
       </div>
+
       {isLogin ? (
         <>
+          {/* Show username and logout when logged in */}
           <span className="px-3 py-1 text-pink-400 font-bold">
             Hello, {userName}
           </span>
@@ -57,20 +74,23 @@ export default function Navbar({ isLogin, setIsLogIn }) {
           </button>
         </>
       ) : (
-        <div className="hidden md:flex gap-4 md:mr-20">
-          <Link
-            to="/login"
-            className="bg-black hover:bg-pink-600 hover:text-black px-5 py-2 rounded-full text-pink-400 font-bold min-w-30 text-center"
-          >
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="border border-white text-black bg-pink-500 hover:bg-black hover:text-pink-400 px-5 py-2 rounded-full font-bold min-w-30 text-center"
-          >
-            Sign Up
-          </Link>
-        </div>
+        <>
+          {/* Show login/signup buttons when not logged in (desktop only) */}
+          <div className="hidden md:flex gap-4 md:mr-20">
+            <Link
+              to="/login"
+              className="bg-black hover:bg-pink-600 hover:text-black px-5 py-2 rounded-full text-pink-400 font-bold min-w-30 text-center"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="border border-white text-black bg-pink-500 hover:bg-black hover:text-pink-400 px-5 py-2 rounded-full font-bold min-w-30 text-center"
+            >
+              Sign Up
+            </Link>
+          </div>
+        </>
       )}
     </nav>
   );

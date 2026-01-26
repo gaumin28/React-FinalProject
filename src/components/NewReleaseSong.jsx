@@ -1,7 +1,7 @@
 import Card from "./Card";
 import newReleaseData from "../data/newReleaseSong";
 
-export default function NewReleaseSong() {
+export default function NewReleaseSong({ isLogin }) {
   return (
     <section>
       <h2 className="text-2xl font-bold">
@@ -11,6 +11,7 @@ export default function NewReleaseSong() {
         {newReleaseData.map((song) => (
           <Card
             key={song.id}
+            isLogin={isLogin}
             id={song.id}
             name={song.name}
             artist={song.artist}

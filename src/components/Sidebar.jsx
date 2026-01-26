@@ -11,7 +11,7 @@ export default function Sidebar({ isLogin }) {
           Melodies
         </h1>
       </div>
-      {/* menu */}
+
       <div>
         <h2 className="text-sm text-pink-400 mb-2">Menu</h2>
         <ul className="space-y-2">
@@ -40,7 +40,7 @@ export default function Sidebar({ isLogin }) {
           </li>
         </ul>
       </div>
-      {/* Library */}
+
       <div>
         <h2 className="text-sm text-pink-400 mb-2">Library</h2>
         <ul className="space-y-2">
@@ -56,7 +56,7 @@ export default function Sidebar({ isLogin }) {
           </li>
         </ul>
       </div>
-      {/* Playlist and favourite */}
+
       {isLogin && (
         <div>
           <h2 className="text-sm text-pink-400 mb-2">Playlist and favorite</h2>

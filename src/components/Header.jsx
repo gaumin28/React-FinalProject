@@ -1,7 +1,9 @@
 import { Link } from "react-router";
 
 export default function Header({ isLogin, setIsLogIn }) {
+  // Get username from localStorage to display greeting
   const userName = localStorage.getItem("userName");
+
   return (
     <header className="flex items-center justify-between p-4 md:hidden bg-[#0E1920]">
       <div className="flex items-center gap-3">
@@ -12,11 +14,14 @@ export default function Header({ isLogin, setIsLogIn }) {
         >
           ☰
         </button>
+
         <h1 className="text-lg font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
           Melodies
         </h1>
+
         {isLogin ? (
           <>
+            {/* Show username and logout button when logged in */}
             <span className="px-3 py-1 text-pink-400 font-bold">
               Hello, {userName}
             </span>
@@ -26,6 +31,7 @@ export default function Header({ isLogin, setIsLogIn }) {
           </>
         ) : (
           <>
+            {/* Show login/signup buttons when not logged in */}
             <Link
               className="px-3 py-1 bg-black rounded-full text-pink-400 font-bold"
               to="/login"

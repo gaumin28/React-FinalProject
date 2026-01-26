@@ -22,19 +22,27 @@ export default function YourPlaylist({
           {/* <Navbar /> */}
 
           <div className="max-w-5xl mx-auto">
-            <div className="flex justify-end mr-2 mb-5">
-              <h1 className="px-3 py-1 text-pink-400 font-bold">
-                Hello, {userName}
-              </h1>
-              <button
-                onClick={() => {
-                  setIsLogIn(false);
-                  navigate("/");
-                }}
-                className="logoutBtn"
+            <div className="flex justify-between mr-2 mb-5">
+              <span
+                onClick={() => navigate("/")}
+                className="cursor-pointer text-2xl"
               >
-                Logout
-              </button>
+                <span>🏠</span> Home
+              </span>
+              <div className="flex">
+                <h1 className="px-3 py-1 text-pink-400 font-bold">
+                  Hello, {userName}
+                </h1>
+                <button
+                  onClick={() => {
+                    setIsLogIn(false);
+                    navigate("/");
+                  }}
+                  className="logoutBtn"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
 
             <Banner image={my_playlist} title={"My Playlist"} />
