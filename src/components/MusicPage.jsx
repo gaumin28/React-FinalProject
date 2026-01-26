@@ -208,11 +208,11 @@ export default function MusicPage() {
 
               <button
                 onClick={handlePreviousSong}
-                disabled={selectedIndex < 0}
+                disabled={selectedIndex === 0}
                 className="self-center"
               >
                 <img
-                  className={`size-12 ${selectedIndex >= mySongList.length - 1 ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+                  className={`size-12 ${selectedIndex === 0 ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
                   src={back_icon}
                   alt="back-icon"
                 />

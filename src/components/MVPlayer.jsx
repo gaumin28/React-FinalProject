@@ -5,7 +5,7 @@ import TrendingSong from "./TrendingSong";
 import Footer from "./Footer";
 import musicVideo from "../data/musicVideo";
 import VideoCard from "./VideoCard";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 
 export default function MVPlayer({ isLogin, setIsLogIn }) {
   const location = useLocation();

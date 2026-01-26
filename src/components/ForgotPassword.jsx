@@ -41,7 +41,7 @@ export default function ForgotPassword() {
       const user = users.find((u) => u.email === email);
 
       if (!user) {
-        alert("Email not exist, please sign up");
+        alert("Email does not exist, please sign up");
         return;
       }
       setIsLoading(true);
