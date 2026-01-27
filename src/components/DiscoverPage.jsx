@@ -9,15 +9,15 @@ import Sidebar from "./Sidebar";
 import NewAlbum from "./NewAlbum";
 import Footer from "./Footer";
 
-export default function DiscoverPage({ isLogin }) {
+export default function DiscoverPage({ isLogin, isSidebar, setIsSidebar }) {
   return (
     <>
-      <Header isLogin={isLogin} />
+      {/* <Header isLogin={isLogin} setIsSidebar={setIsSidebar} /> */}
 
-      <Sidebar isLogin={isLogin} />
+      <Sidebar isLogin={isLogin} isSidebar={isSidebar} />
 
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} />
+        <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
 
         <div className="max-w-5xl mx-auto mt-10 space-y-10">
           <MusicGenre isLogin={isLogin} />

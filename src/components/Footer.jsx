@@ -83,7 +83,7 @@ export default function Footer({ isLogin }) {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between items-start md:items-end">
+        <div className="flex flex-col items-end">
           <h2 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
             Melodies
           </h2>

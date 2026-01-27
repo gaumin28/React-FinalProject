@@ -3,18 +3,20 @@ import songList from "./songList";
 import moodPlaylist from "./moodPlaylist";
 import newReleaseData from "./newReleaseSong";
 import popularArtists from "./popularArtist";
-import weekylyData from "./weeklyData";
+import weeklyData from "./weeklyData";
 import eminemSongs from "./eminemSongs";
 import genreSongs from "./genreSongs";
+import newAlbum from "./newAlbum";
 
 const mySongList = [
   ...songList,
   ...moodPlaylist.flatMap((playlist) => playlist.songs),
   ...newReleaseData,
   ...popularArtists.flatMap((artist) => artist.songs),
-  ...weekylyData,
+  ...weeklyData,
   ...eminemSongs,
   ...genreSongs.flatMap((genre) => genre.songs),
+  ...newAlbum.flatMap((album) => album.songs),
 ];
 
 export default mySongList;

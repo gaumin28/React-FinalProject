@@ -15,6 +15,8 @@ export default function ArtistPage({
   isLogin,
   currentPlayingId,
   setCurrentPlayingId,
+  setIsSidebar,
+  isSidebar,
 }) {
   // Get the navigation location state
   const location = useLocation();
@@ -49,12 +51,12 @@ export default function ArtistPage({
 
   return (
     <>
-      <Header isLogin={isLogin} />
+      {/* <Header isLogin={isLogin} setIsSidebar={setIsSidebar} /> */}
 
-      <Sidebar isLogin={isLogin} />
+      <Sidebar isLogin={isLogin} isSidebar={isSidebar} />
 
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} />
+        <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
 
         <div className="max-w-5xl mx-auto">
           <ArtistBanner selectedArtistIndex={selectedArtistIndex} />

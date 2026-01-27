@@ -15,15 +15,21 @@ export default function Home({
   setIsLogIn,
   currentPlayingId,
   setCurrentPlayingId,
+  isSidebar,
+  setIsSidebar,
 }) {
   return (
     <>
-      <Header isLogin={isLogin} setIsLogIn={setIsLogIn} />
+      {/* <Header isLogin={isLogin} setIsSidebar={setIsSidebar} /> */}
 
-      <Sidebar isLogin={isLogin} />
+      <Sidebar isLogin={isLogin} isSidebar={isSidebar} />
 
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} setIsLogIn={setIsLogIn} />
+        <Navbar
+          isLogin={isLogin}
+          setIsLogIn={setIsLogIn}
+          setIsSidebar={setIsSidebar}
+        />
 
         <SlideImg />
 

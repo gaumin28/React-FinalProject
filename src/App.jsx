@@ -22,7 +22,7 @@ import GenrePlayer from "./components/GenrePlayer";
 function App() {
   const [isLogin, setIsLogIn] = useState(false);
   const [currentPlayingId, setCurrentPlayingId] = useState(null);
-
+  const [isSidebar, setIsSidebar] = useState(false);
   return (
     <>
       <BrowserRouter>
@@ -40,6 +40,8 @@ function App() {
             path="/"
             element={
               <Home
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
                 isLogin={isLogin}
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
@@ -49,12 +51,21 @@ function App() {
           />
           <Route
             path="/discover"
-            element={<DiscoverPage isLogin={isLogin} setIsLogIn={setIsLogIn} />}
+            element={
+              <DiscoverPage
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
+              />
+            }
           />
           <Route
             path="/album"
             element={
               <AlbumPage
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
                 isLogin={isLogin}
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
@@ -66,6 +77,8 @@ function App() {
             path="/artist"
             element={
               <ArtistPage
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
                 isLogin={isLogin}
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
@@ -77,6 +90,8 @@ function App() {
             path="/recently-added"
             element={
               <RecentlyAdded
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
                 isLogin={isLogin}
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
@@ -88,6 +103,8 @@ function App() {
             path="/most-played"
             element={
               <MostPlayed
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
                 isLogin={isLogin}
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
@@ -99,6 +116,8 @@ function App() {
             path="/your-playlist"
             element={
               <YourPlaylist
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
                 isLogin={isLogin}
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}

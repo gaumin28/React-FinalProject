@@ -12,6 +12,8 @@ export default function NewAlbum() {
         {newAlbum.map((album) => (
           <CardAlbum
             key={album.id}
+            album={album}
+            id={album.id}
             name={album.name}
             artist={album.artist}
             image={album.image}

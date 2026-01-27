@@ -41,7 +41,13 @@ function TrendingSong({ currentPlayingId, setCurrentPlayingId }) {
   );
 }
 
-function RecentlyAdded({ isLogin, currentPlayingId, setCurrentPlayingId }) {
+function RecentlyAdded({
+  isLogin,
+  currentPlayingId,
+  setCurrentPlayingId,
+  setIsSidebar,
+  isSidebar,
+}) {
   const songNames = newReleaseData
     .filter((song, index) => index < 7)
     .reduce((acc, song, index) => {
@@ -62,10 +68,11 @@ function RecentlyAdded({ isLogin, currentPlayingId, setCurrentPlayingId }) {
   const totalDuration = `${hours}h:${String(minutes).padStart(2, "0")}m:${String(seconds).padStart(2, "0")}s`;
   return (
     <>
-      <Header isLogin={isLogin} />
-      <Sidebar isLogin={isLogin} />
+      {/* <Header isLogin={isLogin} setIsSidebar={setIsSidebar} /> */}
+
+      <Sidebar isLogin={isLogin} isSidebar={isSidebar} />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} />
+        <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
         <div className="max-w-5xl mx-auto">
           <Banner
             songNames={songNames}

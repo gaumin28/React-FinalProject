@@ -1,16 +1,18 @@
 import { Link } from "react-router";
 
-export default function Header({ isLogin, setIsLogIn }) {
+export default function Header({ setIsSidebar }) {
   // Get username from localStorage to display greeting
-  const userName = localStorage.getItem("userName");
-
+  // const userName = localStorage.getItem("userName");
+  function handleToggleSidebar() {
+    setIsSidebar((prev) => !prev);
+  }
   return (
-    <header className="flex items-center justify-between p-4 md:hidden bg-[#0E1920]">
-      <div className="flex items-center gap-3">
+    <header className="w-20 p-2 mr-10 md:hidden ">
+      <div className="flex items-center justify-between gap-3">
         <button
-          id="toggleSidebar"
+          onClick={handleToggleSidebar}
           aria-label="Toggle menu"
-          className="p-2 rounded-md bg-pink-500 text-black font-bold"
+          className="p-1 rounded-md bg-pink-500 text-black font-bold"
         >
           ☰
         </button>
@@ -18,34 +20,6 @@ export default function Header({ isLogin, setIsLogIn }) {
         <h1 className="text-lg font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
           Melodies
         </h1>
-
-        {isLogin ? (
-          <>
-            {/* Show username and logout button when logged in */}
-            <span className="px-3 py-1 text-pink-400 font-bold">
-              Hello, {userName}
-            </span>
-            <button onClick={() => setIsLogIn(false)} className="logoutBtn">
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            {/* Show login/signup buttons when not logged in */}
-            <Link
-              className="px-3 py-1 bg-black rounded-full text-pink-400 font-bold"
-              to="/login"
-            >
-              Login
-            </Link>
-            <Link
-              className="px-3 py-1 bg-pink-500 rounded-full text-black font-bold"
-              to="/signup"
-            >
-              Sign Up
-            </Link>
-          </>
-        )}
       </div>
     </header>
   );

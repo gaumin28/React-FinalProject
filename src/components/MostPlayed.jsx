@@ -11,6 +11,8 @@ export default function MostPlayed({
   isLogin,
   currentPlayingId,
   setCurrentPlayingId,
+  setIsSidebar,
+  isSidebar,
 }) {
   const songNames = songList
     .filter((id) => id < 7)
@@ -33,10 +35,11 @@ export default function MostPlayed({
 
   return (
     <>
-      <Header isLogin={isLogin} />
-      <Sidebar isLogin={isLogin} />
+      {/* <Header isLogin={isLogin} setIsSidebar={setIsSidebar} /> */}
+
+      <Sidebar isLogin={isLogin} isSidebar={isSidebar} />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} />
+        <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
         <div className="max-w-5xl mx-auto">
           <Banner
             songNames={songNames}

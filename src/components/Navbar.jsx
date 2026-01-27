@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router";
 import songList from "../data/songList";
 import { useRef } from "react";
+import Header from "./Header";
 
-export default function Navbar({ isLogin, setIsLogIn }) {
+export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
   // Get username from localStorage for greeting
   const userName = localStorage.getItem("userName");
 
@@ -39,6 +40,7 @@ export default function Navbar({ isLogin, setIsLogIn }) {
 
   return (
     <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 bg-transparent z-10">
+      <Header setIsSidebar={setIsSidebar} />
       <div className="relative flex-1 md:ml-20">
         <button
           onClick={handleSearch}
@@ -76,7 +78,7 @@ export default function Navbar({ isLogin, setIsLogIn }) {
       ) : (
         <>
           {/* Show login/signup buttons when not logged in (desktop only) */}
-          <div className="hidden md:flex gap-4 md:mr-20">
+          <div className=" md:flex gap-4 md:mr-20">
             <Link
               to="/login"
               className="bg-black hover:bg-pink-600 hover:text-black px-5 py-2 rounded-full text-pink-400 font-bold min-w-30 text-center"
