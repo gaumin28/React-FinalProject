@@ -18,11 +18,18 @@ import ForgotPassword from "./components/ForgotPassword";
 import FacebookPage from "./components/FacebookPage";
 import MVPlayer from "./components/MVPlayer";
 import GenrePlayer from "./components/GenrePlayer";
+import themeColor from "./data/colorTheme";
+import ContactPage from "./components/ContactPage";
 
 function App() {
   const [isLogin, setIsLogIn] = useState(false);
   const [currentPlayingId, setCurrentPlayingId] = useState(null);
   const [isSidebar, setIsSidebar] = useState(false);
+  const [idThemeSelected, setIdThemeSelected] = useState(11);
+  useEffect(() => {
+    const theme = themeColor.find((theme) => theme.id === idThemeSelected);
+    document.body.className = `min-h-screen ${theme.style} text-white`;
+  }, [idThemeSelected]);
   return (
     <>
       <BrowserRouter>
@@ -46,6 +53,8 @@ function App() {
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
               />
             }
           />
@@ -57,6 +66,8 @@ function App() {
                 setIsLogIn={setIsLogIn}
                 isSidebar={isSidebar}
                 setIsSidebar={setIsSidebar}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
               />
             }
           />
@@ -70,6 +81,8 @@ function App() {
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
               />
             }
           />
@@ -83,6 +96,8 @@ function App() {
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
               />
             }
           />
@@ -96,6 +111,8 @@ function App() {
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
               />
             }
           />
@@ -109,6 +126,8 @@ function App() {
                 setIsLogIn={setIsLogIn}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
               />
             }
           />
@@ -169,6 +188,7 @@ function App() {
               />
             }
           />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
 
         {/* <SignUpPage /> */}

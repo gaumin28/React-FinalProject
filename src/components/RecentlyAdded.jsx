@@ -47,6 +47,8 @@ function RecentlyAdded({
   setCurrentPlayingId,
   setIsSidebar,
   isSidebar,
+  idThemeSelected,
+  setIdThemeSelected,
 }) {
   const songNames = newReleaseData
     .filter((song, index) => index < 7)
@@ -70,7 +72,12 @@ function RecentlyAdded({
     <>
       {/* <Header isLogin={isLogin} setIsSidebar={setIsSidebar} /> */}
 
-      <Sidebar isLogin={isLogin} isSidebar={isSidebar} />
+      <Sidebar
+        isLogin={isLogin}
+        isSidebar={isSidebar}
+        idThemeSelected={idThemeSelected}
+        setIdThemeSelected={setIdThemeSelected}
+      />
       <main className="flex-1 p-4 md:p-6">
         <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
         <div className="max-w-5xl mx-auto">
