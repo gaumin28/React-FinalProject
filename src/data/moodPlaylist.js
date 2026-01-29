@@ -1,0 +1,183 @@
+import SadSongs from "../image/Sad-song.png";
+import ChillVibes from "../image/ChillVibes.jpg";
+import HappyBeats from "../image/HappyBeats.jpg";
+import Romantic from "../image/Romantic.jpg";
+import Energy from "../image/Energy.jpg";
+import Focus from "../image/Focus.jpg";
+
+const moodPlaylist = [
+  {
+    id: 1,
+    name: "Chill Vibes",
+    description: "Relaxing music to unwind",
+    image: ChillVibes,
+    songs: [
+      { id: 23, image: ChillVibes, name: "Sunday Morning", duration: "03:45" },
+      { id: 24, image: ChillVibes, name: "Ocean Eyes", duration: "03:20" },
+      {
+        id: 25,
+        image: ChillVibes,
+        name: "Slow Dancing in the Dark",
+        duration: "03:30",
+      },
+      { id: 26, image: ChillVibes, name: "Electric Feel", duration: "03:49" },
+      { id: 27, image: ChillVibes, name: "Flume", duration: "03:39" },
+      { id: 28, image: ChillVibes, name: "Kids", duration: "04:23" },
+      { id: 29, image: ChillVibes, name: "Sunset Lover", duration: "03:12" },
+      { id: 30, image: ChillVibes, name: "Cherry Wine", duration: "03:58" },
+      {
+        id: 31,
+        image: ChillVibes,
+        name: "Feels Like We Only Go Backwards",
+        duration: "03:12",
+      },
+      { id: 32, image: ChillVibes, name: "Let It Happen", duration: "07:47" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Happy Beats",
+    description: "Uplifting songs to boost your mood",
+    image: HappyBeats,
+    songs: [
+      { id: 33, image: HappyBeats, name: "Good as Hell", duration: "02:39" },
+      {
+        id: 34,
+        image: HappyBeats,
+        name: "Walking on Sunshine",
+        duration: "03:58",
+      },
+      { id: 35, image: HappyBeats, name: "Happy", duration: "03:53" },
+      {
+        id: 36,
+        image: HappyBeats,
+        name: "Don't Stop Me Now",
+        duration: "03:29",
+      },
+      { id: 37, image: HappyBeats, name: "I Gotta Feeling", duration: "04:49" },
+      { id: 38, image: HappyBeats, name: "Uptown Funk", duration: "04:30" },
+      {
+        id: 39,
+        image: HappyBeats,
+        name: "Shut Up and Dance",
+        duration: "03:20",
+      },
+      {
+        id: 40,
+        image: HappyBeats,
+        name: "Can't Stop the Feeling",
+        duration: "03:56",
+      },
+      { id: 41, image: HappyBeats, name: "Shake It Off", duration: "03:39" },
+      {
+        id: 42,
+        image: HappyBeats,
+        name: "Best Day of My Life",
+        duration: "03:14",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Sad Songs",
+    description: "Emotional tracks for reflective moments",
+    image: SadSongs,
+    songs: [
+      {
+        id: 43,
+        image: SadSongs,
+        name: "Someone Like You",
+        duration: "04:45",
+      },
+      {
+        id: 44,
+        image: SadSongs,
+        name: "The Night We Met",
+        duration: "03:28",
+      },
+      { id: 45, image: SadSongs, name: "Hurt", duration: "03:38" },
+      { id: 46, image: SadSongs, name: "Skinny Love", duration: "03:58" },
+      { id: 47, image: SadSongs, name: "Mad World", duration: "03:10" },
+      { id: 48, image: SadSongs, name: "Everybody Hurts", duration: "05:17" },
+      { id: 49, image: SadSongs, name: "Tears in Heaven", duration: "04:31" },
+      { id: 50, image: SadSongs, name: "Fix You", duration: "04:54" },
+      { id: 51, image: SadSongs, name: "Creep", duration: "03:58" },
+      { id: 52, image: SadSongs, name: "Yesterday", duration: "02:03" },
+    ],
+  },
+  {
+    id: 4,
+    name: "Workout Energy",
+    description: "High-energy tracks to pump you up",
+    image: Energy,
+    songs: [
+      { id: 53, image: Energy, name: "Eye of the Tiger", duration: "04:04" },
+      { id: 54, image: Energy, name: "Stronger", duration: "03:42" },
+      { id: 55, image: Energy, name: "Till I Collapse", duration: "04:57" },
+      { id: 56, image: Energy, name: "Lose Yourself", duration: "05:26" },
+      { id: 57, image: Energy, name: "Can't Hold Us", duration: "04:18" },
+      { id: 58, image: Energy, name: "Remember the Name", duration: "03:50" },
+      { id: 59, image: Energy, name: "Thunder", duration: "03:07" },
+      { id: 60, image: Energy, name: "Centuries", duration: "03:47" },
+      { id: 61, image: Energy, name: "Radioactive", duration: "03:06" },
+      { id: 62, image: Energy, name: "Warriors", duration: "02:51" },
+    ],
+  },
+  {
+    id: 5,
+    name: "Romantic Night",
+    description: "Smooth love songs for special moments",
+    image: Romantic,
+    songs: [
+      { id: 63, image: Romantic, name: "Perfect", duration: "04:23" },
+      { id: 64, image: Romantic, name: "Thinking Out Loud", duration: "04:41" },
+      { id: 65, image: Romantic, name: "All of Me", duration: "04:29" },
+      { id: 66, image: Romantic, name: "Marry You", duration: "03:50" },
+      { id: 67, image: Romantic, name: "A Thousand Years", duration: "04:45" },
+      {
+        id: 68,
+        image: Romantic,
+        name: "Make You Feel My Love",
+        duration: "03:32",
+      },
+      { id: 69, image: Romantic, name: "Endless Love", duration: "04:24" },
+      { id: 70, image: Romantic, name: "At Last", duration: "03:01" },
+      {
+        id: 71,
+        image: Romantic,
+        name: "Can't Help Falling in Love",
+        duration: "03:01",
+      },
+      { id: 72, image: Romantic, name: "Unchained Melody", duration: "03:36" },
+    ],
+  },
+  {
+    id: 6,
+    name: "Focus & Study",
+    description: "Instrumental music to help you concentrate",
+    image: Focus,
+    songs: [
+      { id: 1, image: Focus, name: "Clair de Lune", duration: "05:24" },
+      { id: 2, image: Focus, name: "Gymnopédie No. 1", duration: "03:32" },
+      { id: 3, image: Focus, name: "Moonlight Sonata", duration: "05:52" },
+      { id: 4, image: Focus, name: "River Flows in You", duration: "03:38" },
+      { id: 5, image: Focus, name: "Nuvole Bianche", duration: "05:57" },
+      { id: 6, image: Focus, name: "Experience", duration: "05:15" },
+      {
+        id: 7,
+        image: Focus,
+        name: "Comptine d'un autre été",
+        duration: "02:18",
+      },
+      { id: 8, image: Focus, name: "Für Elise", duration: "02:54" },
+      { id: 9, image: Focus, name: "Canon in D", duration: "05:40" },
+      {
+        id: 10,
+        image: Focus,
+        name: "The Four Seasons: Spring",
+        duration: "03:33",
+      },
+    ],
+  },
+];
+export default moodPlaylist;
