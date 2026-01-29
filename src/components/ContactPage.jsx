@@ -1,7 +1,6 @@
 import Sidebar from "./Sidebar";
 import melody_big_logo from "../image/melody_big_logo.png";
 import { useState } from "react";
-import ChatBot from "./ChatBot";
 
 export default function ContactPage() {
   const [value, setValue] = useState({
