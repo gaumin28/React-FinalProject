@@ -1,7 +1,25 @@
 import Sidebar from "./Sidebar";
 import melody_big_logo from "../image/melody_big_logo.png";
+import { useState } from "react";
+import ChatBot from "./ChatBot";
 
 export default function ContactPage() {
+  const [value, setValue] = useState({
+    issues: "select-issue",
+    content: "",
+    fname: "",
+    email: "",
+    tel: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <>
       <Sidebar />
@@ -19,13 +37,33 @@ export default function ContactPage() {
             with us.
           </p>
         </div>
-        <form action="">
-          <label htmlFor="">Select the issue you need assisstance with:</label>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            alert("We have received your feedback!");
+            setValue((prev) => {
+              return {
+                ...prev,
+                issues: "select-issue",
+                content: "",
+                fname: "",
+                email: "",
+                tel: "",
+              };
+            });
+          }}
+        >
+          <label htmlFor="issues">
+            Select the issue you need assisstance with:
+          </label>
           <br />
           <select
-            className="border border-[#ddd] rounded p-1"
-            name="cars"
-            id="cars"
+            required
+            className="border border-[#ddd] rounded p-1 my-1"
+            name="issues"
+            id="issues"
+            value={value.issues}
+            onChange={handleChange}
           >
             <option className="text-black" value="select-issue">
               Select the issue you need to contact
@@ -41,32 +79,62 @@ export default function ContactPage() {
             </option>
           </select>
           <br />
-          <label htmlFor="">Content:</label>
+          <label htmlFor="content">Content:</label>
           <br />
           <textarea
+            required
             className="border
-            border-[#ddd] rounded outline-0"
-            name=""
-            id=""
+            border-[#ddd] rounded outline-0 my-1"
+            name="content"
+            id="content"
+            value={value.content}
+            onChange={handleChange}
             rows={4}
             cols={35}
           ></textarea>
           <br />
-          <label htmlFor="">Full name:</label>
+          <label htmlFor="fname">Full name:</label>
           <br />
-          <input type="text" />
+          <input
+            className="border border-[#ddd] rounded p-1 w-70 my-1"
+            required
+            type="text"
+            id="fname"
+            value={value.fname}
+            name="fname"
+            onChange={handleChange}
+          />
           <br />
-          <label htmlFor="">Email:</label>
+          <label htmlFor="email">Email:</label>
           <br />
-          <input type="email" name="" id="" />
+          <input
+            className="border border-[#ddd] rounded p-1 w-70 my-1"
+            required
+            type="email"
+            name="email"
+            id="email"
+            value={value.email}
+            onChange={handleChange}
+          />
           <br />
-          <label htmlFor="">Phone number:</label>
+          <label htmlFor="tel">Phone number:</label>
           <br />
-          <input type="tel" />
+          <input
+            className="border border-[#ddd] rounded p-1 w-70 my-1"
+            required
+            type="tel"
+            id="tel"
+            name="tel"
+            value={value.tel}
+            onChange={handleChange}
+          />
           <br />
-          <button>Send</button>
+          <button className="cursor-pointer w-15 rounded p-1 bg-pink-400 mt-1">
+            Send
+          </button>
         </form>
       </section>
+      {/* <ChatBot /> */}
     </>
   );
 }

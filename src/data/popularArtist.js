@@ -204,7 +204,7 @@ const popularArtists = [
         image: LetItBe,
       },
       {
-        id: 101,
+        id: 1010,
         name: "My Dear",
         artist: "ROSÉ",
         releaseDate: "2021-03-12",

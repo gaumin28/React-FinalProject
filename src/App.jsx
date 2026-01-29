@@ -30,6 +30,7 @@ function App() {
     const theme = themeColor.find((theme) => theme.id === idThemeSelected);
     document.body.className = `min-h-screen ${theme.style} text-white`;
   }, [idThemeSelected]);
+
   return (
     <>
       <BrowserRouter>
