@@ -134,7 +134,6 @@ export default function ContactPage() {
           </button>
         </form>
       </section>
-      {/* <ChatBot /> */}
     </>
   );
 }
