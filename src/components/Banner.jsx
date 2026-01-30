@@ -16,7 +16,7 @@ export default function Banner({
   image,
 }) {
   return (
-    <section className="bg-linear-to-r from-blue-600 to-blue-400 opacity-80 rounded-md p-4 md:p-6">
+    <section className="section-card opacity-90 rounded-md p-4 md:p-6">
       <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 mt-6">
         {/* Album/Playlist cover image */}
         <div className="shrink-0">

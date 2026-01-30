@@ -8,7 +8,7 @@ export default function TrendingSong({
 }) {
   return (
     <section>
-      <h2 className="text-2xl font-bold">
+      <h2 className="section-title">
         Trending <span className="text-pink-400">Songs</span>
       </h2>
       <div className="hidden md:flex justify-between text-white mb-2">

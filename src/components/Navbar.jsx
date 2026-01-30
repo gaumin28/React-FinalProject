@@ -39,7 +39,7 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
   }
 
   return (
-    <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 bg-transparent z-10">
+    <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 z-10 nav-blur">
       <Header setIsSidebar={setIsSidebar} />
       <div className="relative flex-1 md:ml-20">
         <button
@@ -59,7 +59,7 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
         <input
           ref={ref}
           name="searchText"
-          className="w-full max-w-md bg-[#656565] px-10 py-2 rounded-lg text-gray-200"
+          className="input-field w-full max-w-md px-10 py-2 rounded-lg"
           type="text"
           placeholder="Search For Musics, Artists, Albums"
         />
@@ -71,7 +71,7 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
           <span className="px-3 py-1 text-pink-400 font-bold">
             Hello, {userName}
           </span>
-          <button onClick={() => setIsLogIn(false)} className="logoutBtn">
+          <button onClick={() => setIsLogIn(false)} className="btn btn-primary">
             Logout
           </button>
         </>
@@ -79,16 +79,10 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
         <>
           {/* Show login/signup buttons when not logged in (desktop only) */}
           <div className=" md:flex gap-4 md:mr-20">
-            <Link
-              to="/login"
-              className="bg-black hover:bg-pink-600 hover:text-black px-5 py-2 rounded-full text-pink-400 font-bold min-w-30 text-center"
-            >
+            <Link to="/login" className="btn btn-ghost min-w-30 text-center">
               Login
             </Link>
-            <Link
-              to="/signup"
-              className="border border-white text-black bg-pink-500 hover:bg-black hover:text-pink-400 px-5 py-2 rounded-full font-bold min-w-30 text-center"
-            >
+            <Link to="/signup" className="btn btn-primary min-w-30 text-center">
               Sign Up
             </Link>
           </div>

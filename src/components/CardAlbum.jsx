@@ -13,7 +13,7 @@ export default function CardAlbum({ name, artist, image, id, album }) {
   return (
     <div
       onClick={handleSelect}
-      className="w-28 md:w-32 h-42 bg-[#1F1F1F] rounded cursor-pointer"
+      className="card-surface w-28 md:w-32 h-42 rounded cursor-pointer"
     >
       <img
         className="size-24 md:size-28 h-auto rounded mx-auto mt-2 mb-2"

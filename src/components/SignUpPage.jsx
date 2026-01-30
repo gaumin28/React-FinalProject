@@ -50,98 +50,96 @@ export default function SignUpPage() {
   return (
     <div
       style={{ backgroundImage: `url(${LoginBackground})` }}
-      className="w-107.5 h-233 mx-auto"
+      className="auth-shell"
     >
-      <div className="bg-linear-to-br from-[#412c3a] to-[#0E1920] h-233 opacity-80">
-        <div className="flex flex-col justify-around h-233 bg-[#412c3a]">
-          <div className="self-center flex flex-col gap-4">
-            <img src={MelodyLogo} alt="Melody Logo" />
-            <h2 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
-              Melodies
-            </h2>
-          </div>
+      <div className="auth-card text-white">
+        <div className="flex flex-col items-center gap-3 mb-6">
+          <img className="auth-logo" src={MelodyLogo} alt="Melody Logo" />
+          <h2 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
+            Melodies
+          </h2>
+          <p className="auth-subtitle">Create your account</p>
+        </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-15">
-            <Link className="ml-10" to={"/login"}>
-              <svg
-                className="size-5"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-              >
-                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 105.4-105.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-              </svg>
-            </Link>
-            <h1 className="text-white text-2xl self-center">
-              Sign Up To Continue
-            </h1>
-            <label htmlFor="userName"></label>
-            <br />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="form-label" htmlFor="userName">
+              Name
+            </label>
             <input
               id="userName"
               name="userName"
-              className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
+              className="input-field w-full rounded-xl px-4 py-2"
               type="text"
               value={formData.userName}
               onChange={handleChange}
-              placeholder="Name"
+              placeholder="Your name"
+              required
             />
+          </div>
 
-            <label htmlFor="email"></label>
-            <br />
+          <div>
+            <label className="form-label" htmlFor="email">
+              Email
+            </label>
             <input
               id="email"
               name="email"
-              className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
+              className="input-field w-full rounded-xl px-4 py-2"
               type="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="E-mail"
+              placeholder="you@example.com"
               required
             />
+          </div>
 
-            <label htmlFor="password"></label>
-            <br />
+          <div>
+            <label className="form-label" htmlFor="password">
+              Password
+            </label>
             <input
               id="password"
               name="password"
-              className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
+              className="input-field w-full rounded-xl px-4 py-2"
               type="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="Password"
+              placeholder="Create a password"
               required
             />
+          </div>
 
-            <label htmlFor="phoneNumber"></label>
-            <br />
+          <div>
+            <label className="form-label" htmlFor="phoneNumber">
+              Phone Number
+            </label>
             <input
               id="phoneNumber"
               name="phoneNumber"
-              className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
+              className="input-field w-full rounded-xl px-4 py-2"
               type="tel"
               value={formData.phoneNumber}
               onChange={handleChange}
-              placeholder="Phone Number"
+              placeholder="Optional"
             />
+          </div>
 
-            <div className="flex justify-end mt-10">
-              <button
-                type="submit"
-                className="flex justify-end text-white bg-pink-800 rounded-[20px] px-8 py-1 mr-10 opacity-100 cursor-pointer"
-              >
-                Create an account
-              </button>
-            </div>
+          <button type="submit" className="btn btn-primary w-full">
+            Create account
+          </button>
 
-            <p className="self-center text-md">
-              Already have account?{" "}
-              <Link className="text-blue-400" to={"/login"}>
-                Login
-              </Link>
-            </p>
-          </form>
-          {message && <p className="self-center text-white mt-2">{message}</p>}
-        </div>
+          <p className="text-center text-sm text-gray-300">
+            Already have an account?{" "}
+            <Link className="text-pink-300 hover:text-pink-200" to={"/login"}>
+              Login
+            </Link>
+          </p>
+        </form>
+
+        {message && (
+          <p className="text-center text-sm text-white mt-4">{message}</p>
+        )}
       </div>
     </div>
   );

@@ -23,8 +23,8 @@ export default function MVPlayer({ isLogin, setIsLogIn }) {
         <div className="max-w-5xl mx-auto">
           {/* Video Player Section */}
           <section className="mb-8">
-            <div className="bg-[#1F1F1F] border border-[#2A2A2A] rounded-xl p-4 shadow-lg space-y-4">
-              <h1 className="text-2xl font-bold text-white">
+            <div className="card-surface rounded-xl p-4 space-y-4">
+              <h1 className="section-title text-white">
                 Music <span className="text-pink-400">Video</span>
               </h1>
 
@@ -47,7 +47,7 @@ export default function MVPlayer({ isLogin, setIsLogIn }) {
           </section>
 
           <section className="px-4">
-            <h2 className="text-2xl font-bold">
+            <h2 className="section-title">
               Music <span className="text-pink-400">Video</span>
             </h2>
             <div className="flex flex-col items-center flex-wrap gap-4 mt-6 md:flex-row">

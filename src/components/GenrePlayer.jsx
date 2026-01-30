@@ -32,7 +32,7 @@ export default function GenrePlayer({
           />
 
           <section>
-            <h2 className="text-2xl font-bold">
+            <h2 className="section-title">
               {playlistSelected.name}{" "}
               <span className="text-pink-400">Songs</span>
             </h2>

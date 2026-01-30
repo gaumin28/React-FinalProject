@@ -29,7 +29,7 @@ export default function MyPlaylistSong({
   }, []);
   return (
     <section>
-      <h2 className="text-2xl font-bold">
+      <h2 className="section-title">
         My <span className="text-pink-400">Playlist</span>
       </h2>
       <div className="hidden md:flex justify-between text-white mb-2">

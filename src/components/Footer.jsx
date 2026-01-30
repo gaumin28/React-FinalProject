@@ -8,7 +8,7 @@ export default function Footer({ isLogin }) {
   const nav = useNavigate();
   return (
     <footer className="mt-10">
-      <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+      <div className="footer-panel max-w-5xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
         <div className="md:col-span-1">
           <h2 className="text-2xl font-bold mb-4">About</h2>
           <p className="text-sm">

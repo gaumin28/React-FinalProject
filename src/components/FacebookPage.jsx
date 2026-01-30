@@ -109,16 +109,16 @@ export default function FacebookPage({ isLogin }) {
     <>
       <Header isLogin={isLogin} />
 
-      <main className="min-h-screen bg-white flex justify-center">
-        <div className="max-w-5xl w-full space-y-6">
-          <section className="bg-white border border-[#e5e7eb] rounded-xl p-4 shadow-sm">
+      <main className="flex-1 p-4 md:p-6">
+        <div className="max-w-5xl w-full mx-auto space-y-6">
+          <section className="card-surface rounded-xl p-4">
             <div className="flex items-center gap-3 mb-3">
-              <div className="h-10 w-10 rounded-full bg-[#1877f2] text-white font-bold flex items-center justify-center">
+              <div className="h-10 w-10 rounded-full bg-pink-500 text-white font-bold flex items-center justify-center">
                 {(userName || "M").charAt(0)}
               </div>
               <div>
-                <p className="text-[#1c1e21] font-bold">Melody Community</p>
-                <p className="text-gray-500 text-sm">
+                <p className="text-white font-bold">Melody Community</p>
+                <p className="text-gray-300 text-sm">
                   Share what you are listening to
                 </p>
               </div>
@@ -127,7 +127,7 @@ export default function FacebookPage({ isLogin }) {
               value={newPost}
               onChange={(e) => setNewPost(e.target.value)}
               placeholder="What's on your mind?"
-              className="w-full bg-[#f0f2f5] text-[#1c1e21] rounded-lg p-3 mb-3 resize-none focus:outline-none focus:ring-2 focus:ring-[#1877f2]"
+              className="input-field w-full rounded-lg p-3 mb-3 resize-none"
               rows="3"
             />
             <div className="grid grid-cols-2 gap-2 mb-3">
@@ -136,19 +136,19 @@ export default function FacebookPage({ isLogin }) {
                 value={newSong}
                 onChange={(e) => setNewSong(e.target.value)}
                 placeholder="Song"
-                className="bg-[#f0f2f5] text-[#1c1e21] rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1877f2]"
+                className="input-field rounded-lg p-2 text-sm"
               />
               <input
                 type="text"
                 value={newArtist}
                 onChange={(e) => setNewArtist(e.target.value)}
                 placeholder="Artist"
-                className="bg-[#f0f2f5] text-[#1c1e21] rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1877f2]"
+                className="input-field rounded-lg p-2 text-sm"
               />
             </div>
             <button
               onClick={handleCreatePost}
-              className="w-full bg-[#1877f2] hover:bg-[#166fe5] text-white font-bold py-2 rounded-lg transition"
+              className="btn btn-primary w-full"
             >
               Post
             </button>
@@ -157,27 +157,24 @@ export default function FacebookPage({ isLogin }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-2 space-y-4">
               {posts.map((post) => (
-                <article
-                  key={post.id}
-                  className="bg-white border border-[#e5e7eb] rounded-xl p-4 shadow-sm"
-                >
+                <article key={post.id} className="card-surface rounded-xl p-4">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="h-10 w-10 rounded-full bg-[#e4e6eb] flex items-center justify-center text-xl">
+                    <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-xl">
                       {post.avatar}
                     </div>
                     <div>
-                      <p className="text-[#1c1e21] font-bold">{post.author}</p>
-                      <p className="text-gray-500 text-sm">{post.timestamp}</p>
+                      <p className="text-white font-bold">{post.author}</p>
+                      <p className="text-gray-400 text-sm">{post.timestamp}</p>
                     </div>
                   </div>
-                  <p className="text-[#1c1e21] mb-3">{post.content}</p>
-                  <div className="bg-[#f0f2f5] rounded-lg p-3 mb-3 border border-[#e5e7eb]">
-                    <p className="text-[#1877f2] font-bold text-sm">
+                  <p className="text-gray-200 mb-3">{post.content}</p>
+                  <div className="bg-white/5 rounded-lg p-3 mb-3 border border-white/10">
+                    <p className="text-pink-300 font-bold text-sm">
                       🎵 {post.song}
                     </p>
-                    <p className="text-gray-600 text-sm">{post.artist}</p>
+                    <p className="text-gray-400 text-sm">{post.artist}</p>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-500 text-sm mb-3">
+                  <div className="flex items-center gap-3 text-gray-400 text-sm mb-3">
                     <span>{post.likes} likes</span>
                     <span>•</span>
                     <span>{post.comments} comments</span>
@@ -187,16 +184,16 @@ export default function FacebookPage({ isLogin }) {
                       onClick={() => handleLikePost(post.id)}
                       className={`flex-1 py-2 rounded-lg border font-bold transition ${
                         post.liked
-                          ? "bg-[#1877f2] border-[#1877f2] text-white"
-                          : "border-[#ccd0d5] text-[#1c1e21] hover:border-[#1877f2]"
+                          ? "bg-pink-500 border-pink-500 text-black"
+                          : "border-white/20 text-white hover:border-pink-400"
                       }`}
                     >
                       {post.liked ? "Liked" : "Like"}
                     </button>
-                    <button className="flex-1 py-2 rounded-lg border border-[#ccd0d5] text-[#1c1e21] font-bold hover:border-[#1877f2] transition">
+                    <button className="flex-1 py-2 rounded-lg border border-white/20 text-white font-bold hover:border-pink-400 transition">
                       Comment
                     </button>
-                    <button className="flex-1 py-2 rounded-lg border border-[#ccd0d5] text-[#1c1e21] font-bold hover:border-[#1877f2] transition">
+                    <button className="flex-1 py-2 rounded-lg border border-white/20 text-white font-bold hover:border-pink-400 transition">
                       Share
                     </button>
                   </div>
@@ -205,26 +202,26 @@ export default function FacebookPage({ isLogin }) {
             </div>
 
             <aside className="space-y-4">
-              <div className="bg-white border border-[#e5e7eb] rounded-xl p-4 shadow-sm">
-                <h3 className="text-[#1c1e21] font-bold mb-3">Trending</h3>
+              <div className="card-surface rounded-xl p-4">
+                <h3 className="text-white font-bold mb-3">Trending</h3>
                 <div className="space-y-3">
                   {trendingMusic.map((music) => (
                     <div
                       key={music.id}
-                      className="p-2 rounded-lg hover:bg-[#f0f2f5] transition"
+                      className="p-2 rounded-lg hover:bg-white/5 transition"
                     >
-                      <p className="text-[#1877f2] font-bold text-sm">
+                      <p className="text-pink-300 font-bold text-sm">
                         {music.name}
                       </p>
-                      <p className="text-gray-600 text-xs">{music.artist}</p>
+                      <p className="text-gray-400 text-xs">{music.artist}</p>
                       <p className="text-gray-500 text-xs">{music.trend}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-white border border-[#e5e7eb] rounded-xl p-4 shadow-sm">
-                <h3 className="text-[#1c1e21] font-bold mb-3">
+              <div className="card-surface rounded-xl p-4">
+                <h3 className="text-white font-bold mb-3">
                   People you may know
                 </h3>
                 <div className="space-y-3">
@@ -234,14 +231,14 @@ export default function FacebookPage({ isLogin }) {
                       className="flex items-center justify-between"
                     >
                       <div>
-                        <p className="text-[#1c1e21] text-sm font-bold">
+                        <p className="text-white text-sm font-bold">
                           {friend.name}
                         </p>
-                        <p className="text-gray-600 text-xs">
+                        <p className="text-gray-400 text-xs">
                           {friend.mutualFriends} mutual
                         </p>
                       </div>
-                      <button className="px-3 py-1 bg-[#1877f2] hover:bg-[#166fe5] text-white text-xs font-bold rounded-lg transition">
+                      <button className="btn btn-primary text-xs px-3 py-1">
                         Add
                       </button>
                     </div>

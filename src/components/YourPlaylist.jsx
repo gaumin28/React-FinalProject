@@ -56,10 +56,7 @@ export default function YourPlaylist({
       ) : (
         <div className="mx-auto flex flex-col items-center gap-3">
           <p className="font-bold text-xl">Please login to continue</p>
-          <button
-            onClick={() => navigate("/login")}
-            className="px-3 py-1 bg-black rounded-full text-pink-400 font-bold cursor-pointer"
-          >
+          <button onClick={() => navigate("/login")} className="btn btn-ghost">
             Log In
           </button>
         </div>

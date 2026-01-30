@@ -11,7 +11,7 @@ import NewRelease from "../image/New-Release.png";
 function TrendingSong({ currentPlayingId, setCurrentPlayingId }) {
   return (
     <section>
-      <h2 className="text-2xl font-bold">
+      <h2 className="section-title">
         Recently Added <span className="text-pink-400">Songs</span>
       </h2>
       <div className="hidden md:flex justify-between text-white mb-2">

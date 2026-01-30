@@ -69,7 +69,7 @@ export default function ArtistPage({
           <ArtistBanner selectedArtistIndex={selectedArtistIndex} />
 
           <section className="mt-8">
-            <h2 className="text-2xl text-white font-bold mb-4">Popular</h2>
+            <h2 className="section-title text-white mb-4">Popular</h2>
 
             <div className="hidden md:grid md:grid-cols-12 gap-4 text-white mb-2">
               <div className="md:col-span-5">Song</div>
@@ -97,7 +97,7 @@ export default function ArtistPage({
           ))}
           {/* album */}
           <section>
-            <h2 className="text-2xl font-bold mt-5">
+            <h2 className="section-title mt-5">
               Artist's <span className="text-pink-400">Albums</span>
             </h2>
             <div className="flex flex-wrap gap-4 mt-6">
@@ -116,7 +116,7 @@ export default function ArtistPage({
 
           {/* single songs */}
           <section>
-            <h2 className="text-2xl font-bold mt-5">
+            <h2 className="section-title mt-5">
               Single <span className="text-pink-400">Songs</span>
             </h2>
             <div className="flex flex-wrap gap-4 mt-6">
@@ -137,7 +137,7 @@ export default function ArtistPage({
 
           {/* Recommended Artists */}
           <section>
-            <h2 className="text-2xl font-bold mt-5">
+            <h2 className="section-title mt-5">
               Recommended <span className="text-pink-400">Artists</span>
             </h2>
             <div className="flex flex-wrap gap-4 mt-6">

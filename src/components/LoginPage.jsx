@@ -75,97 +75,89 @@ export default function LoginPage({ setIsLogIn }) {
     <>
       <div
         style={{ backgroundImage: `url(${LoginBackground})` }}
-        className="w-107.5 h-233 mx-auto"
+        className="auth-shell"
       >
-        <div className="bg-linear-to-br from-[#412c3a] to-[#0E1920] h-233 opacity-80 rounded">
-          <div className="flex flex-col justify-around h-184.25 bg-[#412c3a] rounded-b-4xl">
-            <div className="self-center flex flex-col gap-4">
-              <img src={MelodyLogo} alt="Melody Logo" />
-              <h2 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
-                Melodies
-              </h2>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <h1 className="text-white self-center">Login To Continue</h1>
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <label htmlFor="email"></label>
-                <input
-                  className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
-                  ref={inputValue}
-                  type="email"
-                  name="email"
-                  placeholder="E-mail"
-                  id="email"
-                />
-                <label htmlFor="password"></label>
-                <input
-                  className="bg-[#612c4f] text-white w-87.5 h-10.5 rounded-[20px] pl-4 mx-auto"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  id="password"
-                  ref={inputPassword}
-                />
-                <div className="flex justify-around">
-                  <Link className="text-white" to={"/forgot-password"}>
-                    Forgot password <span className="text-2xl"></span>
-                  </Link>
-                  <button
-                    className="text-white bg-pink-500 rounded-md px-8 py-1 cursor-pointer"
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <div className="flex justify-around">
-              <Link
-                to="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Fsigning-in-to-google&dsh=S-603327768%3A1762845791679965&flowEntry=ServiceLogin&flowName=GlifWebSignIn&hl=en-US&ifkv=ARESoU3mX1z46VVUL_70r4szPVneDiFQJHQJ9qRB7HZR_knVcGwiM9MtuGt6GZk2F94Rz92GNKAYAQ&service=accountsettings"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="flex justify-center gap-4 border border-white w-47.5 h-10.5 rounded-2xl px-4 py-4">
-                  <img
-                    className="size-6 self-center"
-                    src={google}
-                    alt="Google Logo"
-                  />
-                  <p className="text-white self-center">Google Login</p>
-                </div>
-              </Link>
-              <Link
-                to="https://www.facebook.com/?locale=vi_VN"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="flex justify-center gap-4 border border-white w-47.5 h-10.5 rounded-2xl px-4 py-4">
-                  <img
-                    className="size-6 self-center"
-                    src={facebook}
-                    alt="Facebook Logo"
-                  />
-                  <p className="text-white self-center">Facebook Login</p>
-                </div>
-              </Link>
-            </div>
+        <div className="auth-card text-white">
+          <div className="flex flex-col items-center gap-3 mb-6">
+            <img className="auth-logo" src={MelodyLogo} alt="Melody Logo" />
+            <h2 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
+              Melodies
+            </h2>
+            <p className="auth-subtitle">Login to continue</p>
           </div>
 
-          <div className="flex justify-around items-center">
-            <div className="text-white pt-20">
-              <h2>Don't Have An Acount</h2>
-              <p>Sign Up Here</p>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="form-label" htmlFor="email">
+                Email
+              </label>
+              <input
+                className="input-field w-full rounded-xl px-4 py-2"
+                ref={inputValue}
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                id="email"
+              />
             </div>
-            <div className="mt-20">
+            <div>
+              <label className="form-label" htmlFor="password">
+                Password
+              </label>
+              <input
+                className="input-field w-full rounded-xl px-4 py-2"
+                type="password"
+                name="password"
+                placeholder="Password"
+                id="password"
+                ref={inputPassword}
+              />
+            </div>
+            <div className="flex items-center justify-between">
               <Link
-                className="text-white bg-blue-500 rounded-md px-8 py-1"
-                to="/signup"
+                className="text-sm text-pink-300 hover:text-pink-200"
+                to={"/forgot-password"}
               >
-                Sign Up
+                Forgot password?
               </Link>
+              <button className="btn btn-primary" type="submit">
+                Login
+              </button>
             </div>
+          </form>
+
+          <div className="auth-divider my-6">
+            <span className="flex-1 h-px bg-white/10" />
+            <span>or</span>
+            <span className="flex-1 h-px bg-white/10" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Link
+              to="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmyaccount.google.com%2Fintro%2Fsigning-in-to-google&dsh=S-603327768%3A1762845791679965&flowEntry=ServiceLogin&flowName=GlifWebSignIn&hl=en-US&ifkv=ARESoU3mX1z46VVUL_70r4szPVneDiFQJHQJ9qRB7HZR_knVcGwiM9MtuGt6GZk2F94Rz92GNKAYAQ&service=accountsettings"
+              target="_blank"
+              rel="noreferrer"
+              className="social-btn"
+            >
+              <img className="size-5" src={google} alt="Google Logo" />
+              <span className="text-sm">Google</span>
+            </Link>
+            <Link
+              to="https://www.facebook.com/?locale=vi_VN"
+              target="_blank"
+              rel="noreferrer"
+              className="social-btn"
+            >
+              <img className="size-5" src={facebook} alt="Facebook Logo" />
+              <span className="text-sm">Facebook</span>
+            </Link>
+          </div>
+
+          <div className="mt-6 text-center text-sm text-gray-300">
+            Don’t have an account?{" "}
+            <Link className="text-pink-300 hover:text-pink-200" to="/signup">
+              Sign up
+            </Link>
           </div>
         </div>
       </div>

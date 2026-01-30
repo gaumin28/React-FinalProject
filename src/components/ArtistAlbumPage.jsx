@@ -31,7 +31,7 @@ export default function ArtistAlbumPage({
           />
 
           <section>
-            <h2 className="text-2xl font-bold">
+            <h2 className="section-title">
               {album?.name}
               <span className="text-pink-400"> Songs</span>
             </h2>

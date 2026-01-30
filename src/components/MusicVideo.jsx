@@ -4,7 +4,7 @@ import VideoCard from "./VideoCard";
 export default function MusicVideo() {
   return (
     <section className="px-4">
-      <h2 className="text-2xl font-bold">
+      <h2 className="section-title">
         Music <span className="text-pink-400">Video</span>
       </h2>
       <div className="flex flex-col items-center flex-wrap gap-4 mt-6 md:flex-row">

@@ -133,9 +133,9 @@ export default function MusicPage() {
   return (
     <div
       style={{ backgroundImage: `url(${selectedSong.image})` }}
-      className="bg-center bg-cover bg-no-repeat mx-auto text-neutral-950"
+      className="bg-center bg-cover bg-no-repeat mx-auto text-white"
     >
-      <div className="w-107.5 h-233 backdrop-blur-md">
+      <div className="w-107.5 h-233 backdrop-blur-md bg-black/40">
         <nav>
           <div className="pt-20 px-5 mb-3">
             <div className="flex justify-between ">
@@ -151,7 +151,7 @@ export default function MusicPage() {
               </span>
             </div>
 
-            <h1 className="text-blue-500 text-center text-3xl font-bold">
+            <h1 className="text-center text-3xl font-bold">
               Music <span className="text-pink-500">Player</span>
             </h1>
           </div>
@@ -177,7 +177,7 @@ export default function MusicPage() {
 
           <div className="flex flex-col gap-6 mx-auto">
             <div className="flex justify-between">
-              <div className="flex flex-col gap-4 text-neutral-950">
+              <div className="flex flex-col gap-4">
                 <h1 className="text-[32px] font-extrabold">
                   {selectedSong.name}
                 </h1>

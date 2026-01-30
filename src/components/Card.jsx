@@ -12,7 +12,7 @@ export default function Card({ name, artist, image, id, isLogin }) {
   return (
     <div
       onClick={handleSelect}
-      className="w-28 md:w-32 h-42 bg-[#1F1F1F] rounded cursor-pointer"
+      className="card-surface w-28 md:w-32 h-42 rounded cursor-pointer"
     >
       {/* Album/Song cover image */}
       <img

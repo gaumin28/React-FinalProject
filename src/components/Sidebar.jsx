@@ -28,7 +28,7 @@ export default function Sidebar({
 
   return (
     <aside
-      className={` ${isSidebar ? "flex flex-col absolute z-100 top-15 bg-[#412c3a] opacity-80 " : "hidden"}  md:bg-[#0E1920] text-white w-45 md:w-64 p-6  md:flex md:flex-col md:space-y-6 md:sticky md:top-0 md:h-screen md:overflow-y-auto shrink-0`}
+      className={`sidebar-panel ${isSidebar ? "flex flex-col absolute z-100 top-15 bg-[#412c3a] opacity-80 " : "hidden"}  md:bg-[#0E1920] text-white w-45 md:w-64 p-6  md:flex md:flex-col md:space-y-6 md:sticky md:top-0 md:h-screen md:overflow-y-auto shrink-0`}
     >
       <div className="md:block hidden ">
         <h1 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">

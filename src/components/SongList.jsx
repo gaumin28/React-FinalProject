@@ -75,7 +75,7 @@ export default function SongList({
   };
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between bg-black rounded-md p-3">
+    <div className="list-row flex flex-col md:flex-row md:items-center md:justify-between">
       {/* Song info section - image, number, name, artist */}
       <div className="flex items-center gap-2 md:w-1/2 pl-0">
         {/* Song number in list */}
