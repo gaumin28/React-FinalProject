@@ -74,10 +74,7 @@ export default function Footer({ isLogin }) {
                 Melodies.
               </p>
             </div>
-            <Link
-              to="https://www.facebook.com/?locale=vi_VN"
-              className="hover:underline"
-            >
+            <Link to="/facebook" className="hover:underline">
               Social Media
             </Link>
           </div>
@@ -88,13 +85,13 @@ export default function Footer({ isLogin }) {
             Melodies
           </h2>
           <div className="flex gap-3 mt-4">
-            <Link to="https://www.facebook.com/?locale=vi_VN">
+            <Link to="/facebook">
               <img src={image1} alt="facebook" className="w-6 h-6" />
             </Link>
-            <Link to="https://x.com/">
+            <Link to="/x">
               <img src={image3} alt="twitter" className="w-6 h-6" />
             </Link>
-            <Link to="https://www.instagram.com/">
+            <Link to="/instagram">
               <img src={image2} alt="instagram" className="w-6 h-6" />
             </Link>
             <Link to="#">

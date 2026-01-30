@@ -1,5 +1,4 @@
-import { Link, useNavigate, useLocation } from "react-router";
-import TheEminemShow from "../image/TheEminemShow.jpg";
+import { useNavigate, useLocation } from "react-router";
 import heart_light from "../image/ph_heart-light.png";
 import back_icon from "../image/back-icon.png";
 import equalizer from "../image/equalizer.png";
@@ -133,118 +132,113 @@ export default function MusicPage() {
   return (
     <div
       style={{ backgroundImage: `url(${selectedSong.image})` }}
-      className="bg-center bg-cover bg-no-repeat mx-auto text-white"
+      className="bg-center bg-cover bg-no-repeat mx-auto text-white music-shell"
     >
-      <div className="w-107.5 h-233 backdrop-blur-md bg-black/40">
-        <nav>
-          <div className="pt-20 px-5 mb-3">
-            <div className="flex justify-between ">
-              <span
-                onClick={() => nav("/")}
-                className="cursor-pointer text-2xl"
-              >
-                <span>🏠</span> Home
-              </span>
-
-              <span onClick={() => nav("/your-playlist")} className="text-xl">
-                My Favourite Songs
-              </span>
-            </div>
-
-            <h1 className="text-center text-3xl font-bold">
-              Music <span className="text-pink-500">Player</span>
-            </h1>
-          </div>
+      <div className="music-overlay max-w-5xl mx-auto p-6 md:p-10">
+        <nav className="flex items-center justify-between text-sm md:text-base">
+          <button onClick={() => nav("/")} className="btn btn-ghost">
+            <span>🏠</span> Home
+          </button>
+          <button
+            onClick={() => nav("/your-playlist")}
+            className="btn btn-ghost"
+          >
+            My Favourite Songs
+          </button>
         </nav>
 
-        <div className=" flex flex-col gap-15 mt-10 ">
-          <div>
+        <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center">
+          <div className="flex flex-col items-center gap-4">
             <img
-              className="size-87.5 mx-auto mb-4"
+              className="music-cover w-full max-w-sm"
               src={selectedSong.image}
-              alt="Eminem show"
+              alt={selectedSong.name}
             />
-
-            <div className="h-8.75 w-87.5 bg-[#630a4a] rounded-lg flex items-center justify-around mx-auto px-1">
-              <div className="flex gap-3 bg-[#ee10b0] h-7.25 w-43.75 justify-center items-center rounded-lg">
-                <img src={mdi_music} alt="music icon" />
-                <span className="text-white text-[14px] font-extrabold">
-                  Song
-                </span>
-              </div>
+            <div className="music-chip">
+              <img src={mdi_music} alt="music icon" className="size-4" />
+              <span className="text-xs font-semibold">Song</span>
             </div>
           </div>
 
-          <div className="flex flex-col gap-6 mx-auto">
-            <div className="flex justify-between">
-              <div className="flex flex-col gap-4">
-                <h1 className="text-[32px] font-extrabold">
-                  {selectedSong.name}
-                </h1>
-                <p className="text-[24px]">{selectedSong.artist}</p>
+          <div className="space-y-6">
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <h1 className="music-title">{selectedSong.name}</h1>
+                <p className="music-artist">{selectedSong.artist}</p>
               </div>
-
-              <img
+              <button
                 onClick={handleToggleFavorite}
-                style={{
-                  filter:
-                    isFavorited && isLogin ? "opacity(1)" : "opacity(0.5)",
-                }}
-                className="cursor-pointer self-end"
-                src={heart_light}
-                alt="heart-icon"
-              />
+                className="control-btn"
+                aria-label="Toggle favorite"
+              >
+                <img
+                  style={{
+                    filter:
+                      isFavorited && isLogin ? "opacity(1)" : "opacity(0.5)",
+                  }}
+                  className="size-6"
+                  src={heart_light}
+                  alt="heart-icon"
+                />
+              </button>
             </div>
 
-            <img src={equalizer} />
+            <img src={equalizer} alt="equalizer" className="opacity-80" />
 
-            <div className="flex justify-evenly">
-              <img
+            <div className="flex flex-wrap items-center gap-4">
+              <button
                 onClick={() => setRepeatSong(!repeatSong)}
-                className={`cursor-pointer size-12 self-center ${repeatSong ? "opacity-100" : "opacity-50"}`}
-                src={repeat_icon}
-                alt="repeat-icon"
-              />
+                className={`control-btn ${repeatSong ? "primary" : ""}`}
+                aria-label="Repeat"
+              >
+                <img className="size-6" src={repeat_icon} alt="repeat-icon" />
+              </button>
 
               <button
                 onClick={handlePreviousSong}
                 disabled={selectedIndex === 0}
-                className="self-center"
+                className="control-btn"
+                aria-label="Previous"
               >
                 <img
-                  className={`size-12 ${selectedIndex === 0 ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+                  className={`size-6 ${selectedIndex === 0 ? "opacity-50" : ""}`}
                   src={back_icon}
                   alt="back-icon"
                 />
               </button>
 
-              <button onClick={togglePlayPause}>
+              <button
+                onClick={togglePlayPause}
+                className="control-btn primary"
+                aria-label="Play or pause"
+              >
                 {playing ? (
-                  <img
-                    className="cursor-pointer "
-                    src={pink_pause}
-                    alt="pause"
-                  />
+                  <img className="size-6" src={pink_pause} alt="pause" />
                 ) : (
-                  <img className="cursor-pointer" src={pink_play} alt="play" />
+                  <img className="size-6" src={pink_play} alt="play" />
                 )}
               </button>
 
               <button
                 onClick={handleNextSong}
-                className="self-center"
                 disabled={selectedIndex >= mySongList.length - 1}
+                className="control-btn"
+                aria-label="Next"
               >
                 <img
-                  className={`size-12 ${selectedIndex >= mySongList.length - 1 ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+                  className={`size-6 ${selectedIndex >= mySongList.length - 1 ? "opacity-50" : ""}`}
                   src={next_icon}
                   alt="next-icon"
                 />
               </button>
 
-              <button onClick={() => downloadSong(audio, "mysong.mp3")}>
+              <button
+                onClick={() => downloadSong(audio, "mysong.mp3")}
+                className="control-btn"
+                aria-label="Download"
+              >
                 <svg
-                  className="size-9 text-pink-500"
+                  className="size-5 text-pink-200"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
                 >

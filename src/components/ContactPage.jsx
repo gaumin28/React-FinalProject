@@ -2,7 +2,11 @@ import Sidebar from "./Sidebar";
 import melody_big_logo from "../image/melody_big_logo.png";
 import { useState } from "react";
 
-export default function ContactPage() {
+export default function ContactPage({
+  isLogin,
+  setIdThemeSelected,
+  idThemeSelected,
+}) {
   const [value, setValue] = useState({
     issues: "select-issue",
     content: "",
@@ -21,7 +25,11 @@ export default function ContactPage() {
 
   return (
     <>
-      <Sidebar />
+      <Sidebar
+        isLogin={isLogin}
+        setIdThemeSelected={setIdThemeSelected}
+        idThemeSelected={idThemeSelected}
+      />
       <main className="flex-1 p-4 md:p-6">
         <section className="max-w-4xl mx-auto flex flex-col gap-6">
           <img

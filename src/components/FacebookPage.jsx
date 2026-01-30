@@ -109,7 +109,7 @@ export default function FacebookPage({ isLogin }) {
     <>
       <Header isLogin={isLogin} />
 
-      <main className="flex-1 p-4 md:p-6">
+      <main className="flex-1 p-4 md:p-6 bg-[#f2f4f7]">
         <div className="max-w-5xl w-full mx-auto space-y-6">
           <section className="card-surface rounded-xl p-4">
             <div className="flex items-center gap-3 mb-3">

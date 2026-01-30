@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import customer_service from "../image/customer-service.png";
 
 import themeColor from "../data/colorTheme";
@@ -28,7 +28,7 @@ export default function Sidebar({
 
   return (
     <aside
-      className={`sidebar-panel ${isSidebar ? "flex flex-col absolute z-100 top-15 bg-[#412c3a] opacity-80 " : "hidden"}  md:bg-[#0E1920] text-white w-45 md:w-64 p-6  md:flex md:flex-col md:space-y-6 md:sticky md:top-0 md:h-screen md:overflow-y-auto shrink-0`}
+      className={`sidebar-panel ${isSidebar ? "flex flex-col absolute z-100 top-22 opacity-80 " : "hidden"} ${isLogin ? themeSelected.style : "bg-[rgba(14, 25, 32, 0.96)]"} md:bg-[#ffffff0d] text-white w-45 md:w-64 p-6 md:flex md:flex-col md:space-y-6 md:sticky md:top-0 md:h-screen md:overflow-y-auto shrink-0`}
     >
       <div className="md:block hidden ">
         <h1 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
@@ -37,46 +37,81 @@ export default function Sidebar({
       </div>
 
       <div>
-        <h2 className="text-sm text-pink-400 mb-2">Menu</h2>
-        <ul className="text-xs md:text-base space-y-2 py-2">
-          <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={"/"}>
-              <span>🏠</span> Home
-            </Link>
+        <h2 className="sidebar-section-title mb-3">Menu</h2>
+        <ul className="text-xs md:text-base space-y-2">
+          <li>
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                `sidebar-item${isActive ? " active" : ""}`
+              }
+              end
+            >
+              <span className="sidebar-icon">🏠</span>
+              Home
+            </NavLink>
           </li>
-          <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={"/discover"}>
-              <span>🔍</span>
+          <li>
+            <NavLink
+              to={"/discover"}
+              className={({ isActive }) =>
+                `sidebar-item${isActive ? " active" : ""}`
+              }
+            >
+              <span className="sidebar-icon">🔍</span>
               Discover
-            </Link>
+            </NavLink>
           </li>
-          <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={"/album"}>
-              <span>📀</span>
+          <li>
+            <NavLink
+              to={"/album"}
+              className={({ isActive }) =>
+                `sidebar-item${isActive ? " active" : ""}`
+              }
+            >
+              <span className="sidebar-icon">📀</span>
               Albums
-            </Link>
+            </NavLink>
           </li>
-          <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={"/artist"}>
-              <span>🎤</span>
+          <li>
+            <NavLink
+              to={"/artist"}
+              className={({ isActive }) =>
+                `sidebar-item${isActive ? " active" : ""}`
+              }
+            >
+              <span className="sidebar-icon">🎤</span>
               Artists
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
 
       <div>
-        <h2 className="text-sm text-pink-400 mb-2">Library</h2>
-        <ul className="text-xs md:text-base space-y-2 py-2">
-          <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={"/recently-added"}>
-              <span>🕒</span> Recently Added
-            </Link>
+        <div className="sidebar-divider" />
+        <h2 className="sidebar-section-title mb-3">Library</h2>
+        <ul className="text-xs md:text-base space-y-2">
+          <li>
+            <NavLink
+              to={"/recently-added"}
+              className={({ isActive }) =>
+                `sidebar-item${isActive ? " active" : ""}`
+              }
+            >
+              <span className="sidebar-icon">🕒</span>
+              Recently Added
+            </NavLink>
           </li>
-          <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-            <Link to={"/most-played"}>
-              <span>🔥</span> Most played
-            </Link>
+          <li>
+            <NavLink
+              to={"/most-played"}
+              className={({ isActive }) =>
+                `sidebar-item${isActive ? " active" : ""}`
+              }
+            >
+              <span className="sidebar-icon">🔥</span>
+              Most played
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -84,7 +119,8 @@ export default function Sidebar({
       {isLogin && (
         <div>
           <div>
-            <h2 className="text-sm text-pink-400 mb-2">
+            <div className="sidebar-divider" />
+            <h2 className="sidebar-section-title mb-3">
               Playlist and favorite
             </h2>
             <ul className="text-xs md:text-base space-y-2 flex md:block">
@@ -93,10 +129,16 @@ export default function Sidebar({
                 <span>❤️</span> Your favorites
               </Link>
             </li> */}
-              <li className="hover:bg-pink-500 rounded-[10px] pl-2">
-                <Link to={"/your-playlist"}>
-                  <span>📃</span> Your playlist
-                </Link>
+              <li>
+                <NavLink
+                  to={"/your-playlist"}
+                  className={({ isActive }) =>
+                    `sidebar-item${isActive ? " active" : ""}`
+                  }
+                >
+                  <span className="sidebar-icon">📃</span>
+                  Your playlist
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -142,14 +184,22 @@ export default function Sidebar({
         </div>
       )}
       <div>
-        <Link className="flex gap-2" to={"/contact"}>
-          <img
-            className="size-6 text-white"
-            src={customer_service}
-            alt="customer service"
-          />{" "}
+        <div className="sidebar-divider" />
+        <NavLink
+          to={"/contact"}
+          className={({ isActive }) =>
+            `sidebar-item${isActive ? " active" : ""}`
+          }
+        >
+          <span className="sidebar-icon">
+            <img
+              className="size-4 text-white"
+              src={customer_service}
+              alt="customer service"
+            />
+          </span>
           Contact
-        </Link>
+        </NavLink>
       </div>
     </aside>
   );

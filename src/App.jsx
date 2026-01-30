@@ -16,6 +16,8 @@ import MoodPlayer from "./components/MoodPlayer";
 import ArtistAlbumPage from "./components/ArtistAlbumPage";
 import ForgotPassword from "./components/ForgotPassword";
 import FacebookPage from "./components/FacebookPage";
+import InstagramPage from "./components/InstagramPage";
+import XPage from "./components/XPage";
 import MVPlayer from "./components/MVPlayer";
 import GenrePlayer from "./components/GenrePlayer";
 import themeColor from "./data/colorTheme";
@@ -25,11 +27,16 @@ function App() {
   const [isLogin, setIsLogIn] = useState(false);
   const [currentPlayingId, setCurrentPlayingId] = useState(null);
   const [isSidebar, setIsSidebar] = useState(false);
-  const [idThemeSelected, setIdThemeSelected] = useState(11);
+  const [idThemeSelected, setIdThemeSelected] = useState(13);
+
   useEffect(() => {
-    const theme = themeColor.find((theme) => theme.id === idThemeSelected);
-    document.body.className = `min-h-screen ${theme.style} text-white`;
-  }, [idThemeSelected]);
+    if (isLogin) {
+      const theme = themeColor.find((theme) => theme.id === idThemeSelected);
+      document.body.className = `min-h-screen ${theme.style} text-white`;
+    } else {
+      document.body.className = `min-h-screen bg-[#0b1117] text-white`;
+    }
+  }, [idThemeSelected, isLogin]);
 
   return (
     <>
@@ -177,7 +184,14 @@ function App() {
           />
           <Route
             path="/mv-player"
-            element={<MVPlayer isLogin={isLogin} setIsLogIn={setIsLogIn} />}
+            element={
+              <MVPlayer
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
+              />
+            }
           />
           <Route
             path="/genre-player"
@@ -189,7 +203,55 @@ function App() {
               />
             }
           />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/contact"
+            element={
+              <ContactPage
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
+                isLogin={isLogin}
+              />
+            }
+          />
+          <Route
+            path="/facebook"
+            element={
+              <FacebookPage
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
+              />
+            }
+          />
+          <Route
+            path="/instagram"
+            element={
+              <InstagramPage
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
+              />
+            }
+          />
+          <Route
+            path="/x"
+            element={
+              <XPage
+                isLogin={isLogin}
+                setIsLogIn={setIsLogIn}
+                isSidebar={isSidebar}
+                setIsSidebar={setIsSidebar}
+                idThemeSelected={idThemeSelected}
+                setIdThemeSelected={setIdThemeSelected}
+              />
+            }
+          />
         </Routes>
 
         {/* <SignUpPage /> */}

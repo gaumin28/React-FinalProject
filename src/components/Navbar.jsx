@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router";
-import songList from "../data/songList";
+import mySongList from "../data/mySongList";
 import { useRef } from "react";
 import Header from "./Header";
 
@@ -16,8 +16,12 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
     if (!searchValue) return;
 
     // arrays of artist names and song names for searching
-    const artistName = songList.map((item) => item.artist.toLowerCase());
-    const songName = songList.map((item) => item.name.toLowerCase());
+    const artistName = mySongList
+      .map((item) => item.artist?.toLowerCase())
+      .filter(Boolean);
+    const songName = mySongList
+      .map((item) => item.name?.toLowerCase())
+      .filter(Boolean);
 
     // Navigate to artist page
     if (searchValue === "eminem" || artistName.includes(searchValue)) {
@@ -42,27 +46,39 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
     <nav className="flex items-center justify-between gap-4 mb-6 sticky top-0 z-10 nav-blur">
       <Header setIsSidebar={setIsSidebar} />
       <div className="relative flex-1 md:ml-20">
-        <button
+        {/* <button
           onClick={handleSearch}
-          className="absolute inset-y-0 left-3 flex items-center"
+          className="absolute inset-y-0 left-4 flex items-center"
         >
           <svg
-            className="w-5 opacity-80"
+            className="w-4 opacity-80"
             alt="search icon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >
             <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
           </svg>
-        </button>
+        </button> */}
 
-        <input
-          ref={ref}
-          name="searchText"
-          className="input-field w-full max-w-md px-10 py-2 rounded-lg"
-          type="text"
-          placeholder="Search For Musics, Artists, Albums"
-        />
+        <div className="search-pill flex items-center w-full max-w-xl">
+          <input
+            ref={ref}
+            name="searchText"
+            className="search-input outline-0 w-full pl-9 pr-3 py-1.5"
+            type="text"
+            placeholder="Search For Musics, Artists, Albums"
+          />
+          <button onClick={handleSearch} className="search-action">
+            <svg
+              className="w-4"
+              alt="search icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       {isLogin ? (
