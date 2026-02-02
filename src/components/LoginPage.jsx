@@ -2,12 +2,20 @@ import MelodyLogo from "../image/MelodyLogo.png";
 import LoginBackground from "../image/LoginBackground.jpg";
 import google from "../image/google.png";
 import facebook from "../image/facebook.png";
-import { useRef } from "react";
-import { Link, useNavigate } from "react-router";
+import { useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import axios from "axios";
 
 export default function LoginPage({ setIsLogIn }) {
+  const [isAlertUser, setIsAlertUser] = useState(false);
+  const [isAlertPassword, setIsAlertPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const returnTo = location.state?.returnTo;
+  const safeReturnTo =
+    returnTo && !["/login", "/signup", "/forgot-password"].includes(returnTo)
+      ? returnTo
+      : "/";
   const inputValue = useRef();
   const inputPassword = useRef();
   async function handleSubmit(event) {
@@ -30,22 +38,25 @@ export default function LoginPage({ setIsLogIn }) {
       const user = users.find((u) => u.email === email);
 
       if (!user) {
-        alert("User not found");
+        setIsAlertUser(true);
+        setTimeout(() => setIsAlertUser(false), 1500);
         return;
       }
 
       // Check password
       if (user.password !== password) {
-        alert("Wrong password");
+        setIsAlertPassword(true);
+        setTimeout(() => setIsAlertPassword(false), 1500);
         return;
       }
 
       // Login successful - show loading page then navigate home
       localStorage.setItem("userName", user.userName);
+      localStorage.setItem("isLogin", "true");
       navigate("/loading");
       setTimeout(() => {
-        navigate("/");
         setIsLogIn(true);
+        navigate(safeReturnTo, { replace: true });
       }, 500);
       // proceed to login success / navigate
     } catch (err) {
@@ -92,26 +103,36 @@ export default function LoginPage({ setIsLogIn }) {
                 Email
               </label>
               <input
-                className="input-field w-full rounded-xl px-4 py-2"
+                className="input-field w-full rounded-xl px-4 py-2 mb-1"
                 ref={inputValue}
                 type="email"
                 name="email"
                 placeholder="E-mail"
                 id="email"
               />
+              {isAlertUser && (
+                <span className="download-notice" role="status">
+                  User not found
+                </span>
+              )}
             </div>
             <div>
               <label className="form-label" htmlFor="password">
                 Password
               </label>
               <input
-                className="input-field w-full rounded-xl px-4 py-2"
+                className="input-field w-full rounded-xl px-4 py-2 mb-1"
                 type="password"
                 name="password"
                 placeholder="Password"
                 id="password"
                 ref={inputPassword}
               />
+              {isAlertPassword && (
+                <span className="download-notice" role="status">
+                  Wrong password
+                </span>
+              )}
             </div>
             <div className="flex items-center justify-between">
               <Link

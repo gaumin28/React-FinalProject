@@ -2,7 +2,7 @@ import Banner from "./Banner";
 import Footer from "./Footer";
 import my_playlist from "../image/my-playlist.jpg";
 import MyPlaylistSong from "./MyPlaylistSong";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export default function YourPlaylist({
   currentPlayingId,
@@ -12,6 +12,7 @@ export default function YourPlaylist({
 }) {
   const userName = localStorage.getItem("userName");
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <>
@@ -56,7 +57,12 @@ export default function YourPlaylist({
       ) : (
         <div className="mx-auto flex flex-col items-center gap-3">
           <p className="font-bold text-xl">Please login to continue</p>
-          <button onClick={() => navigate("/login")} className="btn btn-ghost">
+          <button
+            onClick={() =>
+              navigate("/login", { state: { returnTo: location.pathname } })
+            }
+            className="btn btn-ghost"
+          >
             Log In
           </button>
         </div>

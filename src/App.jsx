@@ -8,7 +8,6 @@ import YourPlaylist from "./components/YourPlaylist";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import { useState, useEffect, useRef } from "react";
-import FavouritePage from "./components/FavouritePage";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router";
 import MusicPage from "./components/MusicPage";
 import LoadingPage from "./components/LoadinPage";
@@ -22,17 +21,26 @@ import MVPlayer from "./components/MVPlayer";
 import GenrePlayer from "./components/GenrePlayer";
 import themeColor from "./data/colorTheme";
 import ContactPage from "./components/ContactPage";
+import Podcast from "./components/Podcast";
 
 function App() {
-  const [isLogin, setIsLogIn] = useState(false);
+  const [isLogin, setIsLogIn] = useState(() => {
+    const storedLogin = localStorage.getItem("isLogin") === "true";
+    const storedUser = Boolean(localStorage.getItem("userName"));
+    return storedLogin || storedUser;
+  });
   const [currentPlayingId, setCurrentPlayingId] = useState(null);
   const [isSidebar, setIsSidebar] = useState(false);
   const [idThemeSelected, setIdThemeSelected] = useState(13);
 
   useEffect(() => {
+    localStorage.setItem("isLogin", String(isLogin));
+  }, [isLogin]);
+
+  useEffect(() => {
     if (isLogin) {
       const theme = themeColor.find((theme) => theme.id === idThemeSelected);
-      document.body.className = `min-h-screen ${theme.style} text-white`;
+      document.body.className = `min-h-screen ${theme.style} ${theme.textColor}`;
     } else {
       document.body.className = `min-h-screen bg-[#0b1117] text-white`;
     }
@@ -252,6 +260,7 @@ function App() {
               />
             }
           />
+          <Route path="/podcast" element={<Podcast />} />
         </Routes>
 
         {/* <SignUpPage /> */}

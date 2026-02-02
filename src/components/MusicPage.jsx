@@ -19,6 +19,8 @@ export default function MusicPage() {
   const [playing, setPlaying] = useState(false);
   const [repeatSong, setRepeatSong] = useState(false);
   const audioRef = useRef(new Audio(audio));
+  const [isDownloadableNotice, setIsDownloadableNotice] = useState(false);
+  const noticeTimeoutRef = useRef(null);
 
   // Get navigation state
   const location = useLocation();
@@ -121,13 +123,32 @@ export default function MusicPage() {
 
   //  download
   function downloadSong(audioUrl, fileName) {
-    const link = document.createElement("a");
-    link.href = audioUrl;
-    link.download = fileName || "song.mp3";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    if (isLogin) {
+      const link = document.createElement("a");
+      link.href = audioUrl;
+      link.download = fileName || "song.mp3";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      setIsDownloadableNotice(true);
+      if (noticeTimeoutRef.current) {
+        clearTimeout(noticeTimeoutRef.current);
+      }
+      noticeTimeoutRef.current = setTimeout(() => {
+        setIsDownloadableNotice(false);
+        noticeTimeoutRef.current = null;
+      }, 2000);
+    }
   }
+
+  useEffect(() => {
+    return () => {
+      if (noticeTimeoutRef.current) {
+        clearTimeout(noticeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
@@ -248,6 +269,11 @@ export default function MusicPage() {
                   />
                 </svg>
               </button>
+              {isDownloadableNotice && (
+                <span className="download-notice" role="status">
+                  Please login to download this song
+                </span>
+              )}
             </div>
           </div>
         </div>

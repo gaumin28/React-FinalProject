@@ -9,6 +9,7 @@ import MostViewSongs from "../image/MostViewSongs.png";
 
 export default function MostPlayed({
   isLogin,
+  setIsLogIn,
   currentPlayingId,
   setCurrentPlayingId,
   setIsSidebar,
@@ -46,7 +47,11 @@ export default function MostPlayed({
         setIdThemeSelected={setIdThemeSelected}
       />
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
+        <Navbar
+          isLogin={isLogin}
+          setIsLogIn={setIsLogIn}
+          setIsSidebar={setIsSidebar}
+        />
         <div className="max-w-5xl mx-auto">
           <Banner
             songNames={songNames}

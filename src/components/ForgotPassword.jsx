@@ -6,6 +6,7 @@ import axios from "axios";
 export default function ForgotPassword() {
   // State to store the email input
   const [email, setEmail] = useState("");
+  const [isEmailExist, setIsEmailExist] = useState(true);
   // State to track if form has been submitted
   const [submitted, setSubmitted] = useState(false);
   // State to handle loading while processing request
@@ -41,7 +42,10 @@ export default function ForgotPassword() {
       const user = users.find((u) => u.email === email);
 
       if (!user) {
-        alert("Email does not exist, please sign up");
+        setIsEmailExist(false);
+        setTimeout(() => {
+          setIsEmailExist(true);
+        }, 2000);
         return;
       }
       setIsLoading(true);
@@ -129,8 +133,13 @@ export default function ForgotPassword() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="input-field w-full rounded-xl px-4 py-2"
+              className="input-field w-full rounded-xl px-4 py-2 mb-1"
             />
+            {!isEmailExist && (
+              <span className="download-notice" role="status">
+                Email does not exist, please sign up
+              </span>
+            )}
           </div>
 
           {error && (

@@ -28,7 +28,8 @@ export default function Sidebar({
 
   return (
     <aside
-      className={`sidebar-panel ${isSidebar ? "flex flex-col absolute z-100 top-22 opacity-80 " : "hidden"} ${isLogin ? themeSelected.style : "bg-[rgba(14, 25, 32, 0.96)]"} md:bg-[#ffffff0d] text-white w-45 md:w-64 p-6 md:flex md:flex-col md:space-y-6 md:sticky md:top-0 md:h-screen md:overflow-y-auto shrink-0`}
+      id="sidebar"
+      className={`sidebar-panel ${isSidebar ? "flex flex-col absolute z-100 top-22 opacity-80 " : "hidden"} ${isLogin ? themeSelected.style : "bg-[rgba(14, 25, 32, 0.96)]"} md:bg-[#ffffff0d]  w-45 md:w-64 p-6 md:flex md:flex-col md:space-y-6 md:sticky md:top-0 md:h-screen md:overflow-y-auto shrink-0`}
     >
       <div className="md:block hidden ">
         <h1 className="text-2xl font-extrabold bg-clip-text bg-linear-to-r from-[#ee10b0] to-[#0e9eef] text-transparent">
@@ -170,8 +171,11 @@ export default function Sidebar({
                   .map((theme) => (
                     <div
                       key={theme.id}
-                      onClick={() => handleColorSelect(theme.id)}
-                      className={`${theme.style} flex justify-center items-center cursor-pointer m-auto w-12 h-8`}
+                      onClick={() => {
+                        setIsClicked(false);
+                        handleColorSelect(theme.id);
+                      }}
+                      className={`${theme.style} ${theme.textColor} flex justify-center items-center cursor-pointer m-auto w-12 h-8`}
                     >
                       <span className="font-thin text-[10px]">
                         {theme.color}

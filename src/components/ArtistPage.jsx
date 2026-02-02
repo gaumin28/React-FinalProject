@@ -13,6 +13,7 @@ import CardAlbum from "./CardAlbum";
 
 export default function ArtistPage({
   isLogin,
+  setIsLogIn,
   currentPlayingId,
   setCurrentPlayingId,
   setIsSidebar,
@@ -63,7 +64,11 @@ export default function ArtistPage({
       />
 
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
+        <Navbar
+          isLogin={isLogin}
+          setIsLogIn={setIsLogIn}
+          setIsSidebar={setIsSidebar}
+        />
 
         <div className="max-w-5xl mx-auto">
           <ArtistBanner selectedArtistIndex={selectedArtistIndex} />

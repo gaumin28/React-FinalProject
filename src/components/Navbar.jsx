@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import mySongList from "../data/mySongList";
 import { useRef } from "react";
 import Header from "./Header";
@@ -10,6 +10,7 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
   // Reference to search input field
   const ref = useRef();
   const navigate = useNavigate();
+  const location = useLocation();
 
   function handleSearch() {
     const searchValue = ref.current.value.toLowerCase().trim();
@@ -87,7 +88,14 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
           <span className="px-3 py-1 text-pink-400 font-bold">
             Hello, {userName}
           </span>
-          <button onClick={() => setIsLogIn(false)} className="btn btn-primary">
+          <button
+            onClick={() => {
+              setIsLogIn(false);
+              localStorage.removeItem("userName");
+              localStorage.setItem("isLogin", "false");
+            }}
+            className="btn btn-primary"
+          >
             Logout
           </button>
         </>
@@ -95,7 +103,11 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
         <>
           {/* Show login/signup buttons when not logged in (desktop only) */}
           <div className=" md:flex gap-4 md:mr-20">
-            <Link to="/login" className="btn btn-ghost min-w-30 text-center">
+            <Link
+              to="/login"
+              state={{ returnTo: location.pathname }}
+              className="btn btn-ghost min-w-30 text-center"
+            >
               Login
             </Link>
             <Link to="/signup" className="btn btn-primary min-w-30 text-center">

@@ -15,6 +15,7 @@ export default function DiscoverPage({
   setIsSidebar,
   idThemeSelected,
   setIdThemeSelected,
+  setIsLogIn,
 }) {
   return (
     <>
@@ -28,7 +29,11 @@ export default function DiscoverPage({
       />
 
       <main className="flex-1 p-4 md:p-6">
-        <Navbar isLogin={isLogin} setIsSidebar={setIsSidebar} />
+        <Navbar
+          isLogin={isLogin}
+          setIsLogIn={setIsLogIn}
+          setIsSidebar={setIsSidebar}
+        />
 
         <div className="max-w-5xl mx-auto mt-10 space-y-10">
           <MusicGenre isLogin={isLogin} />

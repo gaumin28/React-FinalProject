@@ -26,6 +26,25 @@ export default function SignUpPage() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
+      const getInfo = await axios.get(
+        "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6",
+      );
+      const users = getInfo.data.data.data || [];
+      const normalizedEmail = formData.email.trim().toLowerCase();
+      const user = users.find(
+        (u) => (u.email || "").trim().toLowerCase() === normalizedEmail,
+      );
+
+      if (user) {
+        setMessage("Email existed, please log in");
+        setFormData({
+          userName: "",
+          email: "",
+          password: "",
+          phoneNumber: "",
+        });
+        return;
+      }
       const response = await axios.post(
         "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=69513911fdb0c381f6e2b9a6",
         formData,
@@ -138,7 +157,12 @@ export default function SignUpPage() {
         </form>
 
         {message && (
-          <p className="text-center text-sm text-white mt-4">{message}</p>
+          <p
+            role="status"
+            className="download-notice text-center text-sm text-white mt-4"
+          >
+            {message}
+          </p>
         )}
       </div>
     </div>
