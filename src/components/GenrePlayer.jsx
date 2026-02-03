@@ -9,13 +9,14 @@ import genreSongs from "../data/genreSongs";
 
 export default function GenrePlayer({
   isLogin,
+  setIsLogIn,
   currentPlayingId,
   setCurrentPlayingId,
 }) {
   const location = useLocation();
   const idSelected = location.state?.id;
   const playlistSelected = genreSongs.find(
-    (playlist) => playlist.id === idSelected,
+    (playlist) => String(playlist.id) === String(idSelected),
   );
   return (
     <>
@@ -23,17 +24,23 @@ export default function GenrePlayer({
       {/* <Sidebar isLogin={isLogin} /> */}
       <main className="flex-1 p-4 md:p-6">
         <div className="max-w-5xl mx-auto">
-          <Navbar isLogin={isLogin} />
+          <Navbar isLogin={isLogin} setIsLogIn={setIsLogIn} />
 
-          <Banner
-            image={playlistSelected.image}
-            title={playlistSelected.name}
-            songNumbers={playlistSelected.songs.length}
-          />
+          {playlistSelected ? (
+            <Banner
+              image={playlistSelected.image}
+              title={playlistSelected.name}
+              songNumbers={playlistSelected.songs.length}
+            />
+          ) : (
+            <div className="card-surface p-6 text-white/80">
+              No genre selected.
+            </div>
+          )}
 
           <section>
             <h2 className="section-title">
-              {playlistSelected.name}{" "}
+              {playlistSelected?.name || "Genre"}{" "}
               <span className="text-pink-400">Songs</span>
             </h2>
             <div className="hidden md:flex justify-between text-white mb-2">
@@ -44,7 +51,9 @@ export default function GenrePlayer({
             </div>
             <div className="space-y-3">
               {genreSongs
-                .filter((playlist) => playlist.id === idSelected)
+                .filter(
+                  (playlist) => String(playlist.id) === String(idSelected),
+                )
                 .flatMap((playlist) =>
                   playlist.songs.map((song, index) => (
                     <SongList

@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router";
 import mySongList from "../data/mySongList";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Header from "./Header";
 
 export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
@@ -11,12 +11,44 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
   const ref = useRef();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isNotFound, setIsNotFound] = useState(false);
+
+  function filterArtistNamesByPart(songs, searchText) {
+    const query = String(searchText || "")
+      .toLowerCase()
+      .trim();
+    if (!query) return [];
+    const matches = songs
+      .map((song) => song?.artist)
+      .filter(Boolean)
+      .filter((artist) => artist.toLowerCase().includes(query));
+    return Array.from(new Set(matches));
+  }
+
+  function filterSongNamesByPart(songs, searchText) {
+    const query = String(searchText || "")
+      .toLowerCase()
+      .trim();
+    if (!query) return [];
+    const matches = songs
+      .map((song) => song?.name)
+      .filter(Boolean)
+      .filter((name) => name.toLowerCase().includes(query));
+    return Array.from(new Set(matches));
+  }
 
   function handleSearch() {
     const searchValue = ref.current.value.toLowerCase().trim();
     if (!searchValue) return;
 
     // arrays of artist names and song names for searching
+
+    const matchedArtists = filterArtistNamesByPart(
+      mySongList,
+      ref.current.value,
+    );
+    const matchedSongs = filterSongNamesByPart(mySongList, ref.current.value);
+
     const artistName = mySongList
       .map((item) => item.artist?.toLowerCase())
       .filter(Boolean);
@@ -33,10 +65,15 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
       navigate("/play-music", {
         state: { searchQuery: searchValue, isLogin: isLogin },
       });
+    } else if (matchedArtists.length || matchedSongs.length) {
+      navigate("/song-search", {
+        state: { searchQuery: searchValue, isLogin },
+      });
     }
     // Show alert if no match found
     else {
-      alert("Data not found!");
+      setIsNotFound(true);
+      setTimeout(() => setIsNotFound(false), 2000);
     }
 
     // Clear search input after search
@@ -67,8 +104,13 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
             name="searchText"
             className="search-input outline-0 w-full pl-9 pr-3 py-1.5"
             type="text"
-            placeholder="Search For Musics, Artists, Albums"
+            placeholder="Search For Songs, Artists"
           />
+          {isNotFound && (
+            <span className="download-notice" role="status">
+              Data not found
+            </span>
+          )}
           <button onClick={handleSearch} className="search-action">
             <svg
               className="w-4"
@@ -84,7 +126,6 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
 
       {isLogin ? (
         <>
-          {/* Show username and logout when logged in */}
           <span className="px-3 py-1 text-pink-400 font-bold">
             Hello, {userName}
           </span>
@@ -101,7 +142,6 @@ export default function Navbar({ isLogin, setIsLogIn, setIsSidebar }) {
         </>
       ) : (
         <>
-          {/* Show login/signup buttons when not logged in (desktop only) */}
           <div className=" md:flex gap-4 md:mr-20">
             <Link
               to="/login"

@@ -36,7 +36,7 @@ export default function DiscoverPage({
         />
 
         <div className="max-w-5xl mx-auto mt-10 space-y-10">
-          <MusicGenre isLogin={isLogin} />
+          <MusicGenre isLogin={isLogin} setIsLogIn={setIsLogIn} />
 
           <NewReleaseSong isLogin={isLogin} />
 

@@ -22,6 +22,7 @@ import GenrePlayer from "./components/GenrePlayer";
 import themeColor from "./data/colorTheme";
 import ContactPage from "./components/ContactPage";
 import Podcast from "./components/Podcast";
+import SongCardPage from "./components/SongCardPage";
 
 function App() {
   const [isLogin, setIsLogIn] = useState(() => {
@@ -205,12 +206,14 @@ function App() {
             path="/genre-player"
             element={
               <GenrePlayer
+                setIsLogIn={setIsLogIn}
                 isLogin={isLogin}
                 currentPlayingId={currentPlayingId}
                 setCurrentPlayingId={setCurrentPlayingId}
               />
             }
           />
+          <Route path="/song-search" element={<SongCardPage />} />
           <Route
             path="/contact"
             element={
@@ -274,7 +277,7 @@ export default App;
 function RouteChangeReset({ onRouteChange }) {
   const location = useLocation();
   const cbRef = useRef(onRouteChange);
-  // Keep a stable dependency size by storing callback in a ref
+
   useEffect(() => {
     cbRef.current = onRouteChange;
   }, [onRouteChange]);

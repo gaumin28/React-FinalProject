@@ -1,13 +1,3 @@
-/**
- * Banner Component
- * Displays a featured banner for albums or playlists with image and details
- *
- * @param {string} songNames - Names of songs in the playlist (optional)
- * @param {number} songNumbers - Total number of songs
- * @param {string} totalDuration - Total duration of all songs (optional)
- * @param {string} title - Title of the album/playlist
- * @param {string} image - Banner image URL
- */
 export default function Banner({
   songNames,
   songNumbers,
