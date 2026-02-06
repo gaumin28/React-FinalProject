@@ -1,6 +1,6 @@
 import Sidebar from "./Sidebar";
 import melody_big_logo from "../image/melody_big_logo.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function ContactPage({
   isLogin,
@@ -14,6 +14,8 @@ export default function ContactPage({
     email: "",
     tel: "",
   });
+
+  const dialogRef = useRef(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,6 +34,17 @@ export default function ContactPage({
       />
       <main className="flex-1 p-4 md:p-6">
         <section className="max-w-4xl mx-auto flex flex-col gap-6">
+          <dialog
+            ref={dialogRef}
+            className="text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0b1117] rounded-xl p-6"
+          >
+            <div className=" space-y-4">
+              <p>We have received your feedback!</p>
+              <form className="flex" method="dialog">
+                <button className="mx-auto btn btn-primary">Close</button>
+              </form>
+            </div>
+          </dialog>
           <img
             className="size-48 self-center"
             src={melody_big_logo}
@@ -48,7 +61,8 @@ export default function ContactPage({
             className="card-surface rounded-2xl p-6 space-y-4"
             onSubmit={(event) => {
               event.preventDefault();
-              alert("We have received your feedback!");
+
+              dialogRef.current?.showModal();
               setValue((prev) => {
                 return {
                   ...prev,
@@ -62,7 +76,10 @@ export default function ContactPage({
             }}
           >
             <div>
-              <label className="form-label" htmlFor="issues">
+              <label
+                className="form-label after:ml-0.5 after:text-red-500 after:content-['*']"
+                htmlFor="issues"
+              >
                 Select the issue you need assistance with
               </label>
               <select
@@ -89,7 +106,10 @@ export default function ContactPage({
             </div>
 
             <div>
-              <label className="form-label" htmlFor="content">
+              <label
+                className="form-label after:ml-0.5 after:text-red-500 after:content-['*']"
+                htmlFor="content"
+              >
                 Message
               </label>
               <textarea
@@ -105,7 +125,10 @@ export default function ContactPage({
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="form-label" htmlFor="fname">
+                <label
+                  className="form-label after:ml-0.5 after:text-red-500 after:content-['*']"
+                  htmlFor="fname"
+                >
                   Full name
                 </label>
                 <input
@@ -119,7 +142,10 @@ export default function ContactPage({
                 />
               </div>
               <div>
-                <label className="form-label" htmlFor="email">
+                <label
+                  className="form-label after:ml-0.5 after:text-red-500 after:content-['*']"
+                  htmlFor="email"
+                >
                   Email
                 </label>
                 <input
@@ -138,7 +164,6 @@ export default function ContactPage({
                 </label>
                 <input
                   className="input-field w-full rounded-xl px-4 py-2 mt-2"
-                  required
                   type="tel"
                   id="tel"
                   name="tel"
