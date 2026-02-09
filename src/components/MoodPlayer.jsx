@@ -59,6 +59,7 @@ export default function MoodPlayer({
                       artist={song.artist || "Unknown"}
                       released={song.releaseDate || "N/A"}
                       album={song.album || "N/A"}
+                      audioSrc={song.audio}
                       isLogin={isLogin}
                       currentPlayingId={currentPlayingId}
                       setCurrentPlayingId={setCurrentPlayingId}

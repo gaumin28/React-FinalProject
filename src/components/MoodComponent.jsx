@@ -30,6 +30,7 @@ function TrendingSong() {
             artist={song.artist}
             released={song.releaseDate}
             album={song.album}
+            audioSrc={song.audio}
           />
         ))}
       </div>

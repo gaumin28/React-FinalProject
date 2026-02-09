@@ -2,7 +2,9 @@ import pinkHeart from "../image/pink-heart.svg";
 import pauseIcon from "../image/pauseIcon.png";
 import { useRef, useEffect, useState } from "react";
 import { toggleFavorite, isFavorite } from "../utils/favoritesManager";
-const audio = "/audio/audio.mp3";
+import eminemSongs from "../data/eminemSongs";
+
+const defaultAudio = "/audio/newSong.mp3";
 export default function PopularSongList({
   index,
   id,
@@ -15,8 +17,14 @@ export default function PopularSongList({
   isLogin,
   currentPlayingId,
   setCurrentPlayingId,
+  audioSrc,
 }) {
-  const audioRef = useRef(new Audio(audio));
+  const resolvedAudio =
+    audioSrc ||
+    eminemSongs.find((song) => song.id === id || song.name === name)?.audio ||
+    defaultAudio;
+
+  const audioRef = useRef(new Audio(resolvedAudio));
   const isPlaying = currentPlayingId === id;
   const [isFavorited, setIsFavorited] = useState(() => isFavorite(id));
 
@@ -37,6 +45,14 @@ export default function PopularSongList({
       }
     }
   }, [isPlaying]);
+
+  useEffect(() => {
+    const ref = audioRef.current;
+    if (ref) {
+      ref.src = resolvedAudio;
+      ref.load();
+    }
+  }, [resolvedAudio]);
 
   // Stop audio when this component unmounts
   useEffect(() => {

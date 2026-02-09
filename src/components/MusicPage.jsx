@@ -12,13 +12,13 @@ import { toggleFavorite, isFavorite } from "../utils/favoritesManager";
 import mySongList from "../data/mySongList";
 import { useEffect, useRef, useState } from "react";
 
-const audio = "/audio/newSong.mp3";
+const defaultAudio = "/audio/newSong.mp3";
 
 export default function MusicPage() {
   // Playback state
   const [playing, setPlaying] = useState(false);
   const [repeatSong, setRepeatSong] = useState(false);
-  const audioRef = useRef(new Audio(audio));
+  const audioRef = useRef(new Audio());
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isDownloadableNotice, setIsDownloadableNotice] = useState(false);
@@ -109,6 +109,15 @@ export default function MusicPage() {
       setDuration(0);
     }
   }
+
+  // Update audio source when selected song changes
+  useEffect(() => {
+    const ref = audioRef.current;
+    if (!ref) return;
+    const nextSrc = selectedSong?.audio || defaultAudio;
+    ref.src = nextSrc;
+    ref.load();
+  }, [selectedIndex, selectedSong?.audio]);
 
   // Play or pause audio based on playing state
   useEffect(() => {
@@ -304,7 +313,12 @@ export default function MusicPage() {
               </button>
 
               <button
-                onClick={() => downloadSong(audio, "mysong.mp3")}
+                onClick={() =>
+                  downloadSong(
+                    selectedSong?.audio || defaultAudio,
+                    "mysong.mp3",
+                  )
+                }
                 className="control-btn"
                 aria-label="Download"
               >

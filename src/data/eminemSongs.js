@@ -15,6 +15,7 @@ const eminemSongs = [
     releaseDate: "2002-10-28",
     views: "1.2B",
     duration: "5:05",
+    audio: "/audio/LoseYourself.mp3",
     image: LoseYourself,
   },
   {
@@ -24,6 +25,7 @@ const eminemSongs = [
     releaseDate: "2000-12-04",
     views: "850M",
     duration: "6:50",
+    audio: "/audio/Stan.mp3",
     image: Stan,
   },
   {
@@ -33,6 +35,7 @@ const eminemSongs = [
     releaseDate: "2000-04-03",
     views: "720M",
     duration: "5:12",
+    audio: "/audio/TheRealSlimShady.mp3",
     image: TheRealSlimShady,
   },
   {
@@ -42,6 +45,7 @@ const eminemSongs = [
     releaseDate: "2002-05-06",
     views: "950M",
     duration: "4:51",
+    audio: "/audio/WithoutMe.mp3",
     image: TheNeighbourhood,
   },
   {
@@ -51,6 +55,7 @@ const eminemSongs = [
     releaseDate: "2010-08-05",
     views: "1.1B",
     duration: "5:47",
+    audio: "/audio/LoveTheWayYouLie.mp3",
     image: LoveTheWayYouLie,
   },
   {
@@ -60,6 +65,7 @@ const eminemSongs = [
     releaseDate: "2010-04-23",
     views: "620M",
     duration: "6:07",
+    audio: "/audio/NotAfraid.mp3",
     image: NotAfraid,
   },
   {
@@ -69,6 +75,7 @@ const eminemSongs = [
     releaseDate: "1999-12-20",
     views: "570M",
     duration: "5:12",
+    audio: "/audio/TheWayIAm.mp3",
     image: ThatWayIAm,
   },
   {
@@ -78,6 +85,7 @@ const eminemSongs = [
     releaseDate: "2009-09-08",
     views: "480M",
     duration: "4:49",
+    audio: "/audio/Beautiful.mp3",
     image: LoveTheWayYouLie,
   },
   {
@@ -87,6 +95,7 @@ const eminemSongs = [
     releaseDate: "2013-08-27",
     views: "720M",
     duration: "5:49",
+    audio: "/audio/RapGod.mp3",
     image: RapGod,
   },
   {
@@ -96,6 +105,7 @@ const eminemSongs = [
     releaseDate: "2004-11-12",
     views: "350M",
     duration: "4:43",
+    audio: "/audio/Mockingbird.mp3",
     image: Mockingbird,
   },
 ];

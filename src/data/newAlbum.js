@@ -55,6 +55,7 @@ const newAlbum = [
         album: "Mayhem",
         duration: "04:12",
         image: ElectricDream,
+        // no
       },
       {
         id: 1003,
@@ -82,6 +83,7 @@ const newAlbum = [
         album: "Mayhem",
         duration: "03:39",
         image: WildHeart,
+        // no
       },
       {
         id: 1006,
@@ -112,6 +114,7 @@ const newAlbum = [
       },
     ],
   },
+  // no
   {
     id: 2,
     name: "Lux",

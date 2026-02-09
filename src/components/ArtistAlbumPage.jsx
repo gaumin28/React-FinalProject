@@ -53,6 +53,7 @@ export default function ArtistAlbumPage({
                   artist={song.artist || "Unknown"}
                   released={song.releaseDate || "N/A"}
                   album={album?.name || "N/A"}
+                  audioSrc={song.audio}
                   isLogin={isLogin}
                   currentPlayingId={currentPlayingId}
                   setCurrentPlayingId={setCurrentPlayingId}

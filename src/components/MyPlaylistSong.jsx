@@ -55,6 +55,7 @@ export default function MyPlaylistSong({
               artist={song.artist}
               released={song.releaseDate || "N/A"}
               album={song.album || "N/A"}
+              audioSrc={song.audio}
               currentPlayingId={currentPlayingId}
               setCurrentPlayingId={setCurrentPlayingId}
             />

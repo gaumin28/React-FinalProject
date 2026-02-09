@@ -18,6 +18,7 @@ const songList = [
     album: "The Life of a Showgirl",
     duration: "03:59",
     image: FateOfOphelia,
+    audio: "/audio/TheFateOfOphelia.mp3",
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ const songList = [
     album: "You'll Be Alright, Kid (Debut)",
     duration: "03:07",
     image: Ordinary,
+    audio: "/audio/Ordinary.mp3",
   },
 
   {
@@ -37,6 +39,7 @@ const songList = [
     album: " KPop Demon Hunters",
     duration: "03:19",
     image: HuntrGolden,
+    audio: "/audio/Golden.mp3",
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ const songList = [
     album: "The Art of Loving",
     duration: "03:22",
     image: ManINeed,
+    audio: "/audio/ManINeed.mp3",
   },
 
   {
@@ -56,6 +60,7 @@ const songList = [
     album: "N/A",
     duration: "03:52",
     image: ChoosingTexas,
+    audio: "/audio/Choosin'Texas.mp3",
   },
   {
     id: 6,
@@ -65,6 +70,7 @@ const songList = [
     album: "Decide",
     duration: "02:40",
     image: EndOfBeginning,
+    audio: "/audio/EndOfBeginning.mp3",
   },
 
   {
@@ -75,6 +81,7 @@ const songList = [
     album: "N/A",
     duration: "03:59",
     image: Folded,
+    audio: "/audio/Folded.mp3",
   },
   {
     id: 8,
@@ -84,6 +91,7 @@ const songList = [
     album: "I Barely Know Her",
     duration: "03:22",
     image: BackToFriends,
+    audio: "/audio/BackToFriends.mp3",
   },
 
   {
@@ -94,6 +102,7 @@ const songList = [
     album: "The Life of a Showgirl",
     duration: "03:56",
     image: Opalite,
+    audio: "/audio/Opalite.mp3",
   },
   {
     id: 10,
@@ -103,6 +112,7 @@ const songList = [
     album: "Mutt",
     duration: "03:14",
     image: Mutt,
+    audio: "/audio/Mutt.mp3",
   },
 ];
 export default songList;

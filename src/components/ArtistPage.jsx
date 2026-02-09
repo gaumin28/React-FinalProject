@@ -95,6 +95,7 @@ export default function ArtistPage({
               views={song.views}
               duration={song.duration}
               image={song.image}
+              audioSrc={song.audio}
               isLogin={isLogin}
               currentPlayingId={currentPlayingId}
               setCurrentPlayingId={setCurrentPlayingId}

@@ -361,6 +361,7 @@ const popularArtists = [
         releaseDate: "2018-03-29",
         views: "1.3B",
         duration: "3:14",
+        audio: "/audio/Badguy.mp3",
         image: BadGuy,
       },
       {
@@ -379,6 +380,7 @@ const popularArtists = [
         releaseDate: "2016-11-18",
         views: "1.1B",
         duration: "3:20",
+        audio: "/audio/OceanEyes.mp3",
         image: Ocean_Eyes,
       },
       {
@@ -516,6 +518,7 @@ const popularArtists = [
             artist: "Billie Eilish",
             duration: "3:20",
             image: Ocean_Eyes,
+            audio: "/audio/OceanEyes.mp3",
           },
         ],
       },
@@ -567,6 +570,7 @@ const popularArtists = [
             name: "Bad Guy",
             artist: "Billie Eilish",
             duration: "3:14",
+            audio: "/audio/Badguy.mp3",
             image: BadGuy,
           },
         ],
@@ -604,6 +608,7 @@ const popularArtists = [
         releaseDate: "2014-11-10",
         views: "1.3B",
         duration: "3:51",
+        audio: "/audio/BlankSpace.mp3",
         image: BlankSpace,
       },
       {
@@ -614,6 +619,7 @@ const popularArtists = [
         views: "1.4B",
         duration: "3:39",
         image: ShakeItOff,
+        audio: "/audio/ShakeItOff.mp3",
       },
       {
         id: 116,
@@ -623,6 +629,7 @@ const popularArtists = [
         views: "1.2B",
         duration: "3:55",
         image: Love_Story,
+        audio: "/audio/LoveStory.mp3",
       },
       {
         id: 117,
@@ -641,6 +648,7 @@ const popularArtists = [
         views: "850M",
         duration: "3:51",
         image: Style,
+        audio: "/audio/Style.mp3",
       },
       {
         id: 119,
@@ -698,6 +706,7 @@ const popularArtists = [
             artist: "Taylor Swift",
             duration: "3:51",
             image: BlankSpace,
+            audio: "/audio/BlankSpace.mp3",
           },
           {
             id: 115,
@@ -705,6 +714,7 @@ const popularArtists = [
             artist: "Taylor Swift",
             duration: "3:39",
             image: ShakeItOff,
+            audio: "/audio/ShakeItOff.mp3",
           },
           {
             id: 118,
@@ -712,6 +722,7 @@ const popularArtists = [
             artist: "Taylor Swift",
             duration: "3:51",
             image: Style,
+            audio: "/audio/Style.mp3",
           },
         ],
       },
@@ -779,6 +790,7 @@ const popularArtists = [
             artist: "Taylor Swift",
             duration: "3:55",
             image: Love_Story,
+            audio: "/audio/LoveStory.mp3",
           },
           {
             id: 119,
@@ -804,6 +816,7 @@ const popularArtists = [
         releaseDate: "2002-10-28",
         views: "1.2B",
         duration: "5:05",
+        audio: "/audio/LoseYourself.mp3",
         image: LoseYourself,
       },
       {
@@ -813,6 +826,7 @@ const popularArtists = [
         releaseDate: "2000-12-04",
         views: "850M",
         duration: "6:50",
+        audio: "/audio/Stan.mp3",
         image: Stan,
       },
       {
@@ -822,6 +836,7 @@ const popularArtists = [
         releaseDate: "2000-04-03",
         views: "720M",
         duration: "5:12",
+        audio: "/audio/TheRealSlimShady.mp3",
         image: TheRealSlimShady,
       },
       {
@@ -831,6 +846,7 @@ const popularArtists = [
         releaseDate: "2002-05-06",
         views: "950M",
         duration: "4:51",
+        audio: "/audio/WithoutMe.mp3",
         image: TheNeighbourhood,
       },
       {
@@ -840,6 +856,7 @@ const popularArtists = [
         releaseDate: "2010-08-05",
         views: "1.1B",
         duration: "5:47",
+        audio: "/audio/LoveTheWayYouLie.mp3",
         image: LoveTheWayYouLie,
       },
       {
@@ -849,6 +866,7 @@ const popularArtists = [
         releaseDate: "2010-04-23",
         views: "620M",
         duration: "6:07",
+        audio: "/audio/NotAfraid.mp3",
         image: NotAfraid,
       },
       {
@@ -858,6 +876,7 @@ const popularArtists = [
         releaseDate: "1999-12-20",
         views: "570M",
         duration: "5:12",
+        audio: "/audio/TheWayIAm.mp3",
         image: ThatWayIAm,
       },
       {
@@ -867,6 +886,7 @@ const popularArtists = [
         releaseDate: "2009-09-08",
         views: "480M",
         duration: "4:49",
+        audio: "/audio/Beautiful.mp3",
         image: LoveTheWayYouLie,
       },
       {
@@ -876,6 +896,7 @@ const popularArtists = [
         releaseDate: "2013-08-27",
         views: "720M",
         duration: "5:49",
+        audio: "/audio/RapGod.mp3",
         image: RapGod,
       },
       {
@@ -885,6 +906,7 @@ const popularArtists = [
         releaseDate: "2004-11-12",
         views: "350M",
         duration: "4:43",
+        audio: "/audio/Mockingbird.mp3",
         image: Mockingbird,
       },
     ],
@@ -900,6 +922,7 @@ const popularArtists = [
             name: "Stan",
             artist: "Eminem ft. Dina Rae",
             duration: "6:50",
+            audio: "/audio/Stan.mp3",
             image: Stan,
           },
           {
@@ -907,6 +930,7 @@ const popularArtists = [
             name: "The Real Slim Shady",
             artist: "Eminem",
             duration: "5:12",
+            audio: "/audio/TheRealSlimShady.mp3",
             image: TheRealSlimShady,
           },
         ],
@@ -922,6 +946,7 @@ const popularArtists = [
             name: "Lose Yourself",
             artist: "Eminem",
             duration: "5:05",
+            audio: "/audio/LoseYourself.mp3",
             image: LoseYourself,
           },
           {
@@ -929,6 +954,7 @@ const popularArtists = [
             name: "Mockingbird",
             artist: "Eminem",
             duration: "4:43",
+            audio: "/audio/Mockingbird.mp3",
             image: Mockingbird,
           },
         ],
@@ -944,6 +970,7 @@ const popularArtists = [
             name: "Without Me",
             artist: "Eminem",
             duration: "4:51",
+            audio: "/audio/WithoutMe.mp3",
             image: TheNeighbourhood,
           },
         ],
@@ -974,6 +1001,7 @@ const popularArtists = [
             name: "Love The Way You Lie",
             artist: "Eminem ft. Rihanna",
             duration: "5:47",
+            audio: "/audio/LoveTheWayYouLie.mp3",
             image: LoveTheWayYouLie,
           },
           {
@@ -981,6 +1009,7 @@ const popularArtists = [
             name: "Not Afraid",
             artist: "Eminem",
             duration: "6:20",
+            audio: "/audio/NotAfraid.mp3",
             image: NotAfraid,
           },
         ],
@@ -996,6 +1025,7 @@ const popularArtists = [
             name: "Rap God",
             artist: "Eminem",
             duration: "5:49",
+            audio: "/audio/RapGod.mp3",
             image: RapGod,
           },
         ],
@@ -1025,6 +1055,7 @@ const popularArtists = [
         views: "1.2B",
         duration: "4:45",
         image: Someone_Like_You,
+        audio: "/audio/SomeoneLikeYou.mp3",
       },
       {
         id: 123,
@@ -1043,6 +1074,7 @@ const popularArtists = [
         views: "1.1B",
         duration: "3:48",
         image: Rolling_in_the_Deep,
+        audio: "/audio/RollingInTheDeep.mp3",
       },
       {
         id: 125,
@@ -1052,6 +1084,7 @@ const popularArtists = [
         views: "620M",
         duration: "4:01",
         image: Set_Fire_to_the_Rain,
+        audio: "/audio/SetFireToTheRain.mp3",
       },
       {
         id: 126,
@@ -1070,6 +1103,7 @@ const popularArtists = [
         views: "750M",
         duration: "4:58",
         image: WhenWeWereYoung,
+        audio: "/audio/WhenWeWereYoung.mp3",
       },
       {
         id: 128,
@@ -1079,6 +1113,7 @@ const popularArtists = [
         views: "580M",
         duration: "4:43",
         image: Skyfall,
+        audio: "/audio/Skyfall.mp3",
       },
       {
         id: 129,
@@ -1088,6 +1123,7 @@ const popularArtists = [
         views: "420M",
         duration: "4:09",
         image: OneandOnly,
+        audio: "/audio/OneAndOnly.mp3",
       },
       {
         id: 130,
@@ -1097,6 +1133,7 @@ const popularArtists = [
         views: "340M",
         duration: "4:10",
         image: TurningTables,
+        audio: "/audio/TurningTables.mp3",
       },
     ],
     albums: [
@@ -1127,6 +1164,7 @@ const popularArtists = [
             artist: "Adele",
             duration: "4:45",
             image: Someone_Like_You,
+            audio: "/audio/SomeoneLikeYou.mp3",
           },
           {
             id: 124,
@@ -1134,6 +1172,7 @@ const popularArtists = [
             artist: "Adele",
             duration: "3:48",
             image: Rolling_in_the_Deep,
+            audio: "/audio/RollingInTheDeep.mp3",
           },
           {
             id: 125,
@@ -1141,6 +1180,7 @@ const popularArtists = [
             artist: "Adele",
             duration: "4:01",
             image: Set_Fire_to_the_Rain,
+            audio: "/audio/SetFireToTheRain.mp3",
           },
           {
             id: 129,
@@ -1148,6 +1188,7 @@ const popularArtists = [
             artist: "Adele",
             duration: "4:09",
             image: OneandOnly,
+            audio: "/audio/OneAndOnly.mp3",
           },
         ],
       },
@@ -1185,6 +1226,7 @@ const popularArtists = [
             artist: "Adele",
             duration: "4:10",
             image: TurningTables,
+            audio: "/audio/TurningTables.mp3",
           },
         ],
       },
@@ -1200,6 +1242,7 @@ const popularArtists = [
             artist: "Adele",
             duration: "4:58",
             image: WhenWeWereYoung,
+            audio: "/audio/WhenWeWereYoung.mp3",
           },
           {
             id: 128,
@@ -1207,6 +1250,7 @@ const popularArtists = [
             artist: "Adele",
             duration: "4:43",
             image: Skyfall,
+            audio: "/audio/Skyfall.mp3",
           },
         ],
       },
@@ -1304,6 +1348,7 @@ const popularArtists = [
         views: "350M",
         duration: "3:26",
         image: Shakira,
+        audio: "/audio/Beautiful.mp3",
       },
       {
         id: 139,
@@ -1322,6 +1367,7 @@ const popularArtists = [
         views: "310M",
         duration: "3:42",
         image: Empire,
+        audio: "/audio/Empire.mp3",
       },
     ],
     albums: [
@@ -1433,6 +1479,7 @@ const popularArtists = [
             artist: "Shakira ft. Miguel Bosé",
             duration: "3:26",
             image: Shakira,
+            audio: "/audio/Beautiful.mp3",
           },
           {
             id: 140,
@@ -1440,6 +1487,7 @@ const popularArtists = [
             artist: "Shakira",
             duration: "3:42",
             image: Empire,
+            audio: "/audio/Empire.mp3",
           },
         ],
       },
@@ -1468,6 +1516,7 @@ const popularArtists = [
         views: "820M",
         duration: "3:33",
         image: Attention,
+        audio: "/audio/Attention.mp3",
       },
       {
         id: 143,
@@ -1577,6 +1626,7 @@ const popularArtists = [
             artist: "Charlie Puth",
             duration: "3:33",
             image: Attention,
+            audio: "/audio/Attention.mp3",
           },
           {
             id: 143,

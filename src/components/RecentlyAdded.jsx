@@ -32,6 +32,7 @@ function TrendingSong({ currentPlayingId, setCurrentPlayingId }) {
             artist={song.artist}
             released={song.releaseDate}
             album={song.album}
+            audioSrc={song.audio}
             currentPlayingId={currentPlayingId}
             setCurrentPlayingId={setCurrentPlayingId}
           />

@@ -13,6 +13,7 @@ const newReleaseData = [
     image: apt,
     duration: "03:10",
     album: "Rosie",
+    audio: "/audio/Apt.mp3",
     releaseDate: "2024-10-18",
   },
   {
@@ -22,6 +23,7 @@ const newReleaseData = [
     image: ordinary,
     duration: "03:07",
     album: "You'll Be Alright, Kid (Debut)",
+    audio: "/audio/Ordinary.mp3",
     releaseDate: "2025-02-07",
   },
   {
@@ -31,6 +33,7 @@ const newReleaseData = [
     image: HuntrGolden,
     duration: "03:19",
     album: "KPop Demon Hunters",
+    audio: "/audio/Golden.mp3",
     releaseDate: "2025-07-04",
   },
   {
@@ -40,6 +43,7 @@ const newReleaseData = [
     image: Die_with_a_Smile,
     duration: "03:50",
     album: "Die With A Smile - Single",
+    audio: "/audio/DieWithASmile.mp3",
     releaseDate: "2024-08-16",
   },
   {
@@ -49,6 +53,7 @@ const newReleaseData = [
     image: Zoo,
     duration: "03:15",
     album: "Las Mujeres Ya No Lloran",
+    audio: "/audio/Zoo.mp3",
     releaseDate: "2024-03-22",
   },
   {
@@ -58,6 +63,7 @@ const newReleaseData = [
     image: WildFlower,
     duration: "03:30",
     album: "Hit Me Hard and Soft",
+    audio: "/audio/WILDFLOWER.mp3",
     releaseDate: "2024-05-17",
   },
 ];

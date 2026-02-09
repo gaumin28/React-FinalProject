@@ -4,8 +4,8 @@ import pauseIcon from "../image/pauseIcon.png";
 import { useRef, useEffect, useState } from "react";
 import { toggleFavorite, isFavorite } from "../utils/favoritesManager";
 
-// Audio file for playback
-const audio = "/audio/newSong.mp3";
+// Default audio file for playback
+const defaultAudio = "/audio/newSong.mp3";
 
 export default function SongList({
   id,
@@ -19,9 +19,10 @@ export default function SongList({
   isLogin,
   currentPlayingId,
   setCurrentPlayingId,
+  audioSrc = defaultAudio,
 }) {
   // Audio reference for playback control
-  const audioRef = useRef(new Audio(audio));
+  const audioRef = useRef(new Audio(audioSrc));
 
   // Check if this song is currently playing
   const isPlaying = currentPlayingId === id;
@@ -51,6 +52,15 @@ export default function SongList({
       }
     }
   }, [isPlaying]);
+
+  // Update audio source if provided
+  useEffect(() => {
+    const ref = audioRef.current;
+    if (ref) {
+      ref.src = audioSrc || defaultAudio;
+      ref.load();
+    }
+  }, [audioSrc]);
 
   // Cleanup: Stop audio when component unmounts (e.g., route change)
   useEffect(() => {
