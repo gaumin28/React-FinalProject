@@ -343,6 +343,7 @@ const popularArtists = [
             artist: "ROSÉ",
             duration: "3:16",
             image: rose_apt,
+            audio: "/audio/Apt.mp3",
           },
         ],
       },
