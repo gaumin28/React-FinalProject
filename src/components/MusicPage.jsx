@@ -12,13 +12,15 @@ import { toggleFavorite, isFavorite } from "../utils/favoritesManager";
 import mySongList from "../data/mySongList";
 import { useEffect, useRef, useState } from "react";
 
-const audio = "/audio/audio.mp3";
+const audio = "/audio/newSong.mp3";
 
 export default function MusicPage() {
   // Playback state
   const [playing, setPlaying] = useState(false);
   const [repeatSong, setRepeatSong] = useState(false);
   const audioRef = useRef(new Audio(audio));
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [isDownloadableNotice, setIsDownloadableNotice] = useState(false);
   const noticeTimeoutRef = useRef(null);
 
@@ -56,6 +58,17 @@ export default function MusicPage() {
     isFavorite(selectedSong?.id),
   );
 
+  const formatTime = (timeInSeconds) => {
+    if (!Number.isFinite(timeInSeconds)) return "00:00";
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  };
+
+  const progressPercent = duration
+    ? Math.min(100, (currentTime / duration) * 100)
+    : 0;
+
   /**
    * Toggle favorite status for the current song
    * Updates localStorage
@@ -81,6 +94,8 @@ export default function MusicPage() {
       audioRef.current.pause();
       setPlaying(false);
       audioRef.current.currentTime = 0;
+      setCurrentTime(0);
+      setDuration(0);
     }
   }
 
@@ -90,6 +105,8 @@ export default function MusicPage() {
       audioRef.current.pause();
       setPlaying(false);
       audioRef.current.currentTime = 0;
+      setCurrentTime(0);
+      setDuration(0);
     }
   }
 
@@ -97,6 +114,26 @@ export default function MusicPage() {
   useEffect(() => {
     playing ? audioRef.current.play() : audioRef.current.pause();
   }, [playing]);
+
+  useEffect(() => {
+    const ref = audioRef.current;
+
+    const handleTimeUpdate = () => setCurrentTime(ref.currentTime || 0);
+    const handleLoadedMetadata = () =>
+      setDuration(Number.isFinite(ref.duration) ? ref.duration : 0);
+    const handleDurationChange = () =>
+      setDuration(Number.isFinite(ref.duration) ? ref.duration : 0);
+
+    ref.addEventListener("timeupdate", handleTimeUpdate);
+    ref.addEventListener("loadedmetadata", handleLoadedMetadata);
+    ref.addEventListener("durationchange", handleDurationChange);
+
+    return () => {
+      ref.removeEventListener("timeupdate", handleTimeUpdate);
+      ref.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      ref.removeEventListener("durationchange", handleDurationChange);
+    };
+  }, []);
 
   // Handle song ending and repeat functionality
   useEffect(() => {
@@ -114,12 +151,19 @@ export default function MusicPage() {
 
     // Cleanup: Stop audio when component unmounts
     return () => {
-      ref.pause();
-      ref.currentTime = 0;
-      setPlaying(false);
       ref.removeEventListener("ended", handleEnded);
     };
   }, [repeatSong]);
+
+  useEffect(() => {
+    const ref = audioRef.current;
+
+    return () => {
+      if (!ref) return;
+      ref.pause();
+      ref.currentTime = 0;
+    };
+  }, []);
 
   //  download
   function downloadSong(audioUrl, fileName) {
@@ -149,6 +193,12 @@ export default function MusicPage() {
       }
     };
   }, []);
+
+  const handleSeek = (event) => {
+    const nextTime = Number(event.target.value);
+    audioRef.current.currentTime = nextTime;
+    setCurrentTime(nextTime);
+  };
 
   return (
     <div
@@ -274,6 +324,28 @@ export default function MusicPage() {
                   Please login to download this song
                 </span>
               )}
+            </div>
+
+            <div className="music-progress-row">
+              <span className="music-time music-time-left">
+                {formatTime(currentTime)}
+              </span>
+              <div className="music-progress-track">
+                <input
+                  type="range"
+                  min="0"
+                  max={duration || 0}
+                  step="0.1"
+                  value={currentTime}
+                  onChange={handleSeek}
+                  className="music-progress-bar"
+                  style={{ "--progress": `${progressPercent}%` }}
+                  aria-label="Seek"
+                />
+              </div>
+              <span className="music-time music-time-right">
+                {formatTime(duration)}
+              </span>
             </div>
           </div>
         </div>

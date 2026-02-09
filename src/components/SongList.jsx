@@ -5,7 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import { toggleFavorite, isFavorite } from "../utils/favoritesManager";
 
 // Audio file for playback
-const audio = "/audio/audio.mp3";
+const audio = "/audio/newSong.mp3";
 
 export default function SongList({
   id,

@@ -254,21 +254,21 @@ const genreSongs = [
         name: "Mutt",
         image: Mutt,
         duration: "3:12",
-        artist: "blink-182",
+        artist: "Leon Thomas",
       },
       {
         id: 30800,
         name: "Opalite",
         image: Opalite,
         duration: "3:44",
-        artist: "Novo Amor",
+        artist: "Taylor Swift",
       },
       {
         id: 30900,
-        name: "Rose Apartment",
+        name: "Apt.",
         image: RoseApt,
         duration: "3:21",
-        artist: "Dayglow",
+        artist: "Rose",
       },
       {
         id: 31000,
@@ -276,6 +276,7 @@ const genreSongs = [
         image: TheOttoTunes,
         duration: "3:33",
         artist: "Bruno Major",
+        // none
       },
     ],
   },
@@ -346,6 +347,7 @@ const genreSongs = [
         image: LiveRoyalAlbertHall,
         duration: "5:10",
         artist: "Adele",
+        // someone like you
       },
       {
         id: 41000,

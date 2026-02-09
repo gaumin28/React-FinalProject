@@ -50,7 +50,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/** Reset currently playing song when route changes */}
         <RouteChangeReset onRouteChange={() => setCurrentPlayingId(null)} />
         {/* <YourPlaylist /> */}
         {/* {isLogin ? (
