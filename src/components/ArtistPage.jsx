@@ -74,7 +74,9 @@ export default function ArtistPage({
           <ArtistBanner selectedArtistIndex={selectedArtistIndex} />
 
           <section className="mt-8">
-            <h2 className="section-title text-white mb-4">Popular</h2>
+            <h2 className="section-title text-white mb-4">
+              Popular <span className="text-pink-400">Songs</span>
+            </h2>
 
             <div className="hidden md:grid md:grid-cols-12 gap-4 text-white mb-2">
               <div className="md:col-span-5">Song</div>
