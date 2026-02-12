@@ -95,9 +95,9 @@ export default function Footer({ isLogin }) {
               <a target="blank" href="/instagram" className="footer-social">
                 <img src={image2} alt="instagram" className="w-6 h-6" />
               </a>
-              <a target="blank" href="#" className="footer-social">
+              {/* <a target="blank" href="#" className="footer-social">
                 <img src={image4} alt="call" className="w-6 h-6" />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
